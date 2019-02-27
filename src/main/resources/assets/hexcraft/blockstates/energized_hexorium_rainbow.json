@@ -3,7 +3,7 @@
 	"defaults":
 	{
 		"model": "hexcraft:cube_all",
-		"textures": { "all": "hexcraft:blocks/glow" }
+		"textures": { "all": "hexcraft:blocks/glow_rainbow" }
 	},
 	"variants":
 	{
