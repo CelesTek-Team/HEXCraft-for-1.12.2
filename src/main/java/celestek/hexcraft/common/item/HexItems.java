@@ -13,14 +13,19 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class HexItems
-{
+import java.util.ArrayList;
+import java.util.List;
+
+public class HexItems {
+	private static List<HexItem> hexItems = new ArrayList<>();
+	private static List<HexItemBlock> hexItemBlocks = new ArrayList<>();
+
 	public static final Item
-	hexorium_crystal_red = new HexItem("hexorium_crystal_red"),
-	hexorium_crystal_green = new HexItem("hexorium_crystal_green"),
-	hexorium_crystal_blue = new HexItem("hexorium_crystal_blue"),
-	hexorium_crystal_white = new HexItem("hexorium_crystal_white"),
-	hexorium_crystal_black = new HexItem("hexorium_crystal_black"),
+	hexorium_crystal_red = new HexItem("hexorium_crystal_red", "hexorium_crystal_red"),
+	hexorium_crystal_green = new HexItem("hexorium_crystal_green", "hexorium_crystal_green"),
+	hexorium_crystal_blue = new HexItem("hexorium_crystal_blue", "hexorium_crystal_blue"),
+	hexorium_crystal_white = new HexItem("hexorium_crystal_white", "hexorium_crystal_white"),
+	hexorium_crystal_black = new HexItem("hexorium_crystal_black", "hexorium_crystal_black"),
 
 	// Blocks
 	energized_hexorium_red = new HexItemBlock(HexBlocks.energized_hexorium_red),
@@ -44,97 +49,37 @@ public class HexItems
 
 	private HexItems() {}
 
-	public static void register(RegistryEvent.Register<Item> event)
-	{
-		event.getRegistry().registerAll(
-				hexorium_crystal_red,
-				hexorium_crystal_green,
-				hexorium_crystal_blue,
-				hexorium_crystal_white,
-				hexorium_crystal_black,
-
-				energized_hexorium_red,
-				energized_hexorium_orange,
-				energized_hexorium_yellow,
-				energized_hexorium_lime,
-				energized_hexorium_green,
-				energized_hexorium_turquoise,
-				energized_hexorium_cyan,
-				energized_hexorium_skyblue,
-				energized_hexorium_blue,
-				energized_hexorium_purple,
-				energized_hexorium_magenta,
-				energized_hexorium_pink,
-				energized_hexorium_white,
-				energized_hexorium_lightgray,
-				energized_hexorium_gray,
-				energized_hexorium_darkgray,
-				energized_hexorium_black,
-				energized_hexorium_rainbow);
+	public static void register(RegistryEvent.Register<Item> event)	{
+		for (HexItem item : hexItems)
+			event.getRegistry().register(item);
+		for (HexItemBlock itemBlock : hexItemBlocks)
+			event.getRegistry().register(itemBlock);
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void registerModels()
 	{
-		registerModels(
-				hexorium_crystal_red,
-				hexorium_crystal_green,
-				hexorium_crystal_blue,
-				hexorium_crystal_white,
-				hexorium_crystal_black,
-
-				energized_hexorium_red,
-				energized_hexorium_orange,
-				energized_hexorium_yellow,
-				energized_hexorium_lime,
-				energized_hexorium_green,
-				energized_hexorium_turquoise,
-				energized_hexorium_cyan,
-				energized_hexorium_skyblue,
-				energized_hexorium_blue,
-				energized_hexorium_purple,
-				energized_hexorium_magenta,
-				energized_hexorium_pink,
-				energized_hexorium_white,
-				energized_hexorium_lightgray,
-				energized_hexorium_gray,
-				energized_hexorium_darkgray,
-				energized_hexorium_black,
-				energized_hexorium_rainbow);
-
-		HexUtilities.addFullbright(HexCraft.ID + ":" + "items/hexorium_crystal_red", hexorium_crystal_red);
-		HexUtilities.addFullbright(HexCraft.ID + ":" + "items/hexorium_crystal_green", hexorium_crystal_green);
-		HexUtilities.addFullbright(HexCraft.ID + ":" + "items/hexorium_crystal_blue", hexorium_crystal_blue);
-		HexUtilities.addFullbright(HexCraft.ID + ":" + "items/hexorium_crystal_white", hexorium_crystal_white);
-		HexUtilities.addFullbright(HexCraft.ID + ":" + "items/hexorium_crystal_black", hexorium_crystal_black);
+		for (HexItem item : hexItems) {
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+			if (!item.getModel().equals(""))
+				HexUtilities.addFullbright(HexCraft.ID + ":items/" + item.getModel(), item);
+		}
+		for (HexItemBlock itemBlock : hexItemBlocks)
+			ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void registerColors(ColorHandlerEvent.Item event)
 	{
-		event.getItemColors().registerItemColorHandler((stack, index) -> ((HexBlockColored) ((ItemBlock) stack.getItem()).getBlock()).color,
-				energized_hexorium_red,
-				energized_hexorium_orange,
-				energized_hexorium_yellow,
-				energized_hexorium_lime,
-				energized_hexorium_green,
-				energized_hexorium_turquoise,
-				energized_hexorium_cyan,
-				energized_hexorium_skyblue,
-				energized_hexorium_blue,
-				energized_hexorium_purple,
-				energized_hexorium_magenta,
-				energized_hexorium_pink,
-				energized_hexorium_white,
-				energized_hexorium_lightgray,
-				energized_hexorium_gray,
-				energized_hexorium_darkgray,
-				energized_hexorium_black);
+		for (HexItemBlock itemBlock : hexItemBlocks)
+			event.getItemColors().registerItemColorHandler((stack, index) -> ((HexBlockColored) ((ItemBlock) stack.getItem()).getBlock()).color, itemBlock);
 	}
 
-	@SideOnly(Side.CLIENT)
-	private static void registerModels(Item... items)
-	{
-		for(Item item : items) ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+	public static void addItem(HexItem item) {
+		HexItems.hexItems.add(item);
+	}
+
+	public static void addItemBlock(HexItemBlock itemBlock) {
+		HexItems.hexItemBlocks.add(itemBlock);
 	}
 }

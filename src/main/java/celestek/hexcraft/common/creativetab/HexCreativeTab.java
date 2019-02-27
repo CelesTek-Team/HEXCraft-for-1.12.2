@@ -5,16 +5,13 @@ import celestek.hexcraft.common.item.HexItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
-public class HexCreativeTab extends CreativeTabs
-{
-	public HexCreativeTab()
-	{
+public class HexCreativeTab extends CreativeTabs {
+	public HexCreativeTab() {
 		super(HexCraft.ID);
 	}
 
 	@Override
-	public ItemStack getTabIconItem()
-	{
+	public ItemStack getTabIconItem() {
 		return new ItemStack(HexItems.energized_hexorium_rainbow);
 	}
 }
