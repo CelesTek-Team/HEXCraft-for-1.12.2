@@ -1,0 +1,3 @@
+Changes compared to 1.7.10
+
+- Hexorium Crystal Block now orients similar to the Vanilla logs. It will orient to the side of the block it is clicked on when placing.
