@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:cube_top_bottom",
+		"textures":
+		{
+			"down": "hexcraft:blocks/crystal/hexorium_crystal_block_bottom_black",
+			"up": "hexcraft:blocks/crystal/hexorium_crystal_block_top_black",
+			"side": "hexcraft:blocks/crystal/hexorium_crystal_block_side_black"
+		}
+	},
+	"variants":
+	{
+		"facing=down": [{ "x": 180 }],
+		"facing=up": [{}],
+		"facing=north": [{ "x": 90 }],
+		"facing=south": [{ "x": -90}],
+		"facing=west": [{ "x": -90, "y": 90}],
+		"facing=east": [{ "x": -90, "y": -90}],
+		"inventory": [{}]
+	}
+}
