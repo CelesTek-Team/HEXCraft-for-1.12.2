@@ -20,7 +20,8 @@ public class HexColors
 	GRAY = 0x808080,
 	DARK_GRAY = 0x404040,
 	BLACK = 0x181818,
-	RAINBOW = 0xffffff;
+	RAINBOW = -1,
+	NONE = -1;
 
 	private HexColors() {}
 }

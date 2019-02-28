@@ -1,5 +1,9 @@
 package celestek.hexcraft.utility;
 
+import java.util.Set;
+
+import com.google.common.collect.ImmutableSet;
+
 import celestek.hexcraft.client.event.HexClientEvents;
 import celestek.hexcraft.client.model.BakedModelBrightness;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -33,13 +37,13 @@ public class HexUtilities
 		return format;
 	}
 
-	public static void addFullbright(String texture, IForgeRegistryEntry... entries)
+	public static void addFullbright(ImmutableSet<String> textures, IForgeRegistryEntry... entries)
 	{
-		for(IForgeRegistryEntry entry : entries) HexClientEvents.addBakedModelOverride(entry.getRegistryName(), base -> new BakedModelBrightness(base, texture));
+		for(IForgeRegistryEntry entry : entries) HexClientEvents.addBakedModelOverride(entry.getRegistryName(), base -> new BakedModelBrightness(base, textures));
 	}
 
-	public static void addFullbrightNoCache(String texture, IForgeRegistryEntry... entries)
+	public static void addFullbrightNoCache(ImmutableSet<String> textures, IForgeRegistryEntry... entries)
 	{
-		for(IForgeRegistryEntry entry : entries) HexClientEvents.addBakedModelOverride(entry.getRegistryName(), base -> new BakedModelBrightness(base, texture).disableCache());
+		for(IForgeRegistryEntry entry : entries) HexClientEvents.addBakedModelOverride(entry.getRegistryName(), base -> new BakedModelBrightness(base, textures).disableCache());
 	}
 }

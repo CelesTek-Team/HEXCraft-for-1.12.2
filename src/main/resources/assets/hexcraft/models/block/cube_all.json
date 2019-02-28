@@ -1,4 +1,5 @@
 {
+	"__comment": "Tintable unshaded cube which uses one texture for all faces",
 	"parent": "block/block",
 	"textures":{ "particle": "#all" },
 	"elements":

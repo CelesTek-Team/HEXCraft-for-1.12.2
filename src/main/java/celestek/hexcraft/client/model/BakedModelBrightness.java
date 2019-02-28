@@ -1,7 +1,6 @@
 package celestek.hexcraft.client.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,7 +12,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.common.collect.Sets;
+import com.google.common.collect.ImmutableSet;
 
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.state.IBlockState;
@@ -33,11 +32,11 @@ public class BakedModelBrightness extends BakedModelWrapper
 	private class CacheKey
 	{
 		private IBakedModel base;
-		private HashSet<String> textures;
+		private ImmutableSet<String> textures;
 		private IBlockState state;
 		private EnumFacing side;
 
-		public CacheKey(IBakedModel base, HashSet<String> textures, IBlockState state, EnumFacing side)
+		public CacheKey(IBakedModel base, ImmutableSet<String> textures, IBlockState state, EnumFacing side)
 		{
 			this.base = base;
 			this.textures = textures;
@@ -73,16 +72,10 @@ public class BakedModelBrightness extends BakedModelWrapper
 		}
 	});
 
-	private HashSet<String> textures;
+	private ImmutableSet<String> textures;
 	private boolean disableCache = false;
 
-	// TODO Maybe use tinting layers instead of textures?
-	public BakedModelBrightness(IBakedModel base, String... textures)
-	{
-		this(base, Sets.<String>newHashSet(textures));
-	}
-
-	public BakedModelBrightness(IBakedModel base, HashSet<String> textures)
+	public BakedModelBrightness(IBakedModel base, ImmutableSet<String> textures)
 	{
 		super(base);
 		this.textures = textures;

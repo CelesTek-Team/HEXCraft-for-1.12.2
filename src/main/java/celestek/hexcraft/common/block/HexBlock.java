@@ -1,24 +1,25 @@
 package celestek.hexcraft.common.block;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet.Builder;
+
 import celestek.hexcraft.HexCraft;
 import celestek.hexcraft.common.creativetab.HexCreativeTabs;
-import celestek.hexcraft.common.item.HexItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 public class HexBlock extends Block {
-	private String model;
+	public final int color;
+	public final ImmutableSet<String> textures;
 
-	public HexBlock(String name, Material material, String model) {
+	public HexBlock(String name, Material material, int color, String... textures) {
 		super(material);
-		this.model = model;
 		this.setRegistryName(HexCraft.ID, name);
 		this.setUnlocalizedName(HexCraft.ID + "." + name);
 		this.setCreativeTab(HexCreativeTabs.tab);
-		HexBlocks.addBlock(this);
-	}
-
-	public String getModel() {
-		return this.model;
+		this.color = color;
+		Builder<String> builder = ImmutableSet.builder();
+		for(String texture : textures) builder.add(HexCraft.ID + ":" + "blocks/" + texture);
+		this.textures = builder.build();
 	}
 }
