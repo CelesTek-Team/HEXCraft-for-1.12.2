@@ -7,14 +7,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class HexCreativeTab extends CreativeTabs {
+public class TabDecorative extends HexCreativeTab {
 
-	public HexCreativeTab(String name) {
-		super(HexCraft.ID + "." + name);
+	public TabDecorative() {
+		super("decorative");
 	}
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return null;
+		return new ItemStack(Item.getItemFromBlock(HexBlocks.energized_hexorium_rainbow));
 	}
 }

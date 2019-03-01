@@ -20,12 +20,15 @@ public class HexBlocks {
 	private static List<HexBlock> blocks = new ArrayList<>();
 
 	public static final Block
+
+	// Hexorium Crystal Block
 	hexorium_crystal_block_red = add(new BlockHexoriumCrystalBlock("hexorium_crystal_block_red", HexColors.GRAY, "crystal/hexorium_crystal_block_top_red", "crystal/hexorium_crystal_block_side_red", "crystal/hexorium_crystal_block_bottom_red")),
 	hexorium_crystal_block_green = add(new BlockHexoriumCrystalBlock("hexorium_crystal_block_green", HexColors.GRAY, "crystal/hexorium_crystal_block_top_green", "crystal/hexorium_crystal_block_side_green", "crystal/hexorium_crystal_block_bottom_green")),
 	hexorium_crystal_block_blue = add(new BlockHexoriumCrystalBlock("hexorium_crystal_block_blue", HexColors.GRAY, "crystal/hexorium_crystal_block_top_blue", "crystal/hexorium_crystal_block_side_blue", "crystal/hexorium_crystal_block_bottom_blue")),
 	hexorium_crystal_block_white = add(new BlockHexoriumCrystalBlock("hexorium_crystal_block_white", HexColors.GRAY, "crystal/hexorium_crystal_block_top_white", "crystal/hexorium_crystal_block_side_white", "crystal/hexorium_crystal_block_bottom_white")),
 	hexorium_crystal_block_black = add(new BlockHexoriumCrystalBlock("hexorium_crystal_block_black", HexColors.GRAY, "crystal/hexorium_crystal_block_top_black", "crystal/hexorium_crystal_block_side_black", "crystal/hexorium_crystal_block_bottom_black")),
 
+	// Energized Hexorium
 	energized_hexorium_red = add(new BlockEnergizedHexorium("energized_hexorium_red", HexColors.RED, "glow")),
 	energized_hexorium_orange = add(new BlockEnergizedHexorium("energized_hexorium_orange", HexColors.ORANGE, "glow")),
 	energized_hexorium_yellow = add(new BlockEnergizedHexorium("energized_hexorium_yellow", HexColors.YELLOW, "glow")),

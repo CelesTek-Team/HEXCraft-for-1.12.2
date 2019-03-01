@@ -8,6 +8,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
@@ -17,9 +18,9 @@ public class HexBlockReinforceable extends HexBlock
 {
 	public static final PropertyBool REINFORCED = HexProperties.REINFORCED;
 
-	public HexBlockReinforceable(String name, Material material, int color, String... textures)
+	public HexBlockReinforceable(String name, CreativeTabs tab, Material material, int color, String... textures)
 	{
-		super(name, material, color, textures);
+		super(name, tab, material, color, textures);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(REINFORCED, false));
 	}
 

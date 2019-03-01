@@ -1,5 +1,6 @@
 package celestek.hexcraft.common.block;
 
+import celestek.hexcraft.common.creativetab.HexCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.BlockRenderLayer;
@@ -10,7 +11,7 @@ public class BlockEngineeredHexorium extends HexBlockReinforceable
 {
 	public BlockEngineeredHexorium(String name, int color, String... textures)
 	{
-		super(name, Material.IRON, color, textures);
+		super(name, HexCreativeTabs.tabDecorative, Material.IRON, color, textures);
 		this.setHardness(1.5F);
 		this.setHarvestLevel("pickaxe", 2);
 		this.setResistance(6F);

@@ -5,6 +5,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -15,9 +16,9 @@ public class HexBlockPillar extends HexBlock
 {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
-	public HexBlockPillar(String name, Material material, int color, String... textures)
+	public HexBlockPillar(String name, CreativeTabs tab, Material material, int color, String... textures)
 	{
-		super(name, material, color, textures);
+		super(name, tab, material, color, textures);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	}
 

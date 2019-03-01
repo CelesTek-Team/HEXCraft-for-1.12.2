@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import celestek.hexcraft.common.block.HexBlock;
+import celestek.hexcraft.common.creativetab.HexCreativeTabs;
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -22,11 +23,11 @@ public class HexItems {
 	private static List<HexItemBlock> itemBlocks = new ArrayList<>();
 
 	public static final Item
-	hexorium_crystal_red = add(new HexItem("hexorium_crystal_red", "hexorium_crystal_red")),
-	hexorium_crystal_green = add(new HexItem("hexorium_crystal_green", "hexorium_crystal_green")),
-	hexorium_crystal_blue = add(new HexItem("hexorium_crystal_blue", "hexorium_crystal_blue")),
-	hexorium_crystal_white = add(new HexItem("hexorium_crystal_white", "hexorium_crystal_white")),
-	hexorium_crystal_black = add(new HexItem("hexorium_crystal_black", "hexorium_crystal_black")),
+	hexorium_crystal_red = add(new HexItem("hexorium_crystal_red", HexCreativeTabs.tabComponents, "hexorium_crystal_red")),
+	hexorium_crystal_green = add(new HexItem("hexorium_crystal_green", HexCreativeTabs.tabComponents, "hexorium_crystal_green")),
+	hexorium_crystal_blue = add(new HexItem("hexorium_crystal_blue", HexCreativeTabs.tabComponents, "hexorium_crystal_blue")),
+	hexorium_crystal_white = add(new HexItem("hexorium_crystal_white", HexCreativeTabs.tabComponents, "hexorium_crystal_white")),
+	hexorium_crystal_black = add(new HexItem("hexorium_crystal_black", HexCreativeTabs.tabComponents, "hexorium_crystal_black")),
 
 	hexorium_reinforcer = add(new ItemHexoriumReinforcer("hexorium_reinforcer"));
 

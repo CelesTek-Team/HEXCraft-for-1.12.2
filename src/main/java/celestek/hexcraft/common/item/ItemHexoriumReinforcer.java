@@ -1,5 +1,6 @@
 package celestek.hexcraft.common.item;
 
+import celestek.hexcraft.common.creativetab.HexCreativeTabs;
 import celestek.hexcraft.utility.HexProperties;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +14,7 @@ public class ItemHexoriumReinforcer extends HexItem
 {
 	public ItemHexoriumReinforcer(String name, String... textures)
 	{
-		super(name, textures);
+		super(name, HexCreativeTabs.tabMachines, textures);
 	}
 
 	@Override
