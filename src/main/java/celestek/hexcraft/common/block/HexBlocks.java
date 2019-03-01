@@ -43,7 +43,9 @@ public class HexBlocks {
 	energized_hexorium_gray = add(new BlockEnergizedHexorium("energized_hexorium_gray", HexColors.GRAY, "glow")),
 	energized_hexorium_darkgray = add(new BlockEnergizedHexorium("energized_hexorium_darkgray", HexColors.DARK_GRAY, "glow")),
 	energized_hexorium_black = add(new BlockEnergizedHexorium("energized_hexorium_black", HexColors.BLACK, "glow")),
-	energized_hexorium_rainbow = add(new BlockEnergizedHexorium("energized_hexorium_rainbow", HexColors.RAINBOW, "glow_rainbow"));
+	energized_hexorium_rainbow = add(new BlockEnergizedHexorium("energized_hexorium_rainbow", HexColors.RAINBOW, "glow_rainbow")),
+
+	engineered_hexorium_red = add(new BlockEngineeredHexorium("engineered_hexorium_red", HexColors.RED, "glow"));
 
 	private HexBlocks() {}
 

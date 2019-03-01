@@ -26,7 +26,9 @@ public class HexItems {
 	hexorium_crystal_green = add(new HexItem("hexorium_crystal_green", "hexorium_crystal_green")),
 	hexorium_crystal_blue = add(new HexItem("hexorium_crystal_blue", "hexorium_crystal_blue")),
 	hexorium_crystal_white = add(new HexItem("hexorium_crystal_white", "hexorium_crystal_white")),
-	hexorium_crystal_black = add(new HexItem("hexorium_crystal_black", "hexorium_crystal_black"));
+	hexorium_crystal_black = add(new HexItem("hexorium_crystal_black", "hexorium_crystal_black")),
+
+	hexorium_reinforcer = add(new ItemHexoriumReinforcer("hexorium_reinforcer"));
 
 	private HexItems() {}
 
