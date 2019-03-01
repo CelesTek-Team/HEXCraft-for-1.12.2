@@ -6,13 +6,13 @@
 		"textures":
 		{
 			"base": "hexcraft:blocks/glow",
-			"overlay": "hexcraft:blocks/engineered_hexorium"
+			"overlay": "hexcraft:blocks/engineered_hexorium_block"
 		}
 	},
 	"variants":
 	{
 		"reinforced=false": [{}],
-		"reinforced=true": [{ "textures": { "overlay": "hexcraft:blocks/engineered_hexorium_reinforced" } }],
+		"reinforced=true": [{ "textures": { "overlay": "hexcraft:blocks/engineered_hexorium_block_reinforced" } }],
 		"inventory": [{}]
 	}
 }

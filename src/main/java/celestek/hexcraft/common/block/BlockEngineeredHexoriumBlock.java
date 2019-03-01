@@ -7,9 +7,9 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockEngineeredHexorium extends HexBlockReinforceable
+public class BlockEngineeredHexoriumBlock extends HexBlockReinforceable
 {
-	public BlockEngineeredHexorium(String name, int color, String... textures)
+	public BlockEngineeredHexoriumBlock(String name, int color, String... textures)
 	{
 		super(name, HexCreativeTabs.tabDecorative, Material.IRON, color, textures);
 		this.setHardness(1.5F);

@@ -48,7 +48,25 @@ public class HexBlocks {
 	energized_hexorium_black = add(new BlockEnergizedHexorium("energized_hexorium_black", HexColors.BLACK, "glow")),
 	energized_hexorium_rainbow = add(new BlockEnergizedHexorium("energized_hexorium_rainbow", HexColors.RAINBOW, "glow_rainbow")),
 
-	engineered_hexorium_red = add(new BlockEngineeredHexorium("engineered_hexorium_red", HexColors.RED, "glow"));
+	// Engineered Hexorium Block
+	engineered_hexorium_block_red = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_red", HexColors.RED, "glow")),
+	engineered_hexorium_block_orange = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_orange", HexColors.ORANGE, "glow")),
+	engineered_hexorium_block_yellow = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_yellow", HexColors.YELLOW, "glow")),
+	engineered_hexorium_block_lime = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_lime", HexColors.LIME, "glow")),
+	engineered_hexorium_block_green = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_green", HexColors.GREEN, "glow")),
+	engineered_hexorium_block_turquoise = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_turquoise", HexColors.TURQUOISE, "glow")),
+	engineered_hexorium_block_cyan = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_cyan", HexColors.CYAN, "glow")),
+	engineered_hexorium_block_skyblue = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_skyblue", HexColors.SKY_BLUE, "glow")),
+	engineered_hexorium_block_blue = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_blue", HexColors.BLUE, "glow")),
+	engineered_hexorium_block_purple = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_purple", HexColors.PURPLE, "glow")),
+	engineered_hexorium_block_magenta = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_magenta", HexColors.MAGENTA, "glow")),
+	engineered_hexorium_block_pink = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_pink", HexColors.PINK, "glow")),
+	engineered_hexorium_block_white = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_white", HexColors.WHITE, "glow")),
+	engineered_hexorium_block_lightgray = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_lightgray", HexColors.LIGHT_GRAY, "glow")),
+	engineered_hexorium_block_gray = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_gray", HexColors.GRAY, "glow")),
+	engineered_hexorium_block_darkgray = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_darkgray", HexColors.DARK_GRAY, "glow")),
+	engineered_hexorium_block_black = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_black", HexColors.BLACK, "glow")),
+	engineered_hexorium_block_rainbow = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_rainbow", HexColors.RAINBOW, "glow_rainbow"));
 
 	private HexBlocks() {}
 
