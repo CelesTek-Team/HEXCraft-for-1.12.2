@@ -66,7 +66,27 @@ public class HexBlocks {
 	engineered_hexorium_block_gray = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_gray", HexColors.GRAY, "glow")),
 	engineered_hexorium_block_darkgray = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_darkgray", HexColors.DARK_GRAY, "glow")),
 	engineered_hexorium_block_black = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_black", HexColors.BLACK, "glow")),
-	engineered_hexorium_block_rainbow = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_rainbow", HexColors.RAINBOW, "glow_rainbow"));
+	engineered_hexorium_block_rainbow = add(new BlockEngineeredHexoriumBlock("engineered_hexorium_block_rainbow", HexColors.RAINBOW, "glow_rainbow")),
+
+	// Framed Hexorium Block
+	framed_hexorium_block_red = add(new BlockFramedHexoriumBlock("framed_hexorium_block_red", HexColors.RED, "glow")),
+	framed_hexorium_block_orange = add(new BlockFramedHexoriumBlock("framed_hexorium_block_orange", HexColors.ORANGE, "glow")),
+	framed_hexorium_block_yellow = add(new BlockFramedHexoriumBlock("framed_hexorium_block_yellow", HexColors.YELLOW, "glow")),
+	framed_hexorium_block_lime = add(new BlockFramedHexoriumBlock("framed_hexorium_block_lime", HexColors.LIME, "glow")),
+	framed_hexorium_block_green = add(new BlockFramedHexoriumBlock("framed_hexorium_block_green", HexColors.GREEN, "glow")),
+	framed_hexorium_block_turquoise = add(new BlockFramedHexoriumBlock("framed_hexorium_block_turquoise", HexColors.TURQUOISE, "glow")),
+	framed_hexorium_block_cyan = add(new BlockFramedHexoriumBlock("framed_hexorium_block_cyan", HexColors.CYAN, "glow")),
+	framed_hexorium_block_skyblue = add(new BlockFramedHexoriumBlock("framed_hexorium_block_skyblue", HexColors.SKY_BLUE, "glow")),
+	framed_hexorium_block_blue = add(new BlockFramedHexoriumBlock("framed_hexorium_block_blue", HexColors.BLUE, "glow")),
+	framed_hexorium_block_purple = add(new BlockFramedHexoriumBlock("framed_hexorium_block_purple", HexColors.PURPLE, "glow")),
+	framed_hexorium_block_magenta = add(new BlockFramedHexoriumBlock("framed_hexorium_block_magenta", HexColors.MAGENTA, "glow")),
+	framed_hexorium_block_pink = add(new BlockFramedHexoriumBlock("framed_hexorium_block_pink", HexColors.PINK, "glow")),
+	framed_hexorium_block_white = add(new BlockFramedHexoriumBlock("framed_hexorium_block_white", HexColors.WHITE, "glow")),
+	framed_hexorium_block_lightgray = add(new BlockFramedHexoriumBlock("framed_hexorium_block_lightgray", HexColors.LIGHT_GRAY, "glow")),
+	framed_hexorium_block_gray = add(new BlockFramedHexoriumBlock("framed_hexorium_block_gray", HexColors.GRAY, "glow")),
+	framed_hexorium_block_darkgray = add(new BlockFramedHexoriumBlock("framed_hexorium_block_darkgray", HexColors.DARK_GRAY, "glow")),
+	framed_hexorium_block_black = add(new BlockFramedHexoriumBlock("framed_hexorium_block_black", HexColors.BLACK, "glow")),
+	framed_hexorium_block_rainbow = add(new BlockFramedHexoriumBlock("framed_hexorium_block_rainbow", HexColors.RAINBOW, "glow_rainbow"));
 
 	private HexBlocks() {}
 
