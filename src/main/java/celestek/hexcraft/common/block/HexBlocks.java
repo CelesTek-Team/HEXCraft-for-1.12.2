@@ -29,24 +29,24 @@ public class HexBlocks {
 	hexorium_crystal_block_black = add(new BlockHexoriumCrystalBlock("black")),
 
 	// Energized Hexorium
-	energized_hexorium_red = add(new BlockEnergizedHexorium(EHexColors.RED)),
-	energized_hexorium_orange = add(new BlockEnergizedHexorium(EHexColors.ORANGE)),
-	energized_hexorium_yellow = add(new BlockEnergizedHexorium(EHexColors.YELLOW)),
-	energized_hexorium_lime = add(new BlockEnergizedHexorium(EHexColors.LIME)),
-	energized_hexorium_green = add(new BlockEnergizedHexorium(EHexColors.GREEN)),
-	energized_hexorium_turquoise = add(new BlockEnergizedHexorium(EHexColors.TURQUOISE)),
-	energized_hexorium_cyan = add(new BlockEnergizedHexorium(EHexColors.CYAN)),
-	energized_hexorium_skyblue = add(new BlockEnergizedHexorium(EHexColors.SKY_BLUE)),
-	energized_hexorium_blue = add(new BlockEnergizedHexorium(EHexColors.BLUE)),
-	energized_hexorium_purple = add(new BlockEnergizedHexorium(EHexColors.PURPLE)),
-	energized_hexorium_magenta = add(new BlockEnergizedHexorium(EHexColors.MAGENTA)),
-	energized_hexorium_pink = add(new BlockEnergizedHexorium(EHexColors.PINK)),
-	energized_hexorium_white = add(new BlockEnergizedHexorium(EHexColors.WHITE)),
-	energized_hexorium_lightgray = add(new BlockEnergizedHexorium(EHexColors.LIGHT_GRAY)),
-	energized_hexorium_gray = add(new BlockEnergizedHexorium(EHexColors.GRAY)),
-	energized_hexorium_darkgray = add(new BlockEnergizedHexorium(EHexColors.DARK_GRAY)),
-	energized_hexorium_black = add(new BlockEnergizedHexorium(EHexColors.BLACK)),
-	energized_hexorium_rainbow = add(new BlockEnergizedHexorium(EHexColors.RAINBOW)),
+	energized_hexorium_block_red = add(new BlockEnergizedHexoriumBlock(EHexColors.RED)),
+	energized_hexorium_block_orange = add(new BlockEnergizedHexoriumBlock(EHexColors.ORANGE)),
+	energized_hexorium_block_yellow = add(new BlockEnergizedHexoriumBlock(EHexColors.YELLOW)),
+	energized_hexorium_block_lime = add(new BlockEnergizedHexoriumBlock(EHexColors.LIME)),
+	energized_hexorium_block_green = add(new BlockEnergizedHexoriumBlock(EHexColors.GREEN)),
+	energized_hexorium_block_turquoise = add(new BlockEnergizedHexoriumBlock(EHexColors.TURQUOISE)),
+	energized_hexorium_block_cyan = add(new BlockEnergizedHexoriumBlock(EHexColors.CYAN)),
+	energized_hexorium_block_skyblue = add(new BlockEnergizedHexoriumBlock(EHexColors.SKY_BLUE)),
+	energized_hexorium_block_blue = add(new BlockEnergizedHexoriumBlock(EHexColors.BLUE)),
+	energized_hexorium_block_purple = add(new BlockEnergizedHexoriumBlock(EHexColors.PURPLE)),
+	energized_hexorium_block_magenta = add(new BlockEnergizedHexoriumBlock(EHexColors.MAGENTA)),
+	energized_hexorium_block_pink = add(new BlockEnergizedHexoriumBlock(EHexColors.PINK)),
+	energized_hexorium_block_white = add(new BlockEnergizedHexoriumBlock(EHexColors.WHITE)),
+	energized_hexorium_block_lightgray = add(new BlockEnergizedHexoriumBlock(EHexColors.LIGHT_GRAY)),
+	energized_hexorium_block_gray = add(new BlockEnergizedHexoriumBlock(EHexColors.GRAY)),
+	energized_hexorium_block_darkgray = add(new BlockEnergizedHexoriumBlock(EHexColors.DARK_GRAY)),
+	energized_hexorium_block_black = add(new BlockEnergizedHexoriumBlock(EHexColors.BLACK)),
+	energized_hexorium_block_rainbow = add(new BlockEnergizedHexoriumBlock(EHexColors.RAINBOW)),
 
 	// Engineered Hexorium Block
 	engineered_hexorium_block_red = add(new BlockEngineeredHexoriumBlock(EHexColors.RED)),
@@ -108,7 +108,7 @@ public class HexBlocks {
 	plated_hexorium_block_black = add(new BlockPlatedHexoriumBlock(EHexColors.BLACK)),
 	plated_hexorium_block_rainbow = add(new BlockPlatedHexoriumBlock(EHexColors.RAINBOW)),
 
-	// Plated Hexorium Block
+	// Concentric Hexorium Block
 	concentric_hexorium_block_red = add(new BlockConcentricHexoriumBlock(EHexColors.RED)),
 	concentric_hexorium_block_orange = add(new BlockConcentricHexoriumBlock(EHexColors.ORANGE)),
 	concentric_hexorium_block_yellow = add(new BlockConcentricHexoriumBlock(EHexColors.YELLOW)),
@@ -126,7 +126,9 @@ public class HexBlocks {
 	concentric_hexorium_block_gray = add(new BlockConcentricHexoriumBlock(EHexColors.GRAY)),
 	concentric_hexorium_block_darkgray = add(new BlockConcentricHexoriumBlock(EHexColors.DARK_GRAY)),
 	concentric_hexorium_block_black = add(new BlockConcentricHexoriumBlock(EHexColors.BLACK)),
-	concentric_hexorium_block_rainbow = add(new BlockConcentricHexoriumBlock(EHexColors.RAINBOW));
+	concentric_hexorium_block_rainbow = add(new BlockConcentricHexoriumBlock(EHexColors.RAINBOW)),
+
+	hexorium_structure_casing_block_red = add(new BlockHexoriumStructureCasingBlock(EHexColors.RED));
 
 	private HexBlocks() {}
 
@@ -149,7 +151,7 @@ public class HexBlocks {
 	public static void registerModels() {
 		for(HexBlock block : blocks)
 			if(!block.textures.isEmpty())
-				HexUtilities.addFullbright(block.textures, block);
+				HexUtilities.addFullbright(block.textures, block.enableCache(), block);
 	}
 
 	public static HexBlock add(HexBlock block)

@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 
 public class ItemHexoriumReinforcer extends HexItem
 {
-	public ItemHexoriumReinforcer(String name, String... textures)
+	public ItemHexoriumReinforcer()
 	{
-		super(name, HexCreativeTabs.tabMachines, textures);
+		super("hexorium_reinforcer", HexCreativeTabs.tabMachines);
 	}
 
 	@Override

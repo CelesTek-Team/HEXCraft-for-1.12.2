@@ -23,13 +23,14 @@ public class HexItems {
 	private static List<HexItemBlock> itemBlocks = new ArrayList<>();
 
 	public static final Item
+
 	hexorium_crystal_red = add(new HexItem("hexorium_crystal_red", HexCreativeTabs.tabComponents, "hexorium_crystal_red")),
 	hexorium_crystal_green = add(new HexItem("hexorium_crystal_green", HexCreativeTabs.tabComponents, "hexorium_crystal_green")),
 	hexorium_crystal_blue = add(new HexItem("hexorium_crystal_blue", HexCreativeTabs.tabComponents, "hexorium_crystal_blue")),
 	hexorium_crystal_white = add(new HexItem("hexorium_crystal_white", HexCreativeTabs.tabComponents, "hexorium_crystal_white")),
 	hexorium_crystal_black = add(new HexItem("hexorium_crystal_black", HexCreativeTabs.tabComponents, "hexorium_crystal_black")),
 
-	hexorium_reinforcer = add(new ItemHexoriumReinforcer("hexorium_reinforcer"));
+	hexorium_reinforcer = add(new ItemHexoriumReinforcer());
 
 	private HexItems() {}
 
@@ -47,7 +48,7 @@ public class HexItems {
 		for (HexItem item : items) {
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 			if (!item.textures.isEmpty())
-				HexUtilities.addFullbright(item.textures, item);
+				HexUtilities.addFullbright(item.textures, item.enableCache(), item);
 		}
 		for (HexItemBlock item : itemBlocks)
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

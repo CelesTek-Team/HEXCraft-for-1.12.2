@@ -26,7 +26,10 @@ import net.minecraftforge.client.model.BakedModelWrapper;
 import net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;
 import net.minecraftforge.client.model.pipeline.VertexLighterFlat;
 import net.minecraftforge.common.property.IExtendedBlockState;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+@SideOnly(Side.CLIENT)
 public class BakedModelBrightness extends BakedModelWrapper
 {
 	private class CacheKey
@@ -44,7 +47,6 @@ public class BakedModelBrightness extends BakedModelWrapper
 			this.side = side;
 		}
 
-		// FIXME equals instead of ==? Although default state implementations are already compared that way
 		@Override
 		public boolean equals(Object o)
 		{
@@ -52,7 +54,7 @@ public class BakedModelBrightness extends BakedModelWrapper
 			if (o == null || getClass() != o.getClass()) return false;
 			CacheKey cacheKey = (CacheKey) o;
 			if (this.side != cacheKey.side) return false;
-			if (this.state != cacheKey.state) return false;
+			if (this.state != cacheKey.state) return false; // Careful with this comparison in case block states are changed and are no longer compared like this
 			return true;
 		}
 
@@ -73,7 +75,7 @@ public class BakedModelBrightness extends BakedModelWrapper
 	});
 
 	private ImmutableSet<String> textures;
-	private boolean disableCache = false;
+	private boolean enableCache = true;
 
 	public BakedModelBrightness(IBakedModel base, ImmutableSet<String> textures)
 	{
@@ -81,9 +83,9 @@ public class BakedModelBrightness extends BakedModelWrapper
 		this.textures = textures;
 	}
 
-	public BakedModelBrightness disableCache()
+	public BakedModelBrightness setCache(boolean flag)
 	{
-		this.disableCache = true;
+		this.enableCache = flag;
 		return this;
 	}
 
@@ -91,7 +93,7 @@ public class BakedModelBrightness extends BakedModelWrapper
 	@Override
 	public List<BakedQuad> getQuads(@Nullable IBlockState state, @Nullable EnumFacing side, long rand)
 	{
-		if (this.disableCache || state == null) return transformQuads(this.originalModel.getQuads(state, side, 0), textures);
+		if (!this.enableCache || state == null) return transformQuads(this.originalModel.getQuads(state, side, 0), textures);
 		return CACHE.getUnchecked(new CacheKey(this.originalModel, textures, state instanceof IExtendedBlockState ? ((IExtendedBlockState) state).getClean() : state, side));
 	}
 
