@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"ABA",
+		"ARA",
+		"ABA"
+	],
+	"key":
+	{
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumRed"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumBlue"
+		},
+		"R":
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustRedstone"
+		}
+	},
+	"result": { "item": "hexcraft:energized_hexorium_pink" }
+}

@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"AAB",
+		"ARA",
+		"BAA"
+	],
+	"key":
+	{
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumWhite"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumBlack"
+		},
+		"R":
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustRedstone"
+		}
+	},
+	"result": { "item": "hexcraft:energized_hexorium_lightgray" }
+}

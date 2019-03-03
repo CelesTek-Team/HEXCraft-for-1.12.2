@@ -1,0 +1,38 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"ACD",
+		"BRB",
+		"DCA"
+	],
+	"key":
+	{
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumRed"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumGreen"
+		},
+		"C":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumBlue"
+		},
+		"D":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumWhite"
+		},
+		"R":
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustRedstone"
+		}
+	},
+	"result": { "item": "hexcraft:energized_hexorium_rainbow" }
+}
