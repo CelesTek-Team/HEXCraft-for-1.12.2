@@ -1,6 +1,6 @@
 package celestek.hexcraft.common.creativetab;
 
-import celestek.hexcraft.common.item.HexItems;
+import celestek.hexcraft.common.init.HexItems;
 import net.minecraft.item.ItemStack;
 
 public class TabComponents extends HexCreativeTab

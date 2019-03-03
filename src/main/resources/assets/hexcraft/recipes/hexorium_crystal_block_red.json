@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"CCC",
+		"CCC",
+		"CCC"
+	],
+	"key":
+	{
+		"C":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumRed"
+		}
+	},
+	"result": { "item": "hexcraft:hexorium_crystal_block_red" }
+}

@@ -1,8 +1,9 @@
 package celestek.hexcraft.common.event;
 
 import celestek.hexcraft.HexCraft;
-import celestek.hexcraft.common.block.HexBlocks;
-import celestek.hexcraft.common.item.HexItems;
+import celestek.hexcraft.common.init.HexBlocks;
+import celestek.hexcraft.common.init.HexItems;
+import celestek.hexcraft.common.init.HexOreDict;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -24,5 +25,6 @@ public class HexEvents
 	public static void registerItems(RegistryEvent.Register<Item> event)
 	{
 		HexItems.register(event);
+		HexOreDict.register();
 	}
 }

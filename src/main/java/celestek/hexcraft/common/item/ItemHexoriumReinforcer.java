@@ -1,6 +1,6 @@
 package celestek.hexcraft.common.item;
 
-import celestek.hexcraft.common.creativetab.HexCreativeTabs;
+import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.HexProperties;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

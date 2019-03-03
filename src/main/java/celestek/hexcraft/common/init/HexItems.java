@@ -1,10 +1,12 @@
-package celestek.hexcraft.common.item;
+package celestek.hexcraft.common.init;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import celestek.hexcraft.common.block.HexBlock;
-import celestek.hexcraft.common.creativetab.HexCreativeTabs;
+import celestek.hexcraft.common.item.HexItem;
+import celestek.hexcraft.common.item.HexItemBlock;
+import celestek.hexcraft.common.item.ItemHexoriumReinforcer;
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IItemColor;

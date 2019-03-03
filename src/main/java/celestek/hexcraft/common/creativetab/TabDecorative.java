@@ -1,6 +1,6 @@
 package celestek.hexcraft.common.creativetab;
 
-import celestek.hexcraft.common.block.HexBlocks;
+import celestek.hexcraft.common.init.HexBlocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -14,6 +14,6 @@ public class TabDecorative extends HexCreativeTab
 	@Override
 	public ItemStack getTabIconItem()
 	{
-		return new ItemStack(Item.getItemFromBlock(HexBlocks.energized_hexorium_block_rainbow));
+		return new ItemStack(Item.getItemFromBlock(HexBlocks.energized_hexorium_rainbow));
 	}
 }

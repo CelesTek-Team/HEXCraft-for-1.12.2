@@ -1,6 +1,6 @@
 package celestek.hexcraft.common.block;
 
-import celestek.hexcraft.common.creativetab.HexCreativeTabs;
+import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.EHexColors;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

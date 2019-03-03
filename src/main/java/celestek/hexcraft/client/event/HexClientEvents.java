@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.function.Function;
 
 import celestek.hexcraft.HexCraft;
-import celestek.hexcraft.common.block.HexBlocks;
-import celestek.hexcraft.common.item.HexItems;
+import celestek.hexcraft.common.init.HexBlocks;
+import celestek.hexcraft.common.init.HexItems;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.util.ResourceLocation;
