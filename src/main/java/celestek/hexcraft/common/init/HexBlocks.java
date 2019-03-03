@@ -7,8 +7,8 @@ import celestek.hexcraft.common.block.BlockConcentricHexoriumBlock;
 import celestek.hexcraft.common.block.BlockEnergizedHexorium;
 import celestek.hexcraft.common.block.BlockEngineeredHexoriumBlock;
 import celestek.hexcraft.common.block.BlockFramedHexoriumBlock;
-import celestek.hexcraft.common.block.BlockHexoriumCrystalBlock;
-import celestek.hexcraft.common.block.BlockHexoriumStructureCasingBlock;
+import celestek.hexcraft.common.block.BlockBlockOfHexoriumCrystal;
+import celestek.hexcraft.common.block.BlockHexoriumStructureCasing;
 import celestek.hexcraft.common.block.BlockPlatedHexoriumBlock;
 import celestek.hexcraft.common.block.HexBlock;
 import celestek.hexcraft.common.item.HexItemBlock;
@@ -28,12 +28,12 @@ public class HexBlocks {
 
 	public static final Block
 
-	// Hexorium Crystal Block
-	hexorium_crystal_block_red = add(new BlockHexoriumCrystalBlock("red")),
-	hexorium_crystal_block_green = add(new BlockHexoriumCrystalBlock("green")),
-	hexorium_crystal_block_blue = add(new BlockHexoriumCrystalBlock("blue")),
-	hexorium_crystal_block_white = add(new BlockHexoriumCrystalBlock("white")),
-	hexorium_crystal_block_black = add(new BlockHexoriumCrystalBlock("black")),
+	// Block of Hexorium Crystal
+	block_of_hexorium_crystal_red = add(new BlockBlockOfHexoriumCrystal("red")),
+	block_of_hexorium_crystal_green = add(new BlockBlockOfHexoriumCrystal("green")),
+	block_of_hexorium_crystal_blue = add(new BlockBlockOfHexoriumCrystal("blue")),
+	block_of_hexorium_crystal_white = add(new BlockBlockOfHexoriumCrystal("white")),
+	block_of_hexorium_crystal_black = add(new BlockBlockOfHexoriumCrystal("black")),
 
 	// Energized Hexorium
 	energized_hexorium_red = add(new BlockEnergizedHexorium(EHexColors.RED)),
@@ -135,7 +135,7 @@ public class HexBlocks {
 	concentric_hexorium_block_black = add(new BlockConcentricHexoriumBlock(EHexColors.BLACK)),
 	concentric_hexorium_block_rainbow = add(new BlockConcentricHexoriumBlock(EHexColors.RAINBOW)),
 
-	hexorium_structure_casing_block_red = add(new BlockHexoriumStructureCasingBlock(EHexColors.RED));
+	hexorium_structure_casing_red = add(new BlockHexoriumStructureCasing(EHexColors.RED));
 
 	private HexBlocks() {}
 

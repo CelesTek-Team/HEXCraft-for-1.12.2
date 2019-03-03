@@ -8,11 +8,11 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockHexoriumStructureCasingBlock extends HexBlockConnectedReinforceable
+public class BlockHexoriumStructureCasing extends HexBlockConnectedReinforceable
 {
-	public BlockHexoriumStructureCasingBlock(EHexColors color)
+	public BlockHexoriumStructureCasing(EHexColors color)
 	{
-		super("hexorium_structure_casing_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color.texture);
+		super("hexorium_structure_casing_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color.texture);
 		this.setHardness(1.5F);
 		this.setHarvestLevel("pickaxe", 2);
 		this.setResistance(6F);

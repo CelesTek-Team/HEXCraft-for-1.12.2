@@ -14,5 +14,5 @@
 			"ore": "gemHexoriumRed"
 		}
 	},
-	"result": { "item": "hexcraft:hexorium_crystal_block_red" }
+	"result": { "item": "hexcraft:block_of_hexorium_crystal_red" }
 }

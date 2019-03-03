@@ -5,9 +5,9 @@
 		"model": "hexcraft:cube_top_bottom",
 		"textures":
 		{
-			"down": "hexcraft:blocks/hexorium_crystal_block/hexorium_crystal_block_bottom_white",
-			"up": "hexcraft:blocks/hexorium_crystal_block/hexorium_crystal_block_top_white",
-			"side": "hexcraft:blocks/hexorium_crystal_block/hexorium_crystal_block_side_white"
+			"down": "hexcraft:blocks/block_of_hexorium_crystal/block_of_hexorium_crystal_bottom_black",
+			"up": "hexcraft:blocks/block_of_hexorium_crystal/block_of_hexorium_crystal_top_black",
+			"side": "hexcraft:blocks/block_of_hexorium_crystal/block_of_hexorium_crystal_side_black"
 		}
 	},
 	"variants":
