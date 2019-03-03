@@ -135,7 +135,25 @@ public class HexBlocks {
 	concentric_hexorium_block_black = add(new BlockConcentricHexoriumBlock(EHexColors.BLACK)),
 	concentric_hexorium_block_rainbow = add(new BlockConcentricHexoriumBlock(EHexColors.RAINBOW)),
 
-	hexorium_structure_casing_red = add(new BlockHexoriumStructureCasing(EHexColors.RED));
+	// Hexorium Structure Casing
+	hexorium_structure_casing_red = add(new BlockHexoriumStructureCasing(EHexColors.RED)),
+	hexorium_structure_casing_orange = add(new BlockHexoriumStructureCasing(EHexColors.ORANGE)),
+	hexorium_structure_casing_yellow = add(new BlockHexoriumStructureCasing(EHexColors.YELLOW)),
+	hexorium_structure_casing_lime = add(new BlockHexoriumStructureCasing(EHexColors.LIME)),
+	hexorium_structure_casing_green = add(new BlockHexoriumStructureCasing(EHexColors.GREEN)),
+	hexorium_structure_casing_turquoise = add(new BlockHexoriumStructureCasing(EHexColors.TURQUOISE)),
+	hexorium_structure_casing_cyan = add(new BlockHexoriumStructureCasing(EHexColors.CYAN)),
+	hexorium_structure_casing_skyblue = add(new BlockHexoriumStructureCasing(EHexColors.SKY_BLUE)),
+	hexorium_structure_casing_blue = add(new BlockHexoriumStructureCasing(EHexColors.BLUE)),
+	hexorium_structure_casing_purple = add(new BlockHexoriumStructureCasing(EHexColors.PURPLE)),
+	hexorium_structure_casing_magenta = add(new BlockHexoriumStructureCasing(EHexColors.MAGENTA)),
+	hexorium_structure_casing_pink = add(new BlockHexoriumStructureCasing(EHexColors.PINK)),
+	hexorium_structure_casing_white = add(new BlockHexoriumStructureCasing(EHexColors.WHITE)),
+	hexorium_structure_casing_lightgray = add(new BlockHexoriumStructureCasing(EHexColors.LIGHT_GRAY)),
+	hexorium_structure_casing_gray = add(new BlockHexoriumStructureCasing(EHexColors.GRAY)),
+	hexorium_structure_casing_darkgray = add(new BlockHexoriumStructureCasing(EHexColors.DARK_GRAY)),
+	hexorium_structure_casing_black = add(new BlockHexoriumStructureCasing(EHexColors.BLACK)),
+	hexorium_structure_casing_rainbow = add(new BlockHexoriumStructureCasing(EHexColors.RAINBOW));
 
 	private HexBlocks() {}
 

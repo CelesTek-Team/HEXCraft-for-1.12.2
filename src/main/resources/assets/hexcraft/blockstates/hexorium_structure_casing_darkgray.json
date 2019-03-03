@@ -1,0 +1,125 @@
+{
+	"forge_marker": 1,
+	"variants":
+	{
+		"reinforced=false":
+		[{
+			"model": "hexcraft:connected/overlay",
+			"textures":
+			{
+				"base": "hexcraft:blocks/glow",
+				"1": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_1",
+				"2": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_2",
+				"3": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_3",
+				"4": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_4",
+				"5": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_5",
+				"6": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_6",
+				"7": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_7",
+				"8": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_8",
+				"9": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_9",
+				"10": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_10",
+				"11": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_11",
+				"12": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_12",
+				"13": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_13",
+				"14": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_14",
+				"15": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_15",
+				"16": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_16",
+				"17": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_17",
+				"18": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_18",
+				"19": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_19",
+				"20": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_20",
+				"21": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_21",
+				"22": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_22",
+				"23": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_23",
+				"24": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_24",
+				"25": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_25",
+				"26": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_26",
+				"27": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_27",
+				"28": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_28",
+				"29": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_29",
+				"30": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_30",
+				"31": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_31",
+				"32": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_32",
+				"33": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_33",
+				"34": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_34",
+				"35": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_35",
+				"36": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_36",
+				"37": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_37",
+				"38": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_38",
+				"39": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_39",
+				"40": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_40",
+				"41": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_41",
+				"42": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_42",
+				"43": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_43",
+				"44": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_44",
+				"45": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_45",
+				"46": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_46",
+				"47": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_47"
+			}
+		}],
+		"reinforced=true":
+		[{
+			"model": "hexcraft:connected/overlay",
+			"textures":
+			{
+				"base": "hexcraft:blocks/glow",
+				"1": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_1",
+				"2": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_2",
+				"3": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_3",
+				"4": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_4",
+				"5": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_5",
+				"6": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_6",
+				"7": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_7",
+				"8": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_8",
+				"9": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_9",
+				"10": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_10",
+				"11": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_11",
+				"12": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_12",
+				"13": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_13",
+				"14": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_14",
+				"15": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_15",
+				"16": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_16",
+				"17": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_17",
+				"18": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_18",
+				"19": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_19",
+				"20": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_20",
+				"21": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_21",
+				"22": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_22",
+				"23": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_23",
+				"24": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_24",
+				"25": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_25",
+				"26": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_26",
+				"27": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_27",
+				"28": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_28",
+				"29": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_29",
+				"30": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_30",
+				"31": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_31",
+				"32": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_32",
+				"33": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_33",
+				"34": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_34",
+				"35": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_35",
+				"36": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_36",
+				"37": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_37",
+				"38": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_38",
+				"39": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_39",
+				"40": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_40",
+				"41": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_41",
+				"42": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_42",
+				"43": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_43",
+				"44": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_44",
+				"45": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_45",
+				"46": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_46",
+				"47": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_reinforced_47"
+			}
+		}],
+		"inventory":
+		[{
+			"model": "hexcraft:overlay_all",
+			"textures":
+			{
+				"base": "hexcraft:blocks/glow",
+				"overlay": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_1"
+			}
+		}]
+	}
+}
