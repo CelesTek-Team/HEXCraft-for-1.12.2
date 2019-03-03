@@ -3,14 +3,7 @@ package celestek.hexcraft.common.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import celestek.hexcraft.common.block.BlockConcentricHexoriumBlock;
-import celestek.hexcraft.common.block.BlockEnergizedHexorium;
-import celestek.hexcraft.common.block.BlockEngineeredHexoriumBlock;
-import celestek.hexcraft.common.block.BlockFramedHexoriumBlock;
-import celestek.hexcraft.common.block.BlockBlockOfHexoriumCrystal;
-import celestek.hexcraft.common.block.BlockHexoriumStructureCasing;
-import celestek.hexcraft.common.block.BlockPlatedHexoriumBlock;
-import celestek.hexcraft.common.block.HexBlock;
+import celestek.hexcraft.common.block.*;
 import celestek.hexcraft.common.item.HexItemBlock;
 import celestek.hexcraft.utility.EHexColors;
 import celestek.hexcraft.utility.HexUtilities;
@@ -153,7 +146,10 @@ public class HexBlocks {
 	hexorium_structure_casing_gray = add(new BlockHexoriumStructureCasing(EHexColors.GRAY)),
 	hexorium_structure_casing_darkgray = add(new BlockHexoriumStructureCasing(EHexColors.DARK_GRAY)),
 	hexorium_structure_casing_black = add(new BlockHexoriumStructureCasing(EHexColors.BLACK)),
-	hexorium_structure_casing_rainbow = add(new BlockHexoriumStructureCasing(EHexColors.RAINBOW));
+	hexorium_structure_casing_rainbow = add(new BlockHexoriumStructureCasing(EHexColors.RAINBOW)),
+
+	// Hexorium-Coated Stone
+	hexorium_coated_stone = add(new BlockHexoriumCoatedStone());
 
 	private HexBlocks() {}
 

@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "minecraft:cube_all",
+		"textures":
+		{
+			"all": "hexcraft:blocks/hexorium_coated_stone"
+		}
+	},
+	"variants":
+	{
+		"reinforced=false": [{}],
+		"reinforced=true": [{ "textures": { "all": "hexcraft:blocks/hexorium_coated_stone_reinforced" } }],
+		"inventory": [{}]
+	}
+}
