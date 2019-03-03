@@ -21,7 +21,7 @@ public enum EHexColors {
     GRAY (0x808080, "gray", "glow"),
     DARK_GRAY (0x404040, "darkgray", "glow"),
     BLACK (0x181818, "black", "glow"),
-    RAINBOW (-1, "rainbow", "glow_rainbow"),
+    RAINBOW (-2, "rainbow", "glow_rainbow"),
     DIMMED (0x808080, null, null),
     NONE (-1, null, null);
 
