@@ -11,8 +11,8 @@
 		"A":
 		{
 			"type": "forge:ore_dict",
-			"ore": "gemHexoriumRed"
+			"ore": "gemHexoriumBlack"
 		}
 	},
-	"result": { "item": "hexcraft:block_of_hexorium_crystal_red" }
+	"result": { "item": "hexcraft:block_of_hexorium_crystal_black" }
 }
