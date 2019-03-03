@@ -14,8 +14,8 @@ public class BlockEngineeredHexoriumBlock extends HexBlockReinforceable
 	{
 		super("engineered_hexorium_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color.texture);
 		this.setHardness(1.5F);
-		this.setHarvestLevel("pickaxe", 2);
 		this.setResistance(6F);
+		this.setHarvestLevel("pickaxe", 2);
 		this.setSoundType(SoundType.METAL);
 	}
 

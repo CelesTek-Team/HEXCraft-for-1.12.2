@@ -149,7 +149,27 @@ public class HexBlocks {
 	hexorium_structure_casing_rainbow = add(new BlockHexoriumStructureCasing(EHexColors.RAINBOW)),
 
 	// Hexorium-Coated Stone
-	hexorium_coated_stone = add(new BlockHexoriumCoatedStone());
+	hexorium_coated_stone = add(new BlockHexoriumCoatedStone()),
+
+	// Glowing Hexorium-Coated Stone
+	glowing_hexorium_coated_stone_red = add(new BlockGlowingHexoriumCoatedStone(EHexColors.RED)),
+	glowing_hexorium_coated_stone_orange = add(new BlockGlowingHexoriumCoatedStone(EHexColors.ORANGE)),
+	glowing_hexorium_coated_stone_yellow = add(new BlockGlowingHexoriumCoatedStone(EHexColors.YELLOW)),
+	glowing_hexorium_coated_stone_lime = add(new BlockGlowingHexoriumCoatedStone(EHexColors.LIME)),
+	glowing_hexorium_coated_stone_green = add(new BlockGlowingHexoriumCoatedStone(EHexColors.GREEN)),
+	glowing_hexorium_coated_stone_turquoise = add(new BlockGlowingHexoriumCoatedStone(EHexColors.TURQUOISE)),
+	glowing_hexorium_coated_stone_cyan = add(new BlockGlowingHexoriumCoatedStone(EHexColors.CYAN)),
+	glowing_hexorium_coated_stone_skyblue = add(new BlockGlowingHexoriumCoatedStone(EHexColors.SKY_BLUE)),
+	glowing_hexorium_coated_stone_blue = add(new BlockGlowingHexoriumCoatedStone(EHexColors.BLUE)),
+	glowing_hexorium_coated_stone_purple = add(new BlockGlowingHexoriumCoatedStone(EHexColors.PURPLE)),
+	glowing_hexorium_coated_stone_magenta = add(new BlockGlowingHexoriumCoatedStone(EHexColors.MAGENTA)),
+	glowing_hexorium_coated_stone_pink = add(new BlockGlowingHexoriumCoatedStone(EHexColors.PINK)),
+	glowing_hexorium_coated_stone_white = add(new BlockGlowingHexoriumCoatedStone(EHexColors.WHITE)),
+	glowing_hexorium_coated_stone_lightgray = add(new BlockGlowingHexoriumCoatedStone(EHexColors.LIGHT_GRAY)),
+	glowing_hexorium_coated_stone_gray = add(new BlockGlowingHexoriumCoatedStone(EHexColors.GRAY)),
+	glowing_hexorium_coated_stone_darkgray = add(new BlockGlowingHexoriumCoatedStone(EHexColors.DARK_GRAY)),
+	glowing_hexorium_coated_stone_black = add(new BlockGlowingHexoriumCoatedStone(EHexColors.BLACK)),
+	glowing_hexorium_coated_stone_rainbow = add(new BlockGlowingHexoriumCoatedStone(EHexColors.RAINBOW));
 
 	private HexBlocks() {}
 

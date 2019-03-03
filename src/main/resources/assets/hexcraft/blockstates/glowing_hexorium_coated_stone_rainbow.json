@@ -1,0 +1,125 @@
+{
+	"forge_marker": 1,
+	"variants":
+	{
+		"reinforced=false":
+		[{
+			"model": "hexcraft:connected/overlay",
+			"textures":
+			{
+				"base": "hexcraft:blocks/glow_rainbow",
+				"1": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_1",
+				"2": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_2",
+				"3": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_3",
+				"4": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_4",
+				"5": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_5",
+				"6": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_6",
+				"7": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_7",
+				"8": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_8",
+				"9": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_9",
+				"10": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_10",
+				"11": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_11",
+				"12": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_12",
+				"13": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_13",
+				"14": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_14",
+				"15": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_15",
+				"16": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_16",
+				"17": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_17",
+				"18": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_18",
+				"19": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_19",
+				"20": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_20",
+				"21": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_21",
+				"22": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_22",
+				"23": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_23",
+				"24": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_24",
+				"25": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_25",
+				"26": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_26",
+				"27": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_27",
+				"28": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_28",
+				"29": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_29",
+				"30": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_30",
+				"31": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_31",
+				"32": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_32",
+				"33": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_33",
+				"34": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_34",
+				"35": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_35",
+				"36": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_36",
+				"37": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_37",
+				"38": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_38",
+				"39": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_39",
+				"40": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_40",
+				"41": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_41",
+				"42": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_42",
+				"43": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_43",
+				"44": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_44",
+				"45": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_45",
+				"46": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_46",
+				"47": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_47"
+			}
+		}],
+		"reinforced=true":
+		[{
+			"model": "hexcraft:connected/overlay",
+			"textures":
+			{
+				"base": "hexcraft:blocks/glow_rainbow",
+				"1": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_1",
+				"2": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_2",
+				"3": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_3",
+				"4": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_4",
+				"5": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_5",
+				"6": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_6",
+				"7": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_7",
+				"8": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_8",
+				"9": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_9",
+				"10": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_10",
+				"11": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_11",
+				"12": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_12",
+				"13": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_13",
+				"14": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_14",
+				"15": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_15",
+				"16": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_16",
+				"17": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_17",
+				"18": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_18",
+				"19": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_19",
+				"20": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_20",
+				"21": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_21",
+				"22": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_22",
+				"23": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_23",
+				"24": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_24",
+				"25": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_25",
+				"26": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_26",
+				"27": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_27",
+				"28": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_28",
+				"29": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_29",
+				"30": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_30",
+				"31": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_31",
+				"32": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_32",
+				"33": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_33",
+				"34": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_34",
+				"35": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_35",
+				"36": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_36",
+				"37": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_37",
+				"38": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_38",
+				"39": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_39",
+				"40": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_40",
+				"41": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_41",
+				"42": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_42",
+				"43": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_43",
+				"44": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_44",
+				"45": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_45",
+				"46": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_46",
+				"47": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_47"
+			}
+		}],
+		"inventory":
+		[{
+			"model": "hexcraft:overlay_all",
+			"textures":
+			{
+				"base": "hexcraft:blocks/glow_rainbow",
+				"overlay": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_1"
+			}
+		}]
+	}
+}
