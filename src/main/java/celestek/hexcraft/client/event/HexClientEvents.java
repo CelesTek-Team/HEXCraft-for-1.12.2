@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(modid = HexCraft.ID, value = Side.CLIENT)
-public class HexClientEvents
+public final class HexClientEvents
 {
 	private HexClientEvents() {}
 

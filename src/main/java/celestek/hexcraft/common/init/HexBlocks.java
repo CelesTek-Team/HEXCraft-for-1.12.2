@@ -3,7 +3,17 @@ package celestek.hexcraft.common.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import celestek.hexcraft.common.block.*;
+import celestek.hexcraft.common.block.BlockBlockOfHexoriumCrystal;
+import celestek.hexcraft.common.block.BlockConcentricHexoriumBlock;
+import celestek.hexcraft.common.block.BlockEnergizedHexorium;
+import celestek.hexcraft.common.block.BlockEnergizedHexoriumMonolith;
+import celestek.hexcraft.common.block.BlockEngineeredHexoriumBlock;
+import celestek.hexcraft.common.block.BlockFramedHexoriumBlock;
+import celestek.hexcraft.common.block.BlockGlowingHexoriumCoatedStone;
+import celestek.hexcraft.common.block.BlockHexoriumCoatedStone;
+import celestek.hexcraft.common.block.BlockHexoriumStructureCasing;
+import celestek.hexcraft.common.block.BlockPlatedHexoriumBlock;
+import celestek.hexcraft.common.block.HexBlock;
 import celestek.hexcraft.common.item.HexItemBlock;
 import celestek.hexcraft.utility.EHexColors;
 import celestek.hexcraft.utility.HexUtilities;
@@ -16,7 +26,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
-public class HexBlocks {
+public final class HexBlocks {
 	private static List<HexBlock> blocks = new ArrayList<>();
 
 	public static final Block
@@ -169,7 +179,9 @@ public class HexBlocks {
 	glowing_hexorium_coated_stone_gray = add(new BlockGlowingHexoriumCoatedStone(EHexColors.GRAY)),
 	glowing_hexorium_coated_stone_darkgray = add(new BlockGlowingHexoriumCoatedStone(EHexColors.DARK_GRAY)),
 	glowing_hexorium_coated_stone_black = add(new BlockGlowingHexoriumCoatedStone(EHexColors.BLACK)),
-	glowing_hexorium_coated_stone_rainbow = add(new BlockGlowingHexoriumCoatedStone(EHexColors.RAINBOW));
+	glowing_hexorium_coated_stone_rainbow = add(new BlockGlowingHexoriumCoatedStone(EHexColors.RAINBOW)),
+
+	energized_hexorium_monolith_red = add(new BlockEnergizedHexoriumMonolith(EHexColors.RED));
 
 	private HexBlocks() {}
 

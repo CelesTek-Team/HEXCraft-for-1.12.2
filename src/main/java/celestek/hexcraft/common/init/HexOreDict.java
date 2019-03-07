@@ -2,7 +2,7 @@ package celestek.hexcraft.common.init;
 
 import net.minecraftforge.oredict.OreDictionary;
 
-public class HexOreDict
+public final class HexOreDict
 {
 	private HexOreDict() {}
 

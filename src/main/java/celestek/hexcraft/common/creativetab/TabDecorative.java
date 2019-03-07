@@ -4,7 +4,7 @@ import celestek.hexcraft.common.init.HexBlocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class TabDecorative extends HexCreativeTab
+public class TabDecorative extends AHexCreativeTab
 {
 	public TabDecorative()
 	{

@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
-public class HexItems {
+public final class HexItems {
 	private static List<HexItem> items = new ArrayList<>();
 	private static List<HexItemBlock> itemBlocks = new ArrayList<>();
 

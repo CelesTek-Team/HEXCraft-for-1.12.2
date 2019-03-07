@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = HexCraft.ID)
-public class HexEvents
+public final class HexEvents
 {
 	private HexEvents() {}
 

@@ -3,7 +3,7 @@ package celestek.hexcraft.common.creativetab;
 import celestek.hexcraft.common.init.HexItems;
 import net.minecraft.item.ItemStack;
 
-public class TabMachines extends HexCreativeTab
+public class TabMachines extends AHexCreativeTab
 {
 	public TabMachines()
 	{

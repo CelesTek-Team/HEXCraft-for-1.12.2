@@ -1,5 +1,9 @@
 package celestek.hexcraft.utility;
 
+import java.util.Optional;
+
+import javax.vecmath.Vector4f;
+
 import com.google.common.collect.ImmutableSet;
 
 import celestek.hexcraft.client.event.HexClientEvents;
@@ -8,14 +12,14 @@ import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.vertex.VertexFormat;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;
 import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.common.model.TRSRTransformation;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-public class HexUtilities
+public final class HexUtilities
 {
 	private HexUtilities() {}
 
@@ -45,57 +49,51 @@ public class HexUtilities
 		for(IForgeRegistryEntry entry : entries) HexClientEvents.addBakedModelOverride(entry.getRegistryName(), base -> new BakedModelBrightness(base, textures).setCache(cache));
 	}
 
-	public static BakedQuad createCube(VertexFormat format, EnumFacing face, int tint, TextureAtlasSprite sprite)
+	public static BakedQuad createQuad(VertexFormat format, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, int tint, TextureAtlasSprite sprite)
 	{
-		if(face == null) return null;
-		// The vertex order MATTERS apparently
-		switch(face)
-		{
-		case DOWN: return createQuad(format, new Vec3d(0d, 0d, 1d), new Vec3d(0d, 0d, 0d), new Vec3d(1d, 0d, 0d), new Vec3d(1d, 0d, 1d), tint, sprite);
-		case UP: return createQuad(format, new Vec3d(0d, 1d, 0d), new Vec3d(0d, 1d, 1d), new Vec3d(1d, 1d, 1d), new Vec3d(1d, 1d, 0d), tint, sprite);
-		case NORTH: return createQuad(format, new Vec3d(1d, 1d, 0d), new Vec3d(1d, 0d, 0d), new Vec3d(0d, 0d, 0d), new Vec3d(0d, 1d, 0d), tint, sprite);
-		case SOUTH: return createQuad(format, new Vec3d(0d, 1d, 1d), new Vec3d(0d, 0d, 1d), new Vec3d(1d, 0d, 1d), new Vec3d(1d, 1d, 1d), tint, sprite);
-		case WEST: return createQuad(format, new Vec3d(0d, 1d, 0d), new Vec3d(0d, 0d, 0d), new Vec3d(0d, 0d, 1d), new Vec3d(0d, 1d, 1d), tint, sprite);
-		case EAST: return createQuad(format, new Vec3d(1d, 1d, 1d), new Vec3d(1d, 0d, 1d), new Vec3d(1d, 0d, 0d), new Vec3d(1d, 1d, 0d), tint, sprite);
-		default: return null;
-		}
+		return createQuad(format, Optional.empty(), x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4, 0f, 0f, 0f, 16f, 16f, 16f, 16f, 0f, 1f, tint, sprite);
 	}
 
-	public static BakedQuad createQuad(VertexFormat format, Vec3d v1, Vec3d v2, Vec3d v3, Vec3d v4, int tint, TextureAtlasSprite sprite)
+	public static BakedQuad createQuad(VertexFormat format, Optional<TRSRTransformation> transform, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4, float alpha, int tint, TextureAtlasSprite sprite)
 	{
-		Vec3d normal = v3.subtract(v2).crossProduct(v1.subtract(v2)).normalize();
+		// Use vector classes for this?
+		float d1x = x3 - x2, d1y = y3 - y2, d1z = z3 - z2, d2x = x1 - x2, d2y = y1 - y2, d2z = z1 - z2;
+		float nx = d1y * d2z - d1z * d2y, ny = d1z * d2x - d1x * d2z, nz = d1x * d2y - d1y * d2x;
+		float l = MathHelper.sqrt(nx * nx + ny * ny + nz * nz);
+		nx /= l; ny /= l; nz /= l;
+
 		UnpackedBakedQuad.Builder builder = new UnpackedBakedQuad.Builder(format);
 		builder.setTexture(sprite);
 		builder.setQuadTint(tint);
-		putVertex(builder, format, normal, v1.x, v1.y, v1.z, 0, 0, sprite);
-		putVertex(builder, format, normal, v2.x, v2.y, v2.z, 0, 16, sprite);
-		putVertex(builder, format, normal, v3.x, v3.y, v3.z, 16, 16, sprite);
-		putVertex(builder, format, normal, v4.x, v4.y, v4.z, 16, 0, sprite);
+		putVertex(builder, format, transform, nx, ny, nz, x1, y1, z1, u1, v1, alpha, sprite);
+		putVertex(builder, format, transform, nx, ny, nz, x2, y2, z2, u2, v2, alpha, sprite);
+		putVertex(builder, format, transform, nx, ny, nz, x3, y3, z3, u3, v3, alpha, sprite);
+		putVertex(builder, format, transform, nx, ny, nz, x4, y4, z4, u4, v4, alpha, sprite);
 		return builder.build();
 	}
 
-	public static void putVertex(UnpackedBakedQuad.Builder builder, VertexFormat format,  Vec3d normal, double x, double y, double z, float u, float v, TextureAtlasSprite sprite)
+	public static void putVertex(UnpackedBakedQuad.Builder builder, VertexFormat format, Optional<TRSRTransformation> transform, float nx, float ny, float nz, float x, float y, float z, float u, float v, float alpha, TextureAtlasSprite sprite)
 	{
+		Vector4f vector = new Vector4f(x, y, z, 1f);
 		for (int e = 0; e < format.getElementCount(); e++)
 		{
 			switch (format.getElement(e).getUsage())
 			{
 			case POSITION:
-				builder.put(e, (float) x, (float) y, (float) z, 1f);
+				if(transform.isPresent() && !transform.get().isIdentity()) transform.get().getMatrix().transform(vector);
+				builder.put(e, vector.x, vector.y, vector.z, vector.w);
 				break;
 			case COLOR:
-				builder.put(e, 1f, 1f, 1f, 1f);
+				builder.put(e, 1f, 1f, 1f, alpha);
 				break;
 			case UV:
 				if (format.getElement(e).getIndex() == 0)
 				{
-					u = sprite.getInterpolatedU(u);
-					v = sprite.getInterpolatedV(v);
-					builder.put(e, u, v, 0f, 1f);
+					builder.put(e, sprite.getInterpolatedU(u), sprite.getInterpolatedV(v), 0f, 1f);
 					break;
 				}
 			case NORMAL:
-				builder.put(e, (float) normal.x, (float) normal.y, (float) normal.z, 0f);
+				builder.put(e, nx, ny, nz, 0f);
 				break;
 			default:
 				builder.put(e);

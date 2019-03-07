@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public abstract class HexCreativeTab extends CreativeTabs {
-	public HexCreativeTab(String name) {
+public abstract class AHexCreativeTab extends CreativeTabs {
+	public AHexCreativeTab(String name) {
 		super(HexCraft.ID + "." + name);
 	}
 }

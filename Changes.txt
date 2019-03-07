@@ -4,5 +4,6 @@ Changes compared to 1.7.10
 - Energized Hexorium textured blocks now properly drop particles when broken/hit.
 - Hexorium Crystal Block now orients similar to the Vanilla logs. It will orient to the side of the block it is clicked on when placing.
 - Hexorium reinforcer is longer consumed in creative mode.
+- Hexorium monoliths now have a breaking effect when their support is destroyed.
 - WIP: Hexorium Ore, Nether Ore, Monoliths and Nether Monoliths will now correctly follow their respective base texture (Stone and Netherrack). If the textures are changed using the texture packs, they will accordingly update as well.
 - WIP: Hexorium Monoliths and Nether Monoliths now have a new and improved 3D model.

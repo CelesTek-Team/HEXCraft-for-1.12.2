@@ -7,6 +7,7 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableList;
 
+import celestek.hexcraft.utility.HexShapes;
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -65,7 +66,7 @@ public class BakedModelConnectedOverlay extends BakedModelConnected
 		@Override
 		public BakedQuad load(CacheKey key)
 		{
-			return HexUtilities.createCube(key.model.format, key.face, 0, key.model.base);
+			return HexShapes.Cube.create(key.model.format, key.face, 0, key.model.base);
 		}
 	});
 
@@ -74,7 +75,7 @@ public class BakedModelConnectedOverlay extends BakedModelConnected
 	{
 		List<BakedQuad> quads = super.getQuads(state, face, rand);
 		if(!(state instanceof IExtendedBlockState) || face == null) return quads;
-		if(!this.enableCache) quads.add(0, HexUtilities.createCube(this.format, face, 0, this.base));
+		if(!this.enableCache) quads.add(0, HexShapes.Cube.create(this.format, face, 0, this.base));
 		else quads.add(0, CACHE.getUnchecked(new CacheKey(this, state instanceof IExtendedBlockState ? ((IExtendedBlockState) state).getClean() : state, face)));
 		return quads;
 	}

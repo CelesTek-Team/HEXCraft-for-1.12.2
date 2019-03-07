@@ -12,7 +12,7 @@ public class BlockConcentricHexoriumBlock extends HexBlockReinforceable
 {
 	public BlockConcentricHexoriumBlock(EHexColors color)
 	{
-		super("concentric_hexorium_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color.texture);
+		super("concentric_hexorium_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
 		this.setHardness(1.5F);
 		this.setResistance(6F);
 		this.setHarvestLevel("pickaxe", 2);

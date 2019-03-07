@@ -18,11 +18,4 @@ public class BlockHexoriumCoatedStone extends HexBlockReinforceable
 		this.setHarvestLevel("pickaxe", 2);
 		this.setSoundType(SoundType.STONE);
 	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()
-	{
-		return BlockRenderLayer.TRANSLUCENT;
-	}
 }

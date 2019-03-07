@@ -12,7 +12,7 @@ public class BlockPlatedHexoriumBlock extends HexBlockReinforceable
 {
 	public BlockPlatedHexoriumBlock(EHexColors color)
 	{
-		super("plated_hexorium_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color.texture);
+		super("plated_hexorium_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
 		this.setHardness(1.5F);
 		this.setResistance(6F);
 		this.setHarvestLevel("pickaxe", 2);

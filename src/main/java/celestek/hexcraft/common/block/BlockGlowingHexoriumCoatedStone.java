@@ -12,7 +12,7 @@ public class BlockGlowingHexoriumCoatedStone extends HexBlockConnectedReinforcea
 {
 	public BlockGlowingHexoriumCoatedStone(EHexColors color)
 	{
-		super("glowing_hexorium_coated_stone_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color.texture);
+		super("glowing_hexorium_coated_stone_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
 		this.setHardness(1.5F);
 		this.setResistance(6F);
 		this.setHarvestLevel("pickaxe", 2);

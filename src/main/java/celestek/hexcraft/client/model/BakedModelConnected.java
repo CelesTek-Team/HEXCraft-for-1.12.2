@@ -9,6 +9,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
 import celestek.hexcraft.common.block.HexBlockConnected;
+import celestek.hexcraft.utility.HexShapes;
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -81,7 +82,7 @@ public class BakedModelConnected implements IBakedModel
 		@Override
 		public BakedQuad load(CacheKey key)
 		{
-			return HexUtilities.createCube(key.model.format, key.face, -1, key.model.sprites.get(key.faceState));
+			return HexShapes.Cube.create(key.model.format, key.face, -1, key.model.sprites.get(key.faceState));
 		}
 	});
 
@@ -92,7 +93,7 @@ public class BakedModelConnected implements IBakedModel
 		if(!(state instanceof IExtendedBlockState) || face == null) return quads;
 		IExtendedBlockState extended = (IExtendedBlockState) state;
 		int faceState = extended.getValue(HexBlockConnected.FACE_STATES).get(face);
-		if(!this.enableCache) quads.add(HexUtilities.createCube(this.format, face, -1, this.sprites.get(faceState)));
+		if(!this.enableCache) quads.add(HexShapes.Cube.create(this.format, face, -1, this.sprites.get(faceState)));
 		else quads.add(CACHE.getUnchecked(new CacheKey(this, extended.getClean(), face, faceState)));
 		return quads;
 	}
@@ -124,6 +125,6 @@ public class BakedModelConnected implements IBakedModel
 	@Override
 	public ItemOverrideList getOverrides()
 	{
-		return null;
+		return ItemOverrideList.NONE;
 	}
 }

@@ -5,7 +5,7 @@ import celestek.hexcraft.common.creativetab.TabDecorative;
 import celestek.hexcraft.common.creativetab.TabMachines;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class HexCreativeTabs
+public final class HexCreativeTabs
 {
 	public static final CreativeTabs
 
