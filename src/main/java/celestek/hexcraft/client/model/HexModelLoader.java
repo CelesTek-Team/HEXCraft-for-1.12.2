@@ -5,6 +5,8 @@ import java.util.Optional;
 import com.google.common.collect.ImmutableList;
 
 import celestek.hexcraft.HexCraft;
+import celestek.hexcraft.client.model.connected.ModelConnectedOverlay;
+import celestek.hexcraft.client.model.monolith.ModelMonolith;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ICustomModelLoader;

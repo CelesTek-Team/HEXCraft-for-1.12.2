@@ -1,5 +1,8 @@
 package celestek.hexcraft.common.block;
 
+import java.util.Optional;
+
+import celestek.hexcraft.client.model.HexStateMapper;
 import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.EHexColors;
 import net.minecraft.block.SoundType;
@@ -12,7 +15,7 @@ public class BlockPlatedHexoriumBlock extends HexBlockReinforceable
 {
 	public BlockPlatedHexoriumBlock(EHexColors color)
 	{
-		super("plated_hexorium_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
+		super("plated_hexorium_block_" + color.name, color == EHexColors.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("plated_hexorium_block")), HexCreativeTabs.tabDecorative, Material.IRON, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
 		this.setHardness(1.5F);
 		this.setResistance(6F);
 		this.setHarvestLevel("pickaxe", 2);

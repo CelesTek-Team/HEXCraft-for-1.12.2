@@ -1,6 +1,6 @@
 package celestek.hexcraft;
 
-import celestek.hexcraft.common.proxy.ACommonProxy;
+import celestek.hexcraft.common.proxy.IProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -11,7 +11,7 @@ public class HexCraft
 	public static final String ID = "hexcraft", NAME = "HEXCraft", VERSION = "0.1.0", GAMEVERSIONS = "1.12.2";
 
 	@SidedProxy(clientSide = "celestek.hexcraft.client.proxy.ClientProxy")
-	public static ACommonProxy proxy;
+	public static IProxy proxy;
 
 	@Mod.EventHandler
 	public static void preInitialization(FMLPreInitializationEvent event)

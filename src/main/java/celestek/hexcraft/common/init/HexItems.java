@@ -2,7 +2,9 @@ package celestek.hexcraft.common.init;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import celestek.hexcraft.client.model.HexStateMapper;
 import celestek.hexcraft.common.block.HexBlock;
 import celestek.hexcraft.common.item.HexItem;
 import celestek.hexcraft.common.item.HexItemBlock;
@@ -50,10 +52,13 @@ public final class HexItems {
 		for (HexItem item : items) {
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 			if (!item.textures.isEmpty())
-				HexUtilities.addFullbright(item.textures, item.enableCache(), item);
+				HexUtilities.addFullbright(item.textures, item.enableCache(), item.getRegistryName());
 		}
 		for (HexItemBlock item : itemBlocks)
-			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		{
+			Optional<HexStateMapper> mapper = ((HexBlock) item.getBlock()).mapper;
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(mapper.isPresent() ? mapper.get().model : item.getRegistryName(), "inventory"));
+		}
 	}
 
 	@SideOnly(Side.CLIENT)

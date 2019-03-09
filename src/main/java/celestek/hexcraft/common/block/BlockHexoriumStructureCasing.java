@@ -1,5 +1,8 @@
 package celestek.hexcraft.common.block;
 
+import java.util.Optional;
+
+import celestek.hexcraft.client.model.HexStateMapper;
 import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.EHexColors;
 import net.minecraft.block.SoundType;
@@ -12,7 +15,7 @@ public class BlockHexoriumStructureCasing extends HexBlockConnectedReinforceable
 {
 	public BlockHexoriumStructureCasing(EHexColors color)
 	{
-		super("hexorium_structure_casing_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
+		super("hexorium_structure_casing_" + color.name, color == EHexColors.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("hexorium_structure_casing")), HexCreativeTabs.tabDecorative, Material.IRON, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
 		this.setHardness(1.5F);
 		this.setResistance(6F);
 		this.setHarvestLevel("pickaxe", 2);
@@ -23,6 +26,6 @@ public class BlockHexoriumStructureCasing extends HexBlockConnectedReinforceable
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer()
 	{
-		return BlockRenderLayer.TRANSLUCENT;
+		return BlockRenderLayer.CUTOUT;
 	}
 }

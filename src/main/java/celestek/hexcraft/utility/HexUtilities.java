@@ -12,12 +12,12 @@ import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.vertex.VertexFormat;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;
 import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.common.model.TRSRTransformation;
 import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public final class HexUtilities
 {
@@ -44,9 +44,9 @@ public final class HexUtilities
 		return format;
 	}
 
-	public static void addFullbright(ImmutableSet<String> textures, boolean cache, IForgeRegistryEntry... entries)
+	public static void addFullbright(ImmutableSet<String> textures, boolean cache, ResourceLocation... paths)
 	{
-		for(IForgeRegistryEntry entry : entries) HexClientEvents.addBakedModelOverride(entry.getRegistryName(), base -> new BakedModelBrightness(base, textures).setCache(cache));
+		for(ResourceLocation path : paths) HexClientEvents.addBakedModelOverride(path, base -> new BakedModelBrightness(base, textures).setCache(cache));
 	}
 
 	public static BakedQuad createQuad(VertexFormat format, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, int tint, TextureAtlasSprite sprite)

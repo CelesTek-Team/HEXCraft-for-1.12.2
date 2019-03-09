@@ -1,7 +1,10 @@
 package celestek.hexcraft.common.block;
 
+import java.util.Optional;
+
 import javax.annotation.Nullable;
 
+import celestek.hexcraft.client.model.HexStateMapper;
 import celestek.hexcraft.utility.HexProperties;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -18,9 +21,9 @@ public class HexBlockReinforceable extends HexBlock
 {
 	public static final PropertyBool REINFORCED = HexProperties.REINFORCED;
 
-	public HexBlockReinforceable(String name, CreativeTabs tab, Material material, int color, String... textures)
+	public HexBlockReinforceable(String name, Optional<HexStateMapper> mapper, CreativeTabs tab, Material material, int color, String... textures)
 	{
-		super(name, tab, material, color, textures);
+		super(name, mapper, tab, material, color, textures);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(REINFORCED, false));
 	}
 

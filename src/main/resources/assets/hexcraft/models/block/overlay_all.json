@@ -1,10 +1,7 @@
 {
 	"__comment": "A cube with a lower tintable unshaded layer which uses one texture for all faces and a normal overlay layer which uses one texture for all faces",
 	"parent": "block/block",
-	"textures":
-	{
-		"particle": "#overlay"
-	},
+	"textures": { "particle": "#overlay" },
 	"elements":
 	[
 		{

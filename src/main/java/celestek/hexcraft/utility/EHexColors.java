@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import celestek.hexcraft.common.init.HexItems;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 
 /**
@@ -62,6 +60,8 @@ public enum EHexColors {
 		return drops;
 	}
 
+	
+
 	public static EHexColors fromColor(int color)
 	{
 		return COLOR_LOOKUP.get(color);
@@ -70,22 +70,5 @@ public enum EHexColors {
 	public static EHexColors fromName(String name)
 	{
 		return NAME_LOOKUP.get(name);
-	}
-
-	private static class Drop
-	{
-		public final Item item;
-		public final int amount;
-
-		public Drop(Item item, int amount)
-		{
-			this.item = item;
-			this.amount = amount;
-		}
-
-		public ItemStack createStack()
-		{
-			return new ItemStack(this.item, this.amount);
-		}
 	}
 }

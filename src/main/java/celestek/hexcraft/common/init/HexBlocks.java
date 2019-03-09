@@ -11,16 +11,21 @@ import celestek.hexcraft.common.block.BlockEngineeredHexoriumBlock;
 import celestek.hexcraft.common.block.BlockFramedHexoriumBlock;
 import celestek.hexcraft.common.block.BlockGlowingHexoriumCoatedStone;
 import celestek.hexcraft.common.block.BlockHexoriumCoatedStone;
+import celestek.hexcraft.common.block.BlockHexoriumDoor;
+import celestek.hexcraft.common.block.BlockHexoriumNetherOre;
+import celestek.hexcraft.common.block.BlockHexoriumOre;
 import celestek.hexcraft.common.block.BlockHexoriumStructureCasing;
 import celestek.hexcraft.common.block.BlockPlatedHexoriumBlock;
 import celestek.hexcraft.common.block.HexBlock;
 import celestek.hexcraft.common.item.HexItemBlock;
+import celestek.hexcraft.utility.Drop;
 import celestek.hexcraft.utility.EHexColors;
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -32,11 +37,11 @@ public final class HexBlocks {
 	public static final Block
 
 	// Block of Hexorium Crystal
-	block_of_hexorium_crystal_red = add(new BlockBlockOfHexoriumCrystal("red")),
-	block_of_hexorium_crystal_green = add(new BlockBlockOfHexoriumCrystal("green")),
-	block_of_hexorium_crystal_blue = add(new BlockBlockOfHexoriumCrystal("blue")),
-	block_of_hexorium_crystal_white = add(new BlockBlockOfHexoriumCrystal("white")),
-	block_of_hexorium_crystal_black = add(new BlockBlockOfHexoriumCrystal("black")),
+	block_of_hexorium_crystal_red = add(new BlockBlockOfHexoriumCrystal(EHexColors.RED)),
+	block_of_hexorium_crystal_green = add(new BlockBlockOfHexoriumCrystal(EHexColors.GREEN)),
+	block_of_hexorium_crystal_blue = add(new BlockBlockOfHexoriumCrystal(EHexColors.BLUE)),
+	block_of_hexorium_crystal_white = add(new BlockBlockOfHexoriumCrystal(EHexColors.WHITE)),
+	block_of_hexorium_crystal_black = add(new BlockBlockOfHexoriumCrystal(EHexColors.BLACK)),
 
 	// Energized Hexorium
 	energized_hexorium_red = add(new BlockEnergizedHexorium(EHexColors.RED)),
@@ -181,7 +186,13 @@ public final class HexBlocks {
 	glowing_hexorium_coated_stone_black = add(new BlockGlowingHexoriumCoatedStone(EHexColors.BLACK)),
 	glowing_hexorium_coated_stone_rainbow = add(new BlockGlowingHexoriumCoatedStone(EHexColors.RAINBOW)),
 
-	energized_hexorium_monolith_red = add(new BlockEnergizedHexoriumMonolith(EHexColors.RED));
+	energized_hexorium_monolith_red = add(new BlockEnergizedHexoriumMonolith(EHexColors.RED)),
+
+	hexorium_ore_red = add(new BlockHexoriumOre(EHexColors.RED, new Drop(HexItems.hexorium_crystal_red, 2, 4))),
+
+	hexorium_nether_ore_red = add(new BlockHexoriumNetherOre(EHexColors.RED, new Drop(HexItems.hexorium_crystal_red, 1, 2))),
+
+	hexorium_door_red = add(new BlockHexoriumDoor(EHexColors.RED));
 
 	private HexBlocks() {}
 
@@ -203,8 +214,12 @@ public final class HexBlocks {
 	@SideOnly(Side.CLIENT)
 	public static void registerModels() {
 		for(HexBlock block : blocks)
+		{
 			if(!block.textures.isEmpty())
-				HexUtilities.addFullbright(block.textures, block.enableCache(), block);
+				HexUtilities.addFullbright(block.textures, block.enableCache(), block.mapper.isPresent() ? block.mapper.get().model : block.getRegistryName()); // FIXME multiple identical models being replaced
+			if(block.mapper.isPresent())
+				ModelLoader.setCustomStateMapper(block, block.mapper.get());
+		}
 	}
 
 	public static HexBlock add(HexBlock block)

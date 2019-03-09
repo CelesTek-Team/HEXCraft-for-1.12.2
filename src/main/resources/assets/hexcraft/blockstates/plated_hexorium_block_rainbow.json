@@ -11,8 +11,11 @@
 	},
 	"variants":
 	{
-		"reinforced=false": [{}],
-		"reinforced=true": [{ "textures": { "overlay": "hexcraft:blocks/plated_hexorium_block_reinforced" } }],
+		"reinforced":
+		{
+			"false": {},
+			"true": { "textures": { "overlay": "hexcraft:blocks/plated_hexorium_block_reinforced" } }
+		},
 		"inventory": [{}]
 	}
 }

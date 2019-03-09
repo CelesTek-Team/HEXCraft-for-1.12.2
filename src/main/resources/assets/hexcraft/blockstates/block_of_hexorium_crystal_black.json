@@ -12,12 +12,15 @@
 	},
 	"variants":
 	{
-		"facing=down": [{ "x": 180 }],
-		"facing=up": [{}],
-		"facing=north": [{ "x": 90 }],
-		"facing=south": [{ "x": -90}],
-		"facing=west": [{ "x": -90, "y": 90}],
-		"facing=east": [{ "x": -90, "y": -90}],
+		"facing":
+		{
+			"down": { "x": 180 },
+			"up": {},
+			"north": { "x": 90 },
+			"south": { "x": -90},
+			"west": { "x": -90, "y": 90},
+			"east": { "x": -90, "y": -90}
+		},
 		"inventory": [{}]
 	}
 }

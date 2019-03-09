@@ -1,0 +1,18 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:ore",
+		"textures":
+		{
+			"base": "blocks/stone",
+			"gems": "hexcraft:blocks/hexorium_ore/hexorium_ore_red_gems",
+			"cracks": "hexcraft:blocks/hexorium_ore/hexorium_ore_red_cracks"
+		}
+	},
+	"variants":
+	{
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

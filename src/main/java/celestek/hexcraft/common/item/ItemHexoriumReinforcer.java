@@ -23,7 +23,7 @@ public class ItemHexoriumReinforcer extends HexItem
 		IBlockState state = world.getBlockState(position);
 		if(!state.getPropertyKeys().contains(HexProperties.REINFORCED) || state.getValue(HexProperties.REINFORCED)) return EnumActionResult.PASS;
 		if(!player.isCreative()) player.getHeldItem(hand).shrink(1);
-		world.setBlockState(position, state.withProperty(HexProperties.REINFORCED, true));
+		world.setBlockState(position, state.withProperty(HexProperties.REINFORCED, true), 3);
 		return EnumActionResult.SUCCESS;
 	}
 }

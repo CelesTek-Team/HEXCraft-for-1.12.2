@@ -3,15 +3,15 @@
 	"defaults":
 	{
 		"model": "minecraft:cube_all",
-		"textures":
-		{
-			"all": "hexcraft:blocks/hexorium_coated_stone"
-		}
+		"textures": { "all": "hexcraft:blocks/hexorium_coated_stone" }
 	},
 	"variants":
 	{
-		"reinforced=false": [{}],
-		"reinforced=true": [{ "textures": { "all": "hexcraft:blocks/hexorium_coated_stone_reinforced" } }],
+		"reinforced":
+		{
+			"false": {},
+			"true": { "textures": { "all": "hexcraft:blocks/hexorium_coated_stone_reinforced" } }
+		},
 		"inventory": [{}]
 	}
 }
