@@ -13,6 +13,6 @@
 	"variants":
 	{
 		"normal": [{}],
-		"inventory": [{}]
+		"inventory": [{  "model": "hexcraft:ore_shaded"  }]
 	}
 }

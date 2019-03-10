@@ -16,6 +16,6 @@
 			"false": {},
 			"true": { "textures": { "overlay": "hexcraft:blocks/plated_hexorium_block_reinforced" } }
 		},
-		"inventory": [{}]
+		"inventory": [{  "model": "hexcraft:overlay_all_shaded"  }]
 	}
 }

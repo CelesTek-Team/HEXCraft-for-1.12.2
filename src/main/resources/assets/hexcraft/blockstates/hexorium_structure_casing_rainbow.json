@@ -116,7 +116,7 @@
 		},
 		"inventory":
 		[{
-			"model": "hexcraft:overlay_all",
+			"model": "hexcraft:overlay_all_shaded",
 			"textures": { "overlay": "hexcraft:blocks/hexorium_structure_casing/hexorium_structure_casing_1" }
 		}]
 	}

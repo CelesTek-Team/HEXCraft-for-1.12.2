@@ -117,7 +117,7 @@
 		},
 		"inventory":
 		[{
-			"model": "hexcraft:overlay_all",
+			"model": "hexcraft:overlay_all_shaded",
 			"textures":
 			{
 				"base": "hexcraft:blocks/glow",

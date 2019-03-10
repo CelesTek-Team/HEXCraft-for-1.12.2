@@ -21,6 +21,6 @@
 			"west": { "x": -90, "y": 90},
 			"east": { "x": -90, "y": -90}
 		},
-		"inventory": [{}]
+		"inventory": [{ "model": "hexcraft:cube_top_bottom_shaded" }]
 	}
 }

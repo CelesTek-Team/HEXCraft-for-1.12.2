@@ -1,0 +1,47 @@
+{
+	"__comment": "A cube with two layers which use one texture for all faces and a middle tintable layer which uses one texture for all faces",
+	"parent": "block/block",
+	"textures": { "particle": "#base" },
+	"elements":
+	[
+		{
+			"from": [ 0, 0, 0 ],
+			"to": [ 16, 16, 16 ],
+			"faces":
+			{
+				"down": { "texture": "#base", "cullface": "down" },
+				"up": { "texture": "#base", "cullface": "up" },
+				"north": { "texture": "#base", "cullface": "north" },
+				"south": { "texture": "#base", "cullface": "south" },
+				"west": { "texture": "#base", "cullface": "west" },
+				"east": { "texture": "#base", "cullface": "east" }
+			}
+		},
+		{
+			"from": [ 0, 0, 0 ],
+			"to": [ 16, 16, 16 ],
+			"faces":
+			{
+				"down": { "texture": "#gems", "tintindex": 0, "cullface": "down" },
+				"up": { "texture": "#gems", "tintindex": 0, "cullface": "up" },
+				"north": { "texture": "#gems", "tintindex": 0, "cullface": "north" },
+				"south": { "texture": "#gems", "tintindex": 0, "cullface": "south" },
+				"west": { "texture": "#gems", "tintindex": 0, "cullface": "west" },
+				"east": { "texture": "#gems", "tintindex": 0, "cullface": "east" }
+			}
+		},
+		{
+			"from": [ 0, 0, 0 ],
+			"to": [ 16, 16, 16 ],
+			"faces":
+			{
+				"down": { "texture": "#cracks", "cullface": "down" },
+				"up": { "texture": "#cracks", "cullface": "up" },
+				"north": { "texture": "#cracks", "cullface": "north" },
+				"south": { "texture": "#cracks", "cullface": "south" },
+				"west": { "texture": "#cracks", "cullface": "west" },
+				"east": { "texture": "#cracks", "cullface": "east" }
+			}
+		}
+	]
+}

@@ -1,13 +1,9 @@
 {
 	"forge_marker": 1,
-	"defaults":
-	{
-		"model": "hexcraft:cube_all",
-		"textures": { "all": "hexcraft:blocks/glow_rainbow" }
-	},
+	"defaults": { "textures": { "all": "hexcraft:blocks/glow_rainbow" } },
 	"variants":
 	{
-		"normal": [{}],
-		"inventory": [{}]
+		"normal": [{  "model": "hexcraft:cube_all"  }],
+		"inventory": [{  "model": "hexcraft:cube_all_shaded"  }]
 	}
 }
