@@ -141,6 +141,7 @@ public class BakedModelBrightness extends BakedModelWrapper
 	public Pair<? extends IBakedModel, Matrix4f> handlePerspective(TransformType type)
 	{
 		Pair<? extends IBakedModel, Matrix4f> base = super.handlePerspective(type);
+		if(type == TransformType.GUI) return base;
 		return base.getLeft() instanceof BakedModelBrightness ? base : Pair.of(new BakedModelBrightness(base.getLeft(), this.textures), base.getRight());
 	}
 }
