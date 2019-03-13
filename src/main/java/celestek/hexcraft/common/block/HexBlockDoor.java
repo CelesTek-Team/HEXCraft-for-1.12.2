@@ -118,6 +118,10 @@ public class HexBlockDoor extends HexBlockReinforceable
 			return true;
 		}
 		*/
+		EnumFacing direction = state.getValue(FACING);
+		BlockPos offsetPosition = position.offset(state.getValue(HINGE) == BlockDoor.EnumHingePosition.RIGHT ? direction.rotateYCCW() : direction.rotateY());
+		IBlockState offsetState = world.getBlockState(offsetPosition);
+		if(offsetState.getBlock() == this && offsetState.getValue(OPEN) == state.getValue(OPEN)) world.setBlockState(offsetPosition, offsetState.cycleProperty(OPEN));
 		world.setBlockState(position, state.cycleProperty(OPEN));
 		world.playEvent(player, state.getValue(OPEN) ? 1011 : 1005, position, 0);
 		return true;

@@ -7,9 +7,8 @@ import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.EHexColors;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockConcentricHexoriumBlock extends HexBlockReinforceable
 {
@@ -23,9 +22,14 @@ public class BlockConcentricHexoriumBlock extends HexBlockReinforceable
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()
+	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
 	{
-		return BlockRenderLayer.CUTOUT;
+		return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.TRANSLUCENT;
+	}
+
+	@Override
+	public boolean enableCache()
+	{
+		return false;
 	}
 }

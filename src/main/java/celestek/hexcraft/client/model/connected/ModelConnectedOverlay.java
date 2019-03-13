@@ -41,7 +41,6 @@ public class ModelConnectedOverlay extends ModelConnected
 	@Override
 	public IModel retexture(ImmutableMap<String, String> textures)
 	{
-		if(textures.size() < 48) return this;
 		ImmutableList.Builder builder = ImmutableList.builder();
 		for(int a = 0; a < 47; ++a) builder.add(new ResourceLocation(textures.get(Integer.toString(a + 1))));
 		return new ModelConnectedOverlay(builder.build(), new ResourceLocation(textures.get("base")));

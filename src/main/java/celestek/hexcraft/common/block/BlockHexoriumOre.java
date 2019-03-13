@@ -4,9 +4,8 @@ import java.util.Optional;
 
 import celestek.hexcraft.utility.Drop;
 import celestek.hexcraft.utility.EHexColors;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockHexoriumOre extends HexBlockOre
 {
@@ -16,9 +15,14 @@ public class BlockHexoriumOre extends HexBlockOre
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()
+	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
 	{
-		return BlockRenderLayer.TRANSLUCENT;
+		return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.CUTOUT || layer == BlockRenderLayer.TRANSLUCENT;
+	}
+
+	@Override
+	public boolean enableCache()
+	{
+		return false;
 	}
 }

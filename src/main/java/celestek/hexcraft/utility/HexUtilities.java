@@ -49,12 +49,12 @@ public final class HexUtilities
 		for(ResourceLocation path : paths) HexClientEvents.addBakedModelOverride(path, base -> new BakedModelBrightness(base, textures).setCache(cache));
 	}
 
-	public static BakedQuad createQuad(VertexFormat format, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, int tint, TextureAtlasSprite sprite)
+	public static BakedQuad createQuad(VertexFormat format, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, int tint, boolean shade, TextureAtlasSprite sprite)
 	{
-		return createQuad(format, Optional.empty(), x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4, 0f, 0f, 0f, 16f, 16f, 16f, 16f, 0f, 1f, tint, sprite);
+		return createQuad(format, Optional.empty(), x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4, 0f, 0f, 0f, 16f, 16f, 16f, 16f, 0f, 1f, tint, shade, sprite);
 	}
 
-	public static BakedQuad createQuad(VertexFormat format, Optional<TRSRTransformation> transform, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4, float alpha, int tint, TextureAtlasSprite sprite)
+	public static BakedQuad createQuad(VertexFormat format, Optional<TRSRTransformation> transform, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4, float alpha, int tint, boolean shade, TextureAtlasSprite sprite)
 	{
 		// Use vector classes for this?
 		float d1x = x3 - x2, d1y = y3 - y2, d1z = z3 - z2, d2x = x1 - x2, d2y = y1 - y2, d2z = z1 - z2;
@@ -65,6 +65,7 @@ public final class HexUtilities
 		UnpackedBakedQuad.Builder builder = new UnpackedBakedQuad.Builder(format);
 		builder.setTexture(sprite);
 		builder.setQuadTint(tint);
+		builder.setApplyDiffuseLighting(shade);
 		putVertex(builder, format, transform, nx, ny, nz, x1, y1, z1, u1, v1, alpha, sprite);
 		putVertex(builder, format, transform, nx, ny, nz, x2, y2, z2, u2, v2, alpha, sprite);
 		putVertex(builder, format, transform, nx, ny, nz, x3, y3, z3, u3, v3, alpha, sprite);

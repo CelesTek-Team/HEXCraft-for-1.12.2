@@ -30,16 +30,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class BakedModelMonolith implements IBakedModel
 {
-	protected final VertexFormat format;
 	protected final IModelState state;
+	protected final VertexFormat format;
 	protected final Optional<TRSRTransformation> transform;
 	protected final TextureAtlasSprite sprite;
 	private boolean enableCache = true;
 
-	public BakedModelMonolith(VertexFormat format, IModelState state, Optional<TRSRTransformation> transform, TextureAtlasSprite sprite)
+	public BakedModelMonolith(IModelState state, VertexFormat format, Optional<TRSRTransformation> transform, TextureAtlasSprite sprite)
 	{
-		this.format = format;
 		this.state = state;
+		this.format = format;
 		this.transform = transform;
 		this.sprite = sprite;
 	}
@@ -67,8 +67,7 @@ public class BakedModelMonolith implements IBakedModel
 			if (this == o) return true;
 			if (o == null || getClass() != o.getClass()) return false;
 			CacheKey key = (CacheKey) o;
-			if (this.state != key.state) return false; // Careful with this comparison in case block states are changed and are no longer compared like this
-			return true;
+			return this.state == key.state; // Careful with this comparison in case block states are changed and are no longer compared like this
 		}
 
 		@Override
@@ -83,7 +82,7 @@ public class BakedModelMonolith implements IBakedModel
 		@Override
 		public List<BakedQuad> load(CacheKey key)
 		{
-			return HexShapes.Monolith.create(Lists.newArrayList(), key.model.format, key.model.transform, 0, key.model.sprite);
+			return HexShapes.Monolith.create(Lists.newArrayList(), key.model.format, key.model.transform, 0, false, key.model.sprite);
 		}
 	});
 
@@ -93,14 +92,14 @@ public class BakedModelMonolith implements IBakedModel
 	{
 		List<BakedQuad> quads = Lists.newArrayList();
 		if(side != null) return quads;
-		if(!this.enableCache) return HexShapes.Monolith.create(quads, this.format, this.transform, 0, this.sprite);
+		if(!this.enableCache) return HexShapes.Monolith.create(quads, this.format, this.transform, 0, false, this.sprite);
 		else return CACHE.getUnchecked(new CacheKey(this, state));
 	}
 
 	@Override
 	public boolean isAmbientOcclusion()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

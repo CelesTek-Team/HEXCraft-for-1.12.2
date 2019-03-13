@@ -40,7 +40,6 @@ public class ModelConnected implements IModel
 	@Override
 	public IModel retexture(ImmutableMap<String, String> textures)
 	{
-		if(textures.size() < 47) return this;
 		ImmutableList.Builder builder = ImmutableList.builder();
 		for(int a = 0; a < 47; ++a) builder.add(new ResourceLocation(textures.get(Integer.toString(a + 1))));
 		return new ModelConnected(builder.build());

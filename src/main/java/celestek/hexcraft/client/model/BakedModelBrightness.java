@@ -52,16 +52,16 @@ public class BakedModelBrightness extends BakedModelWrapper
 		{
 			if (this == o) return true;
 			if (o == null || getClass() != o.getClass()) return false;
-			CacheKey cacheKey = (CacheKey) o;
-			if (this.side != cacheKey.side) return false;
-			if (this.state != cacheKey.state) return false; // Careful with this comparison in case block states are changed and are no longer compared like this
-			return true;
+			CacheKey key = (CacheKey) o;
+			return this.side == key.side && this.state == key.state; // Careful with this comparison in case block states are changed and are no longer compared like this
 		}
 
 		@Override
 		public int hashCode()
 		{
-			return state != null ? state.hashCode() : 0 + (31 * (side != null ? side.hashCode() : 0));
+			int hash = this.state == null ? 0 : this.state.hashCode();
+			hash = 31 * hash + (this.side == null ? 0 : this.side.hashCode());
+			return hash;
 		}
 	}
 
@@ -118,8 +118,8 @@ public class BakedModelBrightness extends BakedModelWrapper
 			@Override
 			protected void updateLightmap(float[] normal, float[] lightmap, float x, float y, float z)
 			{
-				lightmap[0] = ((float)((brightness >> 0x04) & 0xF) * 0x20) / 0xFFFF;
-				lightmap[1] = ((float)((brightness >> 0x14) & 0xF) * 0x20) / 0xFFFF;
+				lightmap[0] = ((float) ((brightness >> 0x04) & 0xF) * 0x20) / 0xFFFF;
+				lightmap[1] = ((float) ((brightness >> 0x14) & 0xF) * 0x20) / 0xFFFF;
 			}
 
 			@Override
@@ -133,7 +133,7 @@ public class BakedModelBrightness extends BakedModelWrapper
 		builder.setQuadTint(quad.getTintIndex());
 		builder.setQuadOrientation(quad.getFace());
 		builder.setTexture(quad.getSprite());
-		builder.setApplyDiffuseLighting(false);
+		builder.setApplyDiffuseLighting(false); // FIXME Why does this only partially disable shading?
 		return builder.build();
 	}
 

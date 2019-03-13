@@ -2,20 +2,41 @@
 	"forge_marker": 1,
 	"defaults":
 	{
-		"model": "hexcraft:overlay_all",
-		"textures":
-		{
-			"base": "hexcraft:blocks/glow",
-			"overlay": "hexcraft:blocks/engineered_hexorium_block"
-		}
+		"model": "hexcraft:overlay/cube",
+		"transform": "forge:default-block"
 	},
 	"variants":
 	{
 		"reinforced":
 		{
-			"false": {},
-			"true": { "textures": { "overlay": "hexcraft:blocks/engineered_hexorium_block_reinforced" } }
+			"false":
+			{
+				"textures":
+				{
+					"layer0": "path=hexcraft:blocks/glow,tint=0,shade=false",
+					"layer1": "path=hexcraft:blocks/engineered_hexorium_block,layer=translucent,shade=false",
+					"particle": "hexcraft:blocks/engineered_hexorium_block"
+				}
+			},
+			"true":
+			{
+				"textures":
+				{
+					"layer0": "path=hexcraft:blocks/glow,tint=0,shade=false",
+					"layer1": "path=hexcraft:blocks/engineered_hexorium_block_reinforced,layer=translucent,shade=false",
+					"particle": "hexcraft:blocks/engineered_hexorium_block_reinforced"
+				}
+			}
 		},
-		"inventory": [{  "model": "hexcraft:overlay_all_shaded"  }]
+		"inventory":
+		[
+			{
+				"textures":
+				{
+					"layer0": "path=hexcraft:blocks/glow,tint=0",
+					"layer1": "path=hexcraft:blocks/engineered_hexorium_block,layer=translucent/null"
+				}
+			}
+		]
 	}
 }

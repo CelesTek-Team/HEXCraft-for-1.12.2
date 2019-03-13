@@ -8,5 +8,6 @@ Changes compared to 1.7.10
 - All ores now drop xp.
 - All ores now use vanilla (and resource pack) textures as their base.
 - Doors are now placed like vanilla doors meaning the side of the clicked block decides the hinge position.
+- Opening double doors has been improved. The effect is smoother, doesn't work if both doors aren't in the same state or with non-connected doors, isn't triggered by redstone.
 - WIP: Hexorium Ore, Nether Ore, Monoliths and Nether Monoliths will now correctly follow their respective base texture (Stone and Netherrack). If the textures are changed using the texture packs, they will accordingly update as well.
 - WIP: Hexorium Monoliths and Nether Monoliths now have a new and improved 3D model.

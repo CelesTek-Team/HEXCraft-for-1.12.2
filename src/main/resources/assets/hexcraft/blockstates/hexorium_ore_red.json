@@ -2,17 +2,19 @@
 	"forge_marker": 1,
 	"defaults":
 	{
-		"model": "hexcraft:ore",
+		"model": "hexcraft:overlay/cube",
 		"textures":
 		{
-			"base": "blocks/stone",
-			"gems": "hexcraft:blocks/hexorium_ore/hexorium_ore_red_gems",
-			"cracks": "hexcraft:blocks/hexorium_ore/hexorium_ore_red_cracks"
-		}
+			"layer0": "path=blocks/stone",
+			"layer1": "path=hexcraft:blocks/hexorium_ore/hexorium_ore_red_gems,tint=0,layer=cutout/null,shade=false",
+			"layer2": "path=hexcraft:blocks/hexorium_ore/hexorium_ore_red_cracks,layer=translucent/null",
+			"particle": "blocks/stone"
+		},
+		"transform": "forge:default-block"
 	},
 	"variants":
 	{
 		"normal": [{}],
-		"inventory": [{  "model": "hexcraft:ore_shaded"  }]
+		"inventory": [{}]
 	}
 }

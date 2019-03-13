@@ -2,17 +2,19 @@
 	"forge_marker": 1,
 	"defaults":
 	{
-		"model": "hexcraft:ore",
+		"model": "hexcraft:overlay/cube",
 		"textures":
 		{
-			"base": "blocks/netherrack",
-			"gems": "hexcraft:blocks/hexorium_ore/hexorium_ore_red_gems",
-			"cracks": "hexcraft:blocks/hexorium_nether_ore/hexorium_nether_ore_red_cracks"
-		}
+			"layer0": "path=blocks/netherrack",
+			"layer1": "path=hexcraft:blocks/hexorium_ore/hexorium_ore_red_gems,tint=0,layer=cutout/null,shade=false",
+			"layer2": "path=hexcraft:blocks/hexorium_nether_ore/hexorium_nether_ore_red_cracks,layer=translucent/null",
+			"particle": "blocks/netherrack"
+		},
+		"transform": "forge:default-block"
 	},
 	"variants":
 	{
 		"normal": [{}],
-		"inventory": [{  "model": "hexcraft:ore_shaded"  }]
+		"inventory": [{}]
 	}
 }

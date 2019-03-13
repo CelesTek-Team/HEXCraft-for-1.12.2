@@ -31,13 +31,13 @@ public class ModelMonolith implements IModel
 	@Override
 	public IBakedModel bake(IModelState state, VertexFormat format, Function<ResourceLocation, TextureAtlasSprite> getter)
 	{
-		return new BakedModelMonolith(format, state, this.transform, getter.apply(this.texture));
+		return new BakedModelMonolith(state, format, this.transform, getter.apply(this.texture));
 	}
 
 	@Override
 	public Collection<ResourceLocation> getTextures()
 	{
-		return this.texture != null ? ImmutableList.of(texture) : ImmutableList.of();
+		return this.texture == null ? ImmutableList.of() : ImmutableList.of(this.texture);
 	}
 
 	public static final String TAG_ROTATION_X = "rotation_x", TAG_ROTATION_Y = "rotation_y", TAG_ROTATION_Z = "rotation_z";
@@ -45,7 +45,7 @@ public class ModelMonolith implements IModel
 	@Override
 	public IModel process(ImmutableMap<String, String> data)
 	{
-		if(data.isEmpty()) return this; // FIXME If not contains rotation only
+		if(!data.containsKey(TAG_ROTATION_X) && !data.containsKey(TAG_ROTATION_Y) && !data.containsKey(TAG_ROTATION_Z)) return this;
 		float rotationX = data.containsKey(TAG_ROTATION_X) ? Float.parseFloat(data.get(TAG_ROTATION_X)) : 0f;
 		float rotationY = data.containsKey(TAG_ROTATION_Y) ? Float.parseFloat(data.get(TAG_ROTATION_Y)) : 0f;
 		float rotationZ = data.containsKey(TAG_ROTATION_Z) ? Float.parseFloat(data.get(TAG_ROTATION_Z)) : 0f;
