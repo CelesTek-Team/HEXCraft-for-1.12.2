@@ -78,7 +78,7 @@ public class BlockEnergizedHexoriumMonolith extends HexBlockPillar
 	public static boolean canAttach(World world, BlockPos position, EnumFacing side)
 	{
 		IBlockState state = world.getBlockState(position);
-		return state.isSideSolid(world, position, side); // Is this the best way? Maybe check face shape or other approaches?
+		return state.getBlockFaceShape(world, position, side) == BlockFaceShape.SOLID; // Seems to be better than IBlockState#isSideSolid
 	}
 
 	@Override

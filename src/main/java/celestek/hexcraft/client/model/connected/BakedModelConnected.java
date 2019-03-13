@@ -23,7 +23,6 @@ import net.minecraftforge.common.property.IExtendedBlockState;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//FIXME Figure out and implement isAmbientOcclusion, isGui3d, isBuiltInRenderer
 //FIXME Allow setting tint index from model file
 @SideOnly(Side.CLIENT)
 public class BakedModelConnected implements IBakedModel
@@ -101,13 +100,13 @@ public class BakedModelConnected implements IBakedModel
 	@Override
 	public boolean isAmbientOcclusion()
 	{
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean isGui3d()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

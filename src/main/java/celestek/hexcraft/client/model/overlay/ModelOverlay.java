@@ -91,12 +91,14 @@ public class ModelOverlay implements IModel
 	}
 
 	protected final ImmutableList<Layer> layers;
-	protected ResourceLocation particle;
+	protected final ResourceLocation particle;
+	protected final boolean ambientOcclusion;
 
-	public ModelOverlay(ImmutableList<Layer> layers, ResourceLocation particle)
+	public ModelOverlay(ImmutableList<Layer> layers, ResourceLocation particle, boolean ambientOcclusion)
 	{
 		this.layers = layers;
 		this.particle = particle;
+		this.ambientOcclusion = ambientOcclusion;
 	}
 
 	@Override
@@ -104,7 +106,7 @@ public class ModelOverlay implements IModel
 	{
 		ImmutableList.Builder builder = ImmutableList.builder();
 		for(Layer layer : this.layers) builder.add(new BakedModelOverlay.Layer(getter.apply(layer.texture), layer.tint, layer.renderLayers, layer.renderCracks, layer.shade));
-		return new BakedModelOverlay(state, format, builder.build(), getter.apply(this.particle));
+		return new BakedModelOverlay(state, format, this.ambientOcclusion, builder.build(), getter.apply(this.particle));
 	}
 
 	@Override
@@ -125,10 +127,17 @@ public class ModelOverlay implements IModel
 		String tag = TAG_LAYER + "0";
 		for(int a = 0; textures.containsKey(tag); ++a)
 		{
-			builder.add(Layer.parse(textures.get(tag).split(",")));
+			Layer layer = Layer.parse(textures.get(tag).split(","));
+			builder.add(layer);
 			tag = TAG_LAYER + (a + 1);
 		}
 		ImmutableList<Layer> layers = builder.build();
-		return new ModelOverlay(layers, textures.containsKey(TAG_PARTICLE) ? new ResourceLocation(textures.get(TAG_PARTICLE)) : layers.isEmpty() ? MISSING : layers.get(0).texture);
+		return new ModelOverlay(layers, textures.containsKey(TAG_PARTICLE) ? new ResourceLocation(textures.get(TAG_PARTICLE)) : layers.isEmpty() ? MISSING : layers.get(0).texture, this.ambientOcclusion);
+	}
+
+	@Override
+	public IModel smoothLighting(boolean value)
+	{
+		return value == this.ambientOcclusion ? this : new ModelOverlay(this.layers, this.particle, value);
 	}
 }

@@ -3,6 +3,7 @@
 	"defaults":
 	{
 		"model": "hexcraft:overlay/cube",
+		"smooth_lighting": false,
 		"transform": "forge:default-block"
 	},
 	"variants":
@@ -14,7 +15,7 @@
 				"textures":
 				{
 					"layer0": "path=hexcraft:blocks/glow,tint=0,shade=false",
-					"layer1": "path=hexcraft:blocks/engineered_hexorium_block,layer=translucent,shade=false",
+					"layer1": "path=hexcraft:blocks/engineered_hexorium_block,layer=translucent",
 					"particle": "hexcraft:blocks/engineered_hexorium_block"
 				}
 			},
@@ -23,7 +24,7 @@
 				"textures":
 				{
 					"layer0": "path=hexcraft:blocks/glow,tint=0,shade=false",
-					"layer1": "path=hexcraft:blocks/engineered_hexorium_block_reinforced,layer=translucent,shade=false",
+					"layer1": "path=hexcraft:blocks/engineered_hexorium_block_reinforced,layer=translucent",
 					"particle": "hexcraft:blocks/engineered_hexorium_block_reinforced"
 				}
 			}
@@ -34,7 +35,7 @@
 				"textures":
 				{
 					"layer0": "path=hexcraft:blocks/glow,tint=0",
-					"layer1": "path=hexcraft:blocks/engineered_hexorium_block,layer=translucent/null"
+					"layer1": "path=hexcraft:blocks/engineered_hexorium_block,layer=null"
 				}
 			}
 		]

@@ -31,7 +31,7 @@ public class HexModelLoader implements ICustomModelLoader
 	public IModel loadModel(ResourceLocation location) throws Exception
 	{
 		String path = location.getResourcePath();
-		if(path.equals(OVERLAY)) return new ModelOverlay(ImmutableList.of(), null);
+		if(path.equals(OVERLAY)) return new ModelOverlay(ImmutableList.of(), null, true);
 		else if(path.equals(CONNECTED_OVERLAY)) return new ModelConnectedOverlay(ImmutableList.of(), null);
 		else if(path.equals(MONOLITH)) return new ModelMonolith(null, Optional.empty());
 		return null;

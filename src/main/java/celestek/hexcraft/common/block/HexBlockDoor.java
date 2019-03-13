@@ -55,11 +55,11 @@ public class HexBlockDoor extends HexBlockReinforceable
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, BlockPos position) //FIXME Can player edit and isTopSolid || solid face shape like in BlockDoor?
+	public boolean canPlaceBlockAt(World world, BlockPos position) //FIXME Can player edit and isTopSolid like in BlockDoor?
 	{
 		BlockPos upPosition = position.up();
 		BlockPos downPosition = position.down();
-		return position.getY() < world.getHeight() - 1 && world.getBlockState(downPosition).isSideSolid(world, downPosition, EnumFacing.UP) && super.canPlaceBlockAt(world, position) && super.canPlaceBlockAt(world, upPosition); 
+		return position.getY() < world.getHeight() - 1 && world.getBlockState(downPosition).getBlockFaceShape(world, downPosition, EnumFacing.UP) == BlockFaceShape.SOLID && super.canPlaceBlockAt(world, upPosition); 
 	}
 
 	@Override
@@ -121,7 +121,7 @@ public class HexBlockDoor extends HexBlockReinforceable
 		EnumFacing direction = state.getValue(FACING);
 		BlockPos offsetPosition = position.offset(state.getValue(HINGE) == BlockDoor.EnumHingePosition.RIGHT ? direction.rotateYCCW() : direction.rotateY());
 		IBlockState offsetState = world.getBlockState(offsetPosition);
-		if(offsetState.getBlock() == this && offsetState.getValue(OPEN) == state.getValue(OPEN)) world.setBlockState(offsetPosition, offsetState.cycleProperty(OPEN));
+		if(offsetState.getBlock() == this && offsetState.getValue(OPEN) == state.getValue(OPEN) && offsetState.getValue(HINGE) != state.getValue(HINGE)) world.setBlockState(offsetPosition, offsetState.cycleProperty(OPEN));
 		world.setBlockState(position, state.cycleProperty(OPEN));
 		world.playEvent(player, state.getValue(OPEN) ? 1011 : 1005, position, 0);
 		return true;
@@ -142,7 +142,7 @@ public class HexBlockDoor extends HexBlockReinforceable
 		{
 			IBlockState upState = world.getBlockState(upPosition);
 			IBlockState downState = world.getBlockState(downPosition);
-			if(upState.getBlock() != this || !downState.isSideSolid(world, downPosition, EnumFacing.UP)) world.setBlockToAir(position);
+			if(upState.getBlock() != this || downState.getBlockFaceShape(world, downPosition, EnumFacing.UP) != BlockFaceShape.SOLID) world.setBlockToAir(position);
 			else world.setBlockState(position, upState.withProperty(HALF, EnumDoorHalf.LOWER));
 		}
 		if ((world.isBlockPowered(position) || world.isBlockPowered(state.getValue(HALF) == EnumDoorHalf.LOWER ? upPosition : downPosition)) != state.getValue(POWERED))
@@ -196,6 +196,12 @@ public class HexBlockDoor extends HexBlockReinforceable
 	}
 
 	@Override
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[] {HALF, FACING, OPEN, HINGE, POWERED, REINFORCED});
+	}
+
+	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos position)
 	{
 		if(state.getValue(HALF) == EnumDoorHalf.LOWER)
@@ -209,12 +215,6 @@ public class HexBlockDoor extends HexBlockReinforceable
 			if (offsetState.getBlock() == this) state = state.withProperty(FACING, offsetState.getValue(FACING)).withProperty(OPEN, offsetState.getValue(OPEN));
 		}
 		return state;
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState()
-	{
-		return new BlockStateContainer(this, new IProperty[] {HALF, FACING, OPEN, HINGE, POWERED, REINFORCED});
 	}
 
 	@Override

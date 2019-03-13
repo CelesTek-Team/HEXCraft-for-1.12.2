@@ -125,15 +125,18 @@ public class BakedModelOverlay implements IBakedModel
 
 	protected final IModelState state;
 	protected final VertexFormat format;
+	protected boolean ambientOcclusion;
+
 	protected final ImmutableList<Layer> layers;
 	protected final TextureAtlasSprite particle;
 
-	protected boolean enableCache = true;
+	protected boolean enableCache = false;
 
-	public BakedModelOverlay(IModelState state, VertexFormat format, ImmutableList<Layer> layers, TextureAtlasSprite particle)
+	public BakedModelOverlay(IModelState state, VertexFormat format, boolean ambientOcclusion, ImmutableList<Layer> layers, TextureAtlasSprite particle)
 	{
 		this.state = state;
 		this.format = format;
+		this.ambientOcclusion = ambientOcclusion;
 		this.layers = layers;
 		this.particle = particle;
 	}
@@ -161,13 +164,13 @@ public class BakedModelOverlay implements IBakedModel
 	@Override
 	public boolean isAmbientOcclusion()
 	{
-		return true;
+		return this.ambientOcclusion;
 	}
 
 	@Override
 	public boolean isGui3d()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
