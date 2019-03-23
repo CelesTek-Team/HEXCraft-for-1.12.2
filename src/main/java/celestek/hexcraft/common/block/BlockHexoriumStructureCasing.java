@@ -9,8 +9,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockHexoriumStructureCasing extends HexBlockConnectedReinforceable
 {
@@ -27,11 +25,5 @@ public class BlockHexoriumStructureCasing extends HexBlockConnectedReinforceable
 	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
 	{
 		return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.TRANSLUCENT;
-	}
-
-	@Override
-	public boolean enableCache()
-	{
-		return false;
 	}
 }

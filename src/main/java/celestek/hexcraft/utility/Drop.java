@@ -6,6 +6,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+/**
+ * A small utility class which is used to generate random drops of a specified item type
+ */
 public class Drop
 {
 	public final Item item;
@@ -25,7 +28,6 @@ public class Drop
 
 	public int getQuantity(Random random, int fortune)
 	{
-		System.out.println(fortune);
 		return fortune + (this.minimum == this.maximum ? this.minimum : this.minimum + random.nextInt(this.maximum - this.minimum + 1));
 	}
 

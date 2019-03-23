@@ -1,6 +1,7 @@
-package celestek.hexcraft.client.model.connected;
+package celestek.hexcraft.client.model.special.connected;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -20,10 +21,15 @@ import net.minecraftforge.common.property.IExtendedBlockState;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//FIXME Allow setting tint index from model file
+/**
+ * A baked model which functions as {@link BakedModelConnected}, but also renders an extra base texture on the solid layer underneath all the others
+ */
 @SideOnly(Side.CLIENT)
 public class BakedModelConnectedOverlay extends BakedModelConnected
 {
+	/**
+	 * A cache key used to store different quads of the model
+	 */
 	private class CacheKey
 	{
 		protected BakedModelConnectedOverlay model;
@@ -60,7 +66,7 @@ public class BakedModelConnectedOverlay extends BakedModelConnected
 		@Override
 		public List<BakedQuad> load(CacheKey key)
 		{
-			return HexShapes.Cube.create(Lists.newArrayList(), key.model.format, key.face, 0, false, key.model.base);
+			return HexShapes.Cube.create(Lists.newArrayList(), key.model.format, Optional.empty(), key.face, 0, false, key.model.base);
 		}
 	});
 
@@ -77,8 +83,10 @@ public class BakedModelConnectedOverlay extends BakedModelConnected
 	{
 		List<BakedQuad> quads = super.getQuads(state, face, rand);
 		BlockRenderLayer layer = MinecraftForgeClient.getRenderLayer();
+		// Don't draw anything if on the wrong render layer, if no extra data was passed or if no faces should be culled
 		if(layer != BlockRenderLayer.SOLID && layer != null || face == null || !(state instanceof IExtendedBlockState)) return quads;
-		if(!this.enableCache) quads.addAll(0, HexShapes.Cube.create(Lists.newArrayList(), this.format, face, 0, false, this.base));
+		// Draw the quads
+		if(!this.enableCache) quads.addAll(0, HexShapes.Cube.create(Lists.newArrayList(), this.format, Optional.empty(), face, 0, false, this.base));
 		else quads.addAll(0, CACHE.getUnchecked(new CacheKey(this, state instanceof IExtendedBlockState ? ((IExtendedBlockState) state).getClean() : state, face)));
 		return quads;
 	}

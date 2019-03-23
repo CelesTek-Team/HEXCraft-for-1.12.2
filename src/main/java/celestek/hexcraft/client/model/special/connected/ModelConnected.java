@@ -1,4 +1,4 @@
-package celestek.hexcraft.client.model.connected;
+package celestek.hexcraft.client.model.special.connected;
 
 import java.util.Collection;
 import java.util.function.Function;
@@ -13,14 +13,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.common.model.IModelState;
 
-public class ModelConnectedOverlay extends ModelConnected
+/**
+ * A model which parses 47 textures from the blockstate
+ */
+public class ModelConnected implements IModel
 {
-	protected final ResourceLocation base;
+	protected final ImmutableList<ResourceLocation> textures;
 
-	public ModelConnectedOverlay(ImmutableList<ResourceLocation> textures, ResourceLocation base)
+	public ModelConnected(ImmutableList<ResourceLocation> textures)
 	{
-		super(textures);
-		this.base = base;
+		this.textures = textures;
 	}
 
 	// FIXME Return missing model if not enough textures are specified
@@ -28,21 +30,24 @@ public class ModelConnectedOverlay extends ModelConnected
 	public IBakedModel bake(IModelState state, VertexFormat format, Function<ResourceLocation, TextureAtlasSprite> getter)
 	{
 		ImmutableList.Builder builder = ImmutableList.builder();
+		// Convert all the stored texture paths to sprites and pass them to the baked model
 		for(ResourceLocation texture : this.textures) builder.add(getter.apply(texture));
-		return new BakedModelConnectedOverlay(format, builder.build(), getter.apply(this.base));
+		return new BakedModelConnected(format, builder.build());
 	}
 
 	@Override
 	public Collection<ResourceLocation> getTextures()
 	{
-		return this.base == null ? this.textures : ImmutableList.<ResourceLocation>builder().addAll(this.textures).add(this.base).build(); // Change this
+		// Return all the saved texture paths as dependencies
+		return this.textures;
 	}
 
 	@Override
 	public IModel retexture(ImmutableMap<String, String> textures)
 	{
 		ImmutableList.Builder builder = ImmutableList.builder();
+		// Save all the texture paths mapped to numbers 1 - 47 in order
 		for(int a = 0; a < 47; ++a) builder.add(new ResourceLocation(textures.get(Integer.toString(a + 1))));
-		return new ModelConnectedOverlay(builder.build(), new ResourceLocation(textures.get("base")));
+		return new ModelConnected(builder.build());
 	}
 }

@@ -22,6 +22,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
+/**
+ * Contains all of HEXCraft's items. Automatically registers a fullbright model with {@link HexItem}'s textures. Also registers their {@link HexBlock}'s state mapper and color handler for item blocks
+ */
 public final class HexItems {
 	private static List<HexItem> items = new ArrayList<>();
 	private static List<HexItemBlock> itemBlocks = new ArrayList<>();
@@ -51,13 +54,15 @@ public final class HexItems {
 	{
 		for (HexItem item : items) {
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+			// Add a fullbright model override if the item has specified textures
 			if (!item.textures.isEmpty())
 				HexUtilities.addFullbright(item.textures, item.enableCache(), item.getRegistryName());
 		}
 		for (HexItemBlock item : itemBlocks)
 		{
 			Optional<HexStateMapper> mapper = ((HexBlock) item.getBlock()).mapper;
-			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(mapper.isPresent() ? mapper.get().model : item.getRegistryName(), "inventory"));
+			// Register a state mapper if the the item block's block has one
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(mapper.isPresent() ? mapper.get().getPathForItem(item) : item.getRegistryName(), "inventory"));
 		}
 	}
 
@@ -67,15 +72,22 @@ public final class HexItems {
 		ItemColors registry = event.getItemColors();
 		IItemColor color = (stack, index) -> ((HexBlock) ((ItemBlock) stack.getItem()).getBlock()).color;
 		for (HexItemBlock item : itemBlocks)
+			// Register a color handler if the item block's block color is not negative
 			if(((HexBlock) item.getBlock()).color >= 0)
 				registry.registerItemColorHandler(color, item);
 	}
 
+	/**
+	 * Add the given item for automatic registry
+	 */
 	public static HexItem add(HexItem item) {
 		items.add(item);
 		return item;
 	}
 
+	/**
+	 * Add the given item block for automatic registry
+	 */
 	public static HexItemBlock add(HexItemBlock item) {
 		itemBlocks.add(item);
 		return item;

@@ -7,7 +7,7 @@
 		{
 			"false":
 			{
-				"model": "hexcraft:connected/overlay",
+				"model": "hexcraft:special/connected/overlay",
 				"textures":
 				{
 					"1": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_1",
@@ -61,7 +61,7 @@
 			},
 			"true":
 			{
-				"model": "hexcraft:connected/overlay",
+				"model": "hexcraft:special/connected/overlay",
 				"textures":
 				{
 					"1": "hexcraft:blocks/glowing_hexorium_coated_stone/glowing_hexorium_coated_stone_reinforced_1",

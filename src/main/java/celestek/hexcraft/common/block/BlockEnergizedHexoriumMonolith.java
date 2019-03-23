@@ -119,4 +119,10 @@ public class BlockEnergizedHexoriumMonolith extends HexBlockPillar
 	{
 		return BlockFaceShape.UNDEFINED;
 	}
+
+	@Override
+	public boolean enableCache()
+	{
+		return true;
+	}
 }

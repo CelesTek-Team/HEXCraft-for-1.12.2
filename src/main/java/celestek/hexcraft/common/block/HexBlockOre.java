@@ -18,6 +18,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+/**
+ * An ore block which drops a random amount of the specified item and experience
+ */
 public class HexBlockOre extends HexBlock
 {
 	public final Drop drop;

@@ -17,6 +17,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
+/**
+ * A block that can be reinforced. Reinforcing increases the hardness, harvest level and explosion resistance to the level of obsidian
+ */
 public class HexBlockReinforceable extends HexBlock
 {
 	public static final PropertyBool REINFORCED = HexProperties.REINFORCED;
@@ -54,12 +57,13 @@ public class HexBlockReinforceable extends HexBlock
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
+		// bit 4 is reinforced
 		return state.getValue(REINFORCED) ? 1 : 0;
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		return this.getDefaultState().withProperty(REINFORCED, meta == 1 ? true : false);
+		return this.getDefaultState().withProperty(REINFORCED, meta == 1);
 	}
 }

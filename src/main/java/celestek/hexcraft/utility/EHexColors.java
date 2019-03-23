@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
 /**
- * @author Thorinair   <celestek@openmailbox.org>
+ * All the different colors used by the mod. Each color consists of a hex color code, name and a set of crystal drops of respective colors
  */
 public enum EHexColors {
 	RED (0xff0000, "red", new Drop(HexItems.hexorium_crystal_red, 8)),
@@ -54,19 +54,26 @@ public enum EHexColors {
 		this.drops = drops;
 	}
 
+	/**
+	 * Adds the crystal drops of this color to the given list
+	 */
 	public NonNullList<ItemStack> addDrops(NonNullList<ItemStack> drops)
 	{
 		for(Drop drop : this.drops) drops.add(drop.createStack());
 		return drops;
 	}
 
-	
-
+	/**
+	 * Gets the corresponding color by its hex color code
+	 */
 	public static EHexColors fromColor(int color)
 	{
 		return COLOR_LOOKUP.get(color);
 	}
 
+	/**
+	 * Gets the corresponding color by its name
+	 */
 	public static EHexColors fromName(String name)
 	{
 		return NAME_LOOKUP.get(name);

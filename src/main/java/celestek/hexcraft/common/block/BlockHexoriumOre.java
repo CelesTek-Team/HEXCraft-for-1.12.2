@@ -19,10 +19,4 @@ public class BlockHexoriumOre extends HexBlockOre
 	{
 		return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.CUTOUT || layer == BlockRenderLayer.TRANSLUCENT;
 	}
-
-	@Override
-	public boolean enableCache()
-	{
-		return false;
-	}
 }

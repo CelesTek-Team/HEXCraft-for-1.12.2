@@ -17,4 +17,10 @@ public class BlockBlockOfHexoriumCrystal extends HexBlockPillar
 		this.setHarvestLevel("pickaxe", 2);
 		this.setSoundType(SoundType.GLASS);
 	}
+
+	@Override
+	public boolean enableCache()
+	{
+		return true;
+	}
 }

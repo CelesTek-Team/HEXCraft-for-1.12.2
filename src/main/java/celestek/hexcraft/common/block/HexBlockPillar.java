@@ -16,6 +16,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+/**
+ * A block that can rotate in all 6 directions
+ */
 public class HexBlockPillar extends HexBlock
 {
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
@@ -41,12 +44,13 @@ public class HexBlockPillar extends HexBlock
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
+		// bits 2, 3 and 4 are facing
 		return state.getValue(FACING).getIndex();
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		return this.getDefaultState().withProperty(FACING, EnumFacing.getFront(meta & 7));
+		return this.getDefaultState().withProperty(FACING, EnumFacing.getFront(meta & 0b0111));
 	}
 }

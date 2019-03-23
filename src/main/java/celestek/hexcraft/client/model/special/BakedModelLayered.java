@@ -1,6 +1,7 @@
-package celestek.hexcraft.client.model.overlay;
+package celestek.hexcraft.client.model.special;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.vecmath.Matrix4f;
 
@@ -10,6 +11,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 
@@ -29,19 +31,34 @@ import net.minecraftforge.common.model.IModelState;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * A baked model of a cube which uses so called {@link Layer}s parsed by the {@link ModelLayered} containing all the parameters used for rendering as well as a particle texture.
+ * Supports quad caching, item perspective transforms and ambient occlusion
+ */
 @SideOnly(Side.CLIENT)
-public class BakedModelOverlay implements IBakedModel
+public class BakedModelLayered implements IBakedModel
 {
+	/**
+	 * A wrapper which contains a sprite for each face, a tint layer, the render layers in which it should render and configurable shading
+	 */
 	public static class Layer
 	{
+		public final ImmutableMap<EnumFacing, TextureAtlasSprite> sprites;
+		/**
+		 * The sprite which is used for faces without a specified texture or a null face. This is required because guava's immutable API does not support null values
+		 */
 		public final TextureAtlasSprite sprite;
 		public final int tint;
 		public final ImmutableSet<BlockRenderLayer> renderLayers;
+		/**
+		 * Effectively determines if this layer should render in the null render layer. This is required, again, because guava's immutable API does not support null values
+		 */
 		public final boolean renderCracks;
 		public final boolean shade;
 
-		public Layer(TextureAtlasSprite sprite, int tint, ImmutableSet<BlockRenderLayer> renderLayers, boolean renderCracks, boolean shade)
+		public Layer(ImmutableMap<EnumFacing, TextureAtlasSprite> sprites, TextureAtlasSprite sprite, int tint, ImmutableSet<BlockRenderLayer> renderLayers, boolean renderCracks, boolean shade)
 		{
+			this.sprites = sprites;
 			this.sprite = sprite;
 			this.tint =  tint;
 			this.renderLayers = renderLayers;
@@ -49,11 +66,17 @@ public class BakedModelOverlay implements IBakedModel
 			this.shade = shade;
 		}
 
-		public List<BakedQuad> bake(List<BakedQuad> quads, VertexFormat format, EnumFacing face)
+		/**
+		 * Adds new quads representing the given side of a cube with the layer's parameters in the given vertex format to the given list
+		 */
+		public List<BakedQuad> bake(List<BakedQuad> quads, VertexFormat format, EnumFacing face) // Make class non-static and get format and shape from model?
 		{
-			return HexShapes.Cube.create(quads, format, face, this.tint, this.shade, this.sprite);
+			return HexShapes.Cube.create(quads, format, Optional.empty(), face, this.tint, this.shade, face == null ? this.sprite : this.sprites.containsKey(face) ? this.sprites.get(face) : this.sprite);
 		}
 
+		/**
+		 * Determines whether the layer can render in the given render layer
+		 */
 		public boolean canRender(BlockRenderLayer layer)
 		{
 			return this.renderCracks && layer == null || this.renderLayers.contains(layer);
@@ -65,13 +88,14 @@ public class BakedModelOverlay implements IBakedModel
 			if(this == other) return true;
 			if(other == null || this.getClass() != other.getClass()) return false;
 			Layer layer = (Layer) other;
-			return this.sprite.equals(layer.sprite) && this.tint == layer.tint && this.renderCracks == layer.renderCracks && this.shade == layer.shade && this.renderLayers.equals(layer.renderLayers);
+			return this.tint == layer.tint && this.renderCracks == layer.renderCracks && this.shade == layer.shade && this.sprite.equals(layer.sprite) && this.renderLayers.equals(layer.renderLayers) && this.sprites.equals(layer.sprites);
 		}
 
 		@Override
 		public int hashCode()
 		{
-			int hash = this.sprite == null ? 0 : this.sprite.hashCode();
+			int hash = this.sprites == null ? 0 : this.sprites.hashCode();
+			hash = 31 * hash + (this.sprite == null ? 0 : this.sprite.hashCode());
 			hash = 31 * hash + this.tint;
 			hash = 31 * hash + (this.renderLayers == null ? 0 : this.renderLayers.hashCode());
 			hash = 31 * hash + (this.renderCracks ? 1 : 0);
@@ -80,14 +104,17 @@ public class BakedModelOverlay implements IBakedModel
 		}
 	}
 
+	/**
+	 * A cache key used to store different quads of the model
+	 */
 	private class CacheKey
 	{
-		protected BakedModelOverlay model;
+		protected BakedModelLayered model;
 		protected IBlockState state;
 		protected EnumFacing face;
 		protected Layer layer;
 
-		public CacheKey(BakedModelOverlay model, IBlockState state, EnumFacing face, Layer layer)
+		public CacheKey(BakedModelLayered model, IBlockState state, EnumFacing face, Layer layer)
 		{
 			this.model = model;
 			this.state = state;
@@ -123,7 +150,13 @@ public class BakedModelOverlay implements IBakedModel
 		}
 	});
 
+	/**
+	 * The item perspective transforms defined under the "transform" tag in the blockstate
+	 */
 	protected final IModelState state;
+	/**
+	 * The vertex format in which all of the model's quads should be drawn in
+	 */
 	protected final VertexFormat format;
 	protected boolean ambientOcclusion;
 
@@ -132,7 +165,7 @@ public class BakedModelOverlay implements IBakedModel
 
 	protected boolean enableCache = false;
 
-	public BakedModelOverlay(IModelState state, VertexFormat format, boolean ambientOcclusion, ImmutableList<Layer> layers, TextureAtlasSprite particle)
+	public BakedModelLayered(IModelState state, VertexFormat format, boolean ambientOcclusion, ImmutableList<Layer> layers, TextureAtlasSprite particle)
 	{
 		this.state = state;
 		this.format = format;
@@ -141,7 +174,7 @@ public class BakedModelOverlay implements IBakedModel
 		this.particle = particle;
 	}
 
-	public BakedModelOverlay setCache(boolean flag)
+	public BakedModelLayered setCache(boolean flag)
 	{
 		this.enableCache = flag;
 		return this;
@@ -151,8 +184,10 @@ public class BakedModelOverlay implements IBakedModel
 	public List<BakedQuad> getQuads(IBlockState state, EnumFacing face, long rand)
 	{
 		List<BakedQuad> quads = Lists.newArrayList();
+		// Don't draw anything if no faces should be culled
 		if(face == null) return quads;
 		BlockRenderLayer renderLayer = MinecraftForgeClient.getRenderLayer();
+		// Draw each layer if in the right render layer
 		for(Layer layer : this.layers) if(layer.canRender(renderLayer))
 		{
 			if(this.enableCache) quads.addAll(CACHE.getUnchecked(new CacheKey(this, state, face, layer)));

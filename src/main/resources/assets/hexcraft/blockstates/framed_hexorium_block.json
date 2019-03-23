@@ -2,7 +2,7 @@
 	"forge_marker": 1,
 	"defaults":
 	{
-		"model": "hexcraft:overlay/cube",
+		"model": "hexcraft:special/layered_cube",
 		"smooth_lighting": false,
 		"transform": "forge:default-block"
 	},
@@ -14,8 +14,8 @@
 			{
 				"textures":
 				{
-					"layer0": "path=hexcraft:blocks/glow,tint=0,shade=false",
-					"layer1": "path=hexcraft:blocks/framed_hexorium_block,layer=translucent",
+					"layer0": "all=hexcraft:blocks/glow,tint=0,shade=false",
+					"layer1": "all=hexcraft:blocks/framed_hexorium_block,layer=translucent",
 					"particle": "hexcraft:blocks/framed_hexorium_block"
 				}
 			},
@@ -23,8 +23,8 @@
 			{
 				"textures":
 				{
-					"layer0": "path=hexcraft:blocks/glow,tint=0,shade=false",
-					"layer1": "path=hexcraft:blocks/framed_hexorium_block_reinforced,layer=translucent",
+					"layer0": "all=hexcraft:blocks/glow,tint=0,shade=false",
+					"layer1": "all=hexcraft:blocks/framed_hexorium_block_reinforced,layer=translucent",
 					"particle": "hexcraft:blocks/framed_hexorium_block_reinforced"
 				}
 			}
@@ -34,8 +34,8 @@
 			{
 				"textures":
 				{
-					"layer0": "path=hexcraft:blocks/glow,tint=0",
-					"layer1": "path=hexcraft:blocks/framed_hexorium_block,layer=null"
+					"layer0": "all=hexcraft:blocks/glow,tint=0",
+					"layer1": "all=hexcraft:blocks/framed_hexorium_block,layer=null"
 				}
 			}
 		]

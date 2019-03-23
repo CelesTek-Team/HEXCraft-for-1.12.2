@@ -1,0 +1,57 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:special/door",
+		"textures":
+		{
+			"base": "hexcraft:blocks/glow",
+			"front": "hexcraft:blocks/hexorium_door/hexorium_door_bottom",
+			"side": "hexcraft:blocks/hexorium_door/hexorium_door_side"
+		}
+	},
+	"variants":
+	{
+		"facing":
+		{
+			"north": { "custom": { "rotation_y": 90 } },
+			"south": { "custom": { "rotation_y": -90 } },
+			"west": { "custom": { "rotation_y": 180 } },
+			"east": {}
+		},
+		"open":
+		{
+			"false": {},
+			"true": { "custom": { "open": true } }
+		},
+		"hinge":
+		{
+			"left": { "custom": { "flip": true } },
+			"right": {}
+		},
+		"reinforced":
+		{
+			"false": {},
+			"true":
+			{
+				"textures":
+				{
+					"front": "hexcraft:blocks/hexorium_door/hexorium_door_bottom_reinforced",
+					"side": "hexcraft:blocks/hexorium_door/hexorium_door_side_reinforced"
+				}
+			}
+		},
+		"inventory":
+		[
+			{
+				"model": "hexcraft:special/double_door",
+				"textures":
+				{
+					"bottom": "hexcraft:blocks/hexorium_door/hexorium_door_bottom",
+					"top": "hexcraft:blocks/hexorium_door/hexorium_door_top"
+				},
+				"transform": "forge:default-block"
+			}
+		]
+	}
+}

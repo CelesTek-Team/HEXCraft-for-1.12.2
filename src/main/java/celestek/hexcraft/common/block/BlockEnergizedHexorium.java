@@ -35,4 +35,10 @@ public class BlockEnergizedHexorium extends HexBlock {
 	{
 		EHexColors.fromColor(this.color).addDrops(drops);
 	}
+
+	@Override
+	public boolean enableCache()
+	{
+		return true;
+	}
 }

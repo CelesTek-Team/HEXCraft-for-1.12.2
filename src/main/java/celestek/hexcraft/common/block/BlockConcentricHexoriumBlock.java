@@ -26,10 +26,4 @@ public class BlockConcentricHexoriumBlock extends HexBlockReinforceable
 	{
 		return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.TRANSLUCENT;
 	}
-
-	@Override
-	public boolean enableCache()
-	{
-		return false;
-	}
 }

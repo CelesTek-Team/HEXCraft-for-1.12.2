@@ -29,20 +29,24 @@ import net.minecraftforge.common.property.IExtendedBlockState;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * A special baked model wrapper which changes the vertex format if required, applies maximum brightness and disables diffuse lighting for all the quads with the supplied textures. Supports quad caching
+ */
 @SideOnly(Side.CLIENT)
 public class BakedModelBrightness extends BakedModelWrapper
 {
+	/**
+	 * A cache key used to store different quads of the model
+	 */
 	private class CacheKey
 	{
-		private IBakedModel base;
-		private ImmutableSet<String> textures;
-		private IBlockState state;
-		private EnumFacing side;
+		protected BakedModelBrightness model;
+		protected IBlockState state;
+		protected EnumFacing side;
 
-		public CacheKey(IBakedModel base, ImmutableSet<String> textures, IBlockState state, EnumFacing side)
+		public CacheKey(BakedModelBrightness model, IBlockState state, EnumFacing side)
 		{
-			this.base = base;
-			this.textures = textures;
+			this.model = model;
 			this.state = state;
 			this.side = side;
 		}
@@ -70,12 +74,12 @@ public class BakedModelBrightness extends BakedModelWrapper
 		@Override
 		public List<BakedQuad> load(CacheKey key)
 		{
-			return transformQuads(key.base.getQuads(key.state, key.side, 0), key.textures);
+			return transformQuads(key.model.originalModel.getQuads(key.state, key.side, 0), key.model.textures);
 		}
 	});
 
-	private ImmutableSet<String> textures;
-	private boolean enableCache = true;
+	protected final ImmutableSet<String> textures;
+	protected boolean enableCache = true;
 
 	public BakedModelBrightness(IBakedModel base, ImmutableSet<String> textures)
 	{
@@ -93,22 +97,30 @@ public class BakedModelBrightness extends BakedModelWrapper
 	@Override
 	public List<BakedQuad> getQuads(@Nullable IBlockState state, @Nullable EnumFacing side, long rand)
 	{
-		if (!this.enableCache || state == null) return transformQuads(this.originalModel.getQuads(state, side, 0), textures);
-		return CACHE.getUnchecked(new CacheKey(this.originalModel, textures, state instanceof IExtendedBlockState ? ((IExtendedBlockState) state).getClean() : state, side));
+		// Transform and draw the quads
+		if (!this.enableCache || state == null) return transformQuads(this.originalModel.getQuads(state, side, 0), this.textures);
+		return CACHE.getUnchecked(new CacheKey(this, state instanceof IExtendedBlockState ? ((IExtendedBlockState) state).getClean() : state, side));
 	}
 
-	private static List<BakedQuad> transformQuads(List<BakedQuad> oldQuads, Set<String> textures)
+	/**
+	 * Returns a new list of quads from the given list where all the quads matching one of the supplied textures are replaced with transformed ones
+	 */
+	protected static List<BakedQuad> transformQuads(List<BakedQuad> oldQuads, Set<String> textures) // FIXME make non-static?
 	{
 		List<BakedQuad> quads = new ArrayList<>(oldQuads);
 		for (int i = 0; i < quads.size(); ++i)
 		{
 			BakedQuad quad = quads.get(i);
-			if (textures.contains(quad.getSprite().getIconName())) quads.set(i, transformQuad(quad, 15 << 20 | 15 << 4)); // FULLBRIGHT
+			// Applies maximum brightness (15)
+			if (textures.contains(quad.getSprite().getIconName())) quads.set(i, transformQuad(quad, 15 << 20 | 15 << 4));
 		}
 		return quads;
 	}
 
-	private static BakedQuad transformQuad(BakedQuad quad, int brightness)
+	/**
+	 * Returns a new quad based on the given one with the format changed if required, maximum brightness applied and diffuse lighting disabled
+	 */
+	protected static BakedQuad transformQuad(BakedQuad quad, int brightness)
 	{
 		if (HexUtilities.isLightMapDisabled()) return quad;
 		VertexFormat newFormat = HexUtilities.getFormatWithLightMap(quad.getFormat());
@@ -133,7 +145,7 @@ public class BakedModelBrightness extends BakedModelWrapper
 		builder.setQuadTint(quad.getTintIndex());
 		builder.setQuadOrientation(quad.getFace());
 		builder.setTexture(quad.getSprite());
-		builder.setApplyDiffuseLighting(false); // FIXME Why does this only partially disable shading?
+		builder.setApplyDiffuseLighting(false); // FIXME Why does this only partially disable shading or something?
 		return builder.build();
 	}
 
@@ -141,7 +153,9 @@ public class BakedModelBrightness extends BakedModelWrapper
 	public Pair<? extends IBakedModel, Matrix4f> handlePerspective(TransformType type)
 	{
 		Pair<? extends IBakedModel, Matrix4f> base = super.handlePerspective(type);
+		// Return the unchanged base model if in a GUI
 		if(type == TransformType.GUI) return base;
+		// Wrap the model if it's not already
 		return base.getLeft() instanceof BakedModelBrightness ? base : Pair.of(new BakedModelBrightness(base.getLeft(), this.textures), base.getRight());
 	}
 }

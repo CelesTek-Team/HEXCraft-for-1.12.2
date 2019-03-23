@@ -24,6 +24,7 @@ import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -31,6 +32,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
+/**
+ * Contains all of HEXCraft's blocks. Automatically registers the {@link HexBlock} state mapper, a color handler with the block's color code and the fullbright model with the block's textures
+ */
 public final class HexBlocks {
 	private static List<HexBlock> blocks = new ArrayList<>();
 
@@ -207,6 +211,7 @@ public final class HexBlocks {
 		BlockColors registry = event.getBlockColors();
 		IBlockColor color = (state, world, position, tint) -> ((HexBlock) state.getBlock()).color;
 		for (HexBlock block : blocks)
+			// Register a color handler if the block's color is not negative
 			if(block.color >= 0)
 				registry.registerBlockColorHandler(color, block);
 	}
@@ -215,13 +220,18 @@ public final class HexBlocks {
 	public static void registerModels() {
 		for(HexBlock block : blocks)
 		{
+			// Add a fullbright model override if the block has specified textures
 			if(!block.textures.isEmpty())
-				HexUtilities.addFullbright(block.textures, block.enableCache(), block.mapper.isPresent() ? block.mapper.get().model : block.getRegistryName()); // FIXME multiple identical models being replaced
+				HexUtilities.addFullbright(block.textures, block.enableCache(), block.mapper.isPresent() ? block.mapper.get().paths : new ResourceLocation[] { block.getRegistryName() }); // FIXME multiple identical models being replaced
+			// Register a state mapper if the block has one
 			if(block.mapper.isPresent())
 				ModelLoader.setCustomStateMapper(block, block.mapper.get());
 		}
 	}
 
+	/**
+	 * Add the given block for automatic registry
+	 */
 	public static HexBlock add(HexBlock block)
 	{
 		blocks.add(block);

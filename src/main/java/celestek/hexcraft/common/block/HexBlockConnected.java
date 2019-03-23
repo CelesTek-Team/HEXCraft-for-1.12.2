@@ -17,10 +17,16 @@ import net.minecraftforge.common.property.ExtendedBlockState;
 import net.minecraftforge.common.property.IExtendedBlockState;
 import net.minecraftforge.common.property.IUnlistedProperty;
 
+/**
+ * A special block which passes extra info to its model about each face depending on the surrounding blocks
+ */
 public class HexBlockConnected extends HexBlock
 {
 	public static final IUnlistedProperty<ImmutableMap<EnumFacing, Integer>> FACE_STATES = new PropertyStates("face_states");
 
+	/**
+	 * A special unlisten property which maps faces to texture reference IDs
+	 */
 	public static class PropertyStates implements IUnlistedProperty<ImmutableMap<EnumFacing, Integer>>
 	{
 		private final String name;
@@ -62,12 +68,6 @@ public class HexBlockConnected extends HexBlock
 	}
 
 	@Override
-	public boolean enableCache()
-	{
-		return false;
-	}
-
-	@Override
 	protected BlockStateContainer createBlockState()
 	{
 		return new ExtendedBlockState(this, new IProperty[] {}, new IUnlistedProperty[] {FACE_STATES});
@@ -76,6 +76,7 @@ public class HexBlockConnected extends HexBlock
 	@Override
 	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos position)
 	{
+		// Calculate the texture reference id for each face and pass them to the model
 		ImmutableMap.Builder<EnumFacing, Integer> builder = ImmutableMap.builder();
 		for(EnumFacing face : EnumFacing.values()) builder.put(face, this.getState(world, position, face));
 		return ((IExtendedBlockState) state).withProperty(FACE_STATES, builder.build());
@@ -101,13 +102,16 @@ public class HexBlockConnected extends HexBlock
 		7,  7, 24, 24,  7,  7, 10, 10,  8,  8, 36, 35,  8,  8, 34, 11
 	};
 
+	/**
+	 * Returns the texture reference ID for the given face depending on the surrounding blocks
+	 */
 	protected int getState(IBlockAccess world, BlockPos position, EnumFacing face)
 	{
+		// Store the connections to the surrounding blocks
 		boolean[] connections = new boolean[8];
 		switch(face)
 		{
-		// Had to mirror traversal for down
-		case DOWN:
+		case DOWN: // Had to mirror traversal for down
 			connections[0] = this.canConnect(world, position, position.add(-1, 0, 1));
 			connections[1] = this.canConnect(world, position, position.add(0, 0, 1));
 			connections[2] = this.canConnect(world, position, position.add(1, 0, 1));
@@ -168,11 +172,15 @@ public class HexBlockConnected extends HexBlock
 			connections[7] = this.canConnect(world, position, position.add(0, -1, -1));
 			break;
 		}
+		// Convert the connections to a texture reference id via the the texture id matrix (or whatever; I have no idea how it actually works :p)
 		int id = 0;
 		for (int i = 0; i < 8; i++) id = id + (connections[i] ? (i == 0 ? 1 : (i == 1 ? 2 : (i == 2 ? 4 : (i == 3 ? 8 : (i == 4 ? 16 : (i == 5 ? 32 : (i == 6 ? 64 : 128))))))) : 0);
 		return ids[id];
 	}
 
+	/**
+	 * Determines whether the block at the given position can connect to the other given position
+	 */
 	protected boolean canConnect(IBlockAccess world, BlockPos position, BlockPos toPosition)
 	{
 		return world.getBlockState(toPosition).getBlock() == this;

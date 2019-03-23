@@ -19,6 +19,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.property.ExtendedBlockState;
 import net.minecraftforge.common.property.IUnlistedProperty;
 
+/**
+ * A block which functions as {@link HexBlockConnected}, but can also be reinforced
+ */
 public class HexBlockConnectedReinforceable extends HexBlockConnected
 {
 	public static final PropertyBool REINFORCED = HexProperties.REINFORCED;
@@ -56,6 +59,7 @@ public class HexBlockConnectedReinforceable extends HexBlockConnected
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
+		// 4 bit is reinforced
 		return state.getValue(REINFORCED) ? 1 : 0;
 	}
 

@@ -1,4 +1,4 @@
-package celestek.hexcraft.client.model.monolith;
+package celestek.hexcraft.client.model.special;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -16,9 +16,15 @@ import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.common.model.IModelState;
 import net.minecraftforge.common.model.TRSRTransformation;
 
+/**
+ * A model which parses a single texture, rotation tags under the "custom" tag which are then converted to a matrix transform and the perspective transform from the blockstate
+ */
 public class ModelMonolith implements IModel
 {
 	protected final ResourceLocation texture;
+	/**
+	 * The matrix transform with the parsed rotation tags
+	 */
 	protected final Optional<TRSRTransformation> transform;
 
 	public ModelMonolith(ResourceLocation texture, Optional<TRSRTransformation> transform)
@@ -31,12 +37,14 @@ public class ModelMonolith implements IModel
 	@Override
 	public IBakedModel bake(IModelState state, VertexFormat format, Function<ResourceLocation, TextureAtlasSprite> getter)
 	{
+		// Convert the texture path to a sprite and pass it and the matrix and perspective transforms to the baked model
 		return new BakedModelMonolith(state, format, this.transform, getter.apply(this.texture));
 	}
 
 	@Override
 	public Collection<ResourceLocation> getTextures()
 	{
+		// Return save texture path as a dependency
 		return this.texture == null ? ImmutableList.of() : ImmutableList.of(this.texture);
 	}
 
@@ -45,18 +53,20 @@ public class ModelMonolith implements IModel
 	@Override
 	public IModel process(ImmutableMap<String, String> data)
 	{
-		if(!data.containsKey(TAG_ROTATION_X) && !data.containsKey(TAG_ROTATION_Y) && !data.containsKey(TAG_ROTATION_Z)) return this;
+		// Parse each rotation tag if present
 		float rotationX = data.containsKey(TAG_ROTATION_X) ? Float.parseFloat(data.get(TAG_ROTATION_X)) : 0f;
 		float rotationY = data.containsKey(TAG_ROTATION_Y) ? Float.parseFloat(data.get(TAG_ROTATION_Y)) : 0f;
 		float rotationZ = data.containsKey(TAG_ROTATION_Z) ? Float.parseFloat(data.get(TAG_ROTATION_Z)) : 0f;
-		return new ModelMonolith(this.texture, Optional.of(ForgeBlockStateV1.Transforms.convert(0f, 0f, 0f, rotationX, rotationY, rotationZ, 1f)));
+		// Convert rotations to a matrix transform if any are present
+		return rotationX != 0f || rotationY != 0f || rotationZ != 0f ? new ModelMonolith(this.texture, Optional.of(ForgeBlockStateV1.Transforms.convert(0f, 0f, 0f, rotationX, rotationY, rotationZ, 1f))) : this;
 	}
 
-	public static final String TAG_TEXTURE = "base";
+	public static final String TEXTURE = "base";
 
 	@Override
 	public IModel retexture(ImmutableMap<String, String> textures)
 	{
-		return new ModelMonolith(new ResourceLocation(textures.get(TAG_TEXTURE)), this.transform);
+		// Save the texture path
+		return new ModelMonolith(new ResourceLocation(textures.get(TEXTURE)), this.transform);
 	}
 }

@@ -6,7 +6,7 @@
 		{
 			"false":
 			{
-				"model": "hexcraft:connected/overlay",
+				"model": "hexcraft:special/connected/overlay",
 				"textures":
 				{
 					"base": "hexcraft:blocks/glow",
@@ -61,7 +61,7 @@
 			},
 			"true":
 			{
-				"model": "hexcraft:connected/overlay",
+				"model": "hexcraft:special/connected/overlay",
 				"textures":
 				{
 					"base": "hexcraft:blocks/glow",
