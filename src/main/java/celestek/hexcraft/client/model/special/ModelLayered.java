@@ -2,7 +2,6 @@ package celestek.hexcraft.client.model.special;
 
 import java.util.Collection;
 import java.util.Map.Entry;
-import java.util.Optional;
 import java.util.function.Function;
 
 import com.google.common.collect.ImmutableList;
@@ -18,7 +17,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.common.model.IModelState;
-import net.minecraftforge.common.model.TRSRTransformation;
 
 /**
  * A model which parses so called {@link Layer}s containing all the the parameters used for rendering under the "textures" tag in the blockstate
@@ -76,7 +74,7 @@ public class ModelLayered implements IModel
 
 		public static final String NULL = "NULL";
 
-		public static final String ARGUMENT_ALL = "all", ARGUMENT_TINT = "tint", ARGUMENT_LAYER = "layer", ARGUMENT_SHADE = "shade";
+		public static final String PARAMETER_ALL = "all", PARAMETER_TINT = "tint", PARAMETER_LAYER = "layers", PARAMETER_SHADE = "shade";
 
 		/**
 		 * Returns a new layer with the parameters parsed from the given string.
@@ -87,14 +85,14 @@ public class ModelLayered implements IModel
 		 * <li> all - texture path for faces without a specified texture or a null face. Defaults to a missing texture </li>
 		 * <li> down/up/north/south/west/east - texture path for a specific face. Defaults to the "all" texture </li>
 		 * <li> tint - the tint index for all the layer's quads. Defaults to -1 </li>
-		 * <li> layer - the render layer in which this layer should render in. Defaults to solid </li>
+		 * <li> layers - the render layers in which this layer should render in. Defaults to solid and null</li>
 		 * <li> shade - determines if the all the layer's quads should have diffuse lighting. Defaults to true </li>
 		 * </ul>
 		 */
 		public static Layer parse(String string) // Constructor?
 		{
-			// Split all the name-value pairs into their own strings
-			String[] parameters = string.split(",");
+			// Remove all whitespace and split all the name-value pairs into their own strings
+			String[] parameters = string.replaceAll("\\s", "").split(",");
 			// Set all the default parameters
 			ImmutableMap.Builder textures = ImmutableMap.builder();
 			ResourceLocation texture = HexModelLoader.TEXTURE_MISSING;
@@ -103,19 +101,19 @@ public class ModelLayered implements IModel
 			boolean renderCracks = true;
 			boolean shade = true;
 
-			for(String pair : parameters) 
+			for(String parameter : parameters) 
 			{
 				// Split the name-value pair into two strings
-				String[] elements = pair.split("=");
-				String name = elements[0];
-				String value = elements[1];
+				String[] pair = parameter.split("=");
+				String name = pair[0];
+				String value = pair[1];
 				// Parse the value depending on the parameter name
-				if(name.equals(ARGUMENT_ALL)) texture = new ResourceLocation(value);
-				else if(name.equals(ARGUMENT_TINT)) tint = Integer.parseInt(value);
-				else if(name.equals(ARGUMENT_SHADE)) shade = Boolean.parseBoolean(value);
-				else if(name.equals(ARGUMENT_LAYER))
+				if(name.equals(PARAMETER_ALL)) texture = new ResourceLocation(value);
+				else if(name.equals(PARAMETER_TINT)) tint = Integer.parseInt(value);
+				else if(name.equals(PARAMETER_SHADE)) shade = Boolean.parseBoolean(value);
+				else if(name.equals(PARAMETER_LAYER))
 				{
-					// Clear the stored layers. In case this parameter is specified more than once
+					// Clear the stored layers to override the defaults
 					renderLayers = ImmutableSet.builder();
 					renderCracks = false;
 					// Split all the values into their own strings
@@ -129,6 +127,7 @@ public class ModelLayered implements IModel
 				}
 				else if(EnumFacing.byName(name) != null) textures.put(EnumFacing.byName(name), new ResourceLocation(value)); // FIXME Cache
 			}
+			// Build the layer with the parsed parameters
 			return new Layer(textures.build(), texture, tint, renderLayers.build(), renderCracks, shade);
 		}
 	}
@@ -163,8 +162,12 @@ public class ModelLayered implements IModel
 	public Collection<ResourceLocation> getTextures() 
 	{
 		// Return all the saved layers' texture paths as dependencies
-		ImmutableList.Builder builder = ImmutableList.builder();
-		for(Layer layer : this.layers) builder.add(layer.texture);
+		ImmutableSet.Builder builder = ImmutableSet.builder();
+		for(Layer layer : this.layers)
+		{
+			builder.add(layer.texture);
+			builder.addAll(layer.textures.values());
+		}
 		if(this.particle != null) builder.add(this.particle);
 		return builder.build();
 	}
@@ -183,9 +186,8 @@ public class ModelLayered implements IModel
 			builder.add(layer);
 			tag = TAG_LAYER + (a + 1);
 		}
-		ImmutableList<Layer> layers = builder.build();
 		// Also save the particle texture if present
-		return new ModelLayered(layers, textures.containsKey(TAG_PARTICLE) ? new ResourceLocation(textures.get(TAG_PARTICLE)) : layers.isEmpty() ? HexModelLoader.TEXTURE_MISSING : layers.get(0).texture, this.ambientOcclusion);
+		return new ModelLayered(builder.build(), textures.containsKey(TAG_PARTICLE) ? new ResourceLocation(textures.get(TAG_PARTICLE)) : HexModelLoader.TEXTURE_MISSING, this.ambientOcclusion);
 	}
 
 	@Override

@@ -1,10 +1,9 @@
 package celestek.hexcraft.utility;
 
 import java.util.Optional;
+import java.util.function.Predicate;
 
 import javax.vecmath.Vector4f;
-
-import com.google.common.collect.ImmutableSet;
 
 import celestek.hexcraft.client.event.HexClientEvents;
 import celestek.hexcraft.client.model.BakedModelBrightness;
@@ -20,18 +19,18 @@ import net.minecraftforge.common.model.TRSRTransformation;
 import net.minecraftforge.fml.client.FMLClientHandler;
 
 /**
- * Contains many useful utility functions
+ * Contains many useful utility functions used throughout HEXCraft
  */
 public final class HexUtilities
 {
 	private HexUtilities() {}
 
 	/**
-	 * Adds a fullbright model override to all the given model paths for the given textures
+	 * Adds a fullbright model override to all the given model paths for the given regular expression
 	 */
-	public static void addFullbright(ImmutableSet<String> textures, boolean cache, ResourceLocation... paths) // Move?
+	public static void addFullbright(Predicate<String> filter, boolean cache, ResourceLocation... paths) // Move?
 	{
-		for(ResourceLocation path : paths) HexClientEvents.addModelOverride(path, base -> new BakedModelBrightness(base, textures).setCache(cache));
+		for(ResourceLocation path : paths) HexClientEvents.addModelOverride(path, base -> new BakedModelBrightness(base, filter).setCache(cache));
 	}
 
 	public static boolean isLightMapDisabled()
@@ -42,7 +41,7 @@ public final class HexUtilities
 	private static final VertexFormat ITEM_FORMAT_WITH_LIGHTMAP = new VertexFormat(DefaultVertexFormats.ITEM).addElement(DefaultVertexFormats.TEX_2S);
 
 	/**
-	 * Returns a vertex format with a lightmap based on the given format
+	 * Returns a vertex format with a light map based on the given format
 	 */
 	public static VertexFormat getFormatWithLightMap(VertexFormat format)
 	{

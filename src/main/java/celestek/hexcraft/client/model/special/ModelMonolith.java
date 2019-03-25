@@ -4,8 +4,8 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Function;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -45,7 +45,7 @@ public class ModelMonolith implements IModel
 	public Collection<ResourceLocation> getTextures()
 	{
 		// Return save texture path as a dependency
-		return this.texture == null ? ImmutableList.of() : ImmutableList.of(this.texture);
+		return this.texture == null ? ImmutableSet.of() : ImmutableSet.of(this.texture);
 	}
 
 	public static final String TAG_ROTATION_X = "rotation_x", TAG_ROTATION_Y = "rotation_y", TAG_ROTATION_Z = "rotation_z";

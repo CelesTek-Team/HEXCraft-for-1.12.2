@@ -1,7 +1,7 @@
 package celestek.hexcraft.common.item;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSet.Builder;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 import celestek.hexcraft.HexCraft;
 import celestek.hexcraft.common.init.HexItems;
@@ -9,22 +9,20 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 /**
- * HEXCraft's base item that can store a set of textures for the fullbright model This feature is handled automatically in {@link HexItems}
+ * HEXCraft's base item that stores a texture filter for the fullbright model. This feature is handled automatically in {@link HexItems}
  */
 public class HexItem extends Item {
 	/**
-	 * The item's textures which will have a fullbright effect applied. Can be left empty to not register a fullbright model
+	 * The item's texture filter which determines the textures to apply the fullbright effect. Can be left empty to not register a fullbright model
 	 */
-	public final ImmutableSet<String> textures;
+	public final Optional<Predicate<String>> filter;
 
-	public HexItem(String name, CreativeTabs tab, String... textures) {
+	public HexItem(String name, CreativeTabs tab, Optional<Predicate<String>> filter) {
 		this.setRegistryName(HexCraft.ID, name);
 		this.setUnlocalizedName(HexCraft.ID + "." + name);
 		this.setCreativeTab(tab);
 
-		Builder<String> builder = ImmutableSet.builder();
-		for(String texture : textures) builder.add(HexCraft.ID + ":" + "items/" + texture);
-		this.textures = builder.build();
+		this.filter = filter;
 	}
 
 	/**

@@ -10,12 +10,14 @@ import celestek.hexcraft.common.block.BlockEnergizedHexoriumMonolith;
 import celestek.hexcraft.common.block.BlockEngineeredHexoriumBlock;
 import celestek.hexcraft.common.block.BlockFramedHexoriumBlock;
 import celestek.hexcraft.common.block.BlockGlowingHexoriumCoatedStone;
+import celestek.hexcraft.common.block.BlockGlowingHexoriumGlass;
 import celestek.hexcraft.common.block.BlockHexoriumCoatedStone;
 import celestek.hexcraft.common.block.BlockHexoriumDoor;
 import celestek.hexcraft.common.block.BlockHexoriumNetherOre;
 import celestek.hexcraft.common.block.BlockHexoriumOre;
 import celestek.hexcraft.common.block.BlockHexoriumStructureCasing;
 import celestek.hexcraft.common.block.BlockPlatedHexoriumBlock;
+import celestek.hexcraft.common.block.BlockTemperedHexoriumGlass;
 import celestek.hexcraft.common.block.HexBlock;
 import celestek.hexcraft.common.item.HexItemBlock;
 import celestek.hexcraft.utility.Drop;
@@ -33,7 +35,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 /**
- * Contains all of HEXCraft's blocks. Automatically registers the {@link HexBlock} state mapper, a color handler with the block's color code and the fullbright model with the block's textures
+ * Contains all of HEXCraft's blocks. Automatically registers the {@link HexBlock} state mapper, a color handler with the block's color code and a fullbright model with the block's texture filter
  */
 public final class HexBlocks {
 	private static List<HexBlock> blocks = new ArrayList<>();
@@ -190,13 +192,24 @@ public final class HexBlocks {
 	glowing_hexorium_coated_stone_black = add(new BlockGlowingHexoriumCoatedStone(EHexColors.BLACK)),
 	glowing_hexorium_coated_stone_rainbow = add(new BlockGlowingHexoriumCoatedStone(EHexColors.RAINBOW)),
 
+	// Energized Monolith
 	energized_hexorium_monolith_red = add(new BlockEnergizedHexoriumMonolith(EHexColors.RED)),
 
+	// Hexorium Ore
 	hexorium_ore_red = add(new BlockHexoriumOre(EHexColors.RED, new Drop(HexItems.hexorium_crystal_red, 2, 4))),
 
+	// Hexorium Nether Ore
 	hexorium_nether_ore_red = add(new BlockHexoriumNetherOre(EHexColors.RED, new Drop(HexItems.hexorium_crystal_red, 1, 2))),
 
-	hexorium_door_red = add(new BlockHexoriumDoor(EHexColors.RED));
+	// Hexorium Door
+	hexorium_door_red = add(new BlockHexoriumDoor(EHexColors.RED)),
+
+	// Glowing Hexorium Glass
+	glowing_hexorium_glass_red = add(new BlockGlowingHexoriumGlass(EHexColors.RED)),
+	glowing_hexorium_glass_orange = add(new BlockGlowingHexoriumGlass(EHexColors.ORANGE)),
+
+	// Tempered Hexorium Glass
+	tempered_hexorium_glass = add(new BlockTemperedHexoriumGlass());
 
 	private HexBlocks() {}
 
@@ -220,9 +233,9 @@ public final class HexBlocks {
 	public static void registerModels() {
 		for(HexBlock block : blocks)
 		{
-			// Add a fullbright model override if the block has specified textures
-			if(!block.textures.isEmpty())
-				HexUtilities.addFullbright(block.textures, block.enableCache(), block.mapper.isPresent() ? block.mapper.get().paths : new ResourceLocation[] { block.getRegistryName() }); // FIXME multiple identical models being replaced
+			// Add a fullbright model override if the block has a texture filter
+			if(block.filter.isPresent())
+				HexUtilities.addFullbright(block.filter.get(), block.enableCache(), block.mapper.isPresent() ? block.mapper.get().paths : new ResourceLocation[] { block.getRegistryName() }); // FIXME multiple identical models being replaced
 			// Register a state mapper if the block has one
 			if(block.mapper.isPresent())
 				ModelLoader.setCustomStateMapper(block, block.mapper.get());

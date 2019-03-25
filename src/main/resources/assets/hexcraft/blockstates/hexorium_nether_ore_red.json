@@ -6,8 +6,8 @@
 		"textures":
 		{
 			"layer0": "all=blocks/netherrack",
-			"layer1": "all=hexcraft:blocks/hexorium_ore/hexorium_ore_red_gems,tint=0,layer=cutout/null,shade=false",
-			"layer2": "all=hexcraft:blocks/hexorium_nether_ore/hexorium_nether_ore_red_cracks,layer=translucent/null",
+			"layer1": "all=hexcraft:blocks/hexorium_ore/hexorium_ore_gems_red,tint=0,layers=cutout/null,shade=false",
+			"layer2": "all=hexcraft:blocks/hexorium_nether_ore/hexorium_nether_ore_cracks_red,layers=translucent/null",
 			"particle": "blocks/netherrack"
 		},
 		"transform": "forge:default-block"

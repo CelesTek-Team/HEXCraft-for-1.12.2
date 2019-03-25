@@ -5,6 +5,7 @@ import java.util.Optional;
 import celestek.hexcraft.client.model.HexStateMapper;
 import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.EHexColors;
+import celestek.hexcraft.utility.HexFilters;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +18,7 @@ import net.minecraft.world.World;
 
 public class BlockEnergizedHexorium extends HexBlock {
 	public BlockEnergizedHexorium(EHexColors color) {
-		super("energized_hexorium_" + color.name, color == EHexColors.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("energized_hexorium")), HexCreativeTabs.tabDecorative, Material.GLASS, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
+		super("energized_hexorium_" + color.name, color == EHexColors.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("energized_hexorium")), HexCreativeTabs.tabDecorative, Material.GLASS, color.color, HexFilters.ALWAYS_TRUE);
 		this.setHardness(0.3F);
 		this.setSoundType(SoundType.GLASS);
 	}

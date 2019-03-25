@@ -2,7 +2,7 @@ package celestek.hexcraft.client.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 import javax.vecmath.Matrix4f;
@@ -12,7 +12,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.common.collect.ImmutableSet;
 
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.state.IBlockState;
@@ -30,7 +29,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * A special baked model wrapper which changes the vertex format if required, applies maximum brightness and disables diffuse lighting for all the quads with the supplied textures. Supports quad caching
+ * A special baked model wrapper which changes the vertex format, applies maximum brightness and disables diffuse lighting for all the quads that match the supplied texture filter.
+ * Supports quad caching
  */
 @SideOnly(Side.CLIENT)
 public class BakedModelBrightness extends BakedModelWrapper
@@ -74,17 +74,21 @@ public class BakedModelBrightness extends BakedModelWrapper
 		@Override
 		public List<BakedQuad> load(CacheKey key)
 		{
-			return transformQuads(key.model.originalModel.getQuads(key.state, key.side, 0), key.model.textures);
+			return transformQuads(key.model.originalModel.getQuads(key.state, key.side, 0), key.model.filter);
 		}
 	});
 
-	protected final ImmutableSet<String> textures;
+	/**
+	 * The texture filter which is used to determine the quads to modify
+	 */
+	protected final Predicate<String> filter;
+
 	protected boolean enableCache = true;
 
-	public BakedModelBrightness(IBakedModel base, ImmutableSet<String> textures)
+	public BakedModelBrightness(IBakedModel base, Predicate<String> filter)
 	{
 		super(base);
-		this.textures = textures;
+		this.filter = filter;
 	}
 
 	public BakedModelBrightness setCache(boolean flag)
@@ -98,21 +102,21 @@ public class BakedModelBrightness extends BakedModelWrapper
 	public List<BakedQuad> getQuads(@Nullable IBlockState state, @Nullable EnumFacing side, long rand)
 	{
 		// Transform and draw the quads
-		if (!this.enableCache || state == null) return transformQuads(this.originalModel.getQuads(state, side, 0), this.textures);
+		if (!this.enableCache || state == null) return transformQuads(this.originalModel.getQuads(state, side, 0), this.filter);
 		return CACHE.getUnchecked(new CacheKey(this, state instanceof IExtendedBlockState ? ((IExtendedBlockState) state).getClean() : state, side));
 	}
 
 	/**
-	 * Returns a new list of quads from the given list where all the quads matching one of the supplied textures are replaced with transformed ones
+	 * Returns a new list of quads from the given list where all the quads matching the supplied texture filter are replaced with transformed ones
 	 */
-	protected static List<BakedQuad> transformQuads(List<BakedQuad> oldQuads, Set<String> textures) // FIXME make non-static?
+	protected static List<BakedQuad> transformQuads(List<BakedQuad> oldQuads, Predicate<String> filter) // FIXME make non-static?
 	{
 		List<BakedQuad> quads = new ArrayList<>(oldQuads);
 		for (int i = 0; i < quads.size(); ++i)
 		{
 			BakedQuad quad = quads.get(i);
 			// Applies maximum brightness (15)
-			if (textures.contains(quad.getSprite().getIconName())) quads.set(i, transformQuad(quad, 15 << 20 | 15 << 4));
+			if(filter.test(quad.getSprite().getIconName())) quads.set(i, transformQuad(quad, 15 << 20 | 15 << 4));
 		}
 		return quads;
 	}
@@ -156,6 +160,6 @@ public class BakedModelBrightness extends BakedModelWrapper
 		// Return the unchanged base model if in a GUI
 		if(type == TransformType.GUI) return base;
 		// Wrap the model if it's not already
-		return base.getLeft() instanceof BakedModelBrightness ? base : Pair.of(new BakedModelBrightness(base.getLeft(), this.textures), base.getRight());
+		return base.getLeft() instanceof BakedModelBrightness ? base : Pair.of(new BakedModelBrightness(base.getLeft(), this.filter), base.getRight());
 	}
 }

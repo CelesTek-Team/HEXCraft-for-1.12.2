@@ -1,0 +1,77 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:special/connected_layered_cube",
+		"smooth_lighting": false,
+		"transform": "forge:default-block"
+	},
+	"variants":
+	{
+		"normal":
+		[
+			{
+				"textures":
+				{
+					"layer0": "paths=
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_1;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_2;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_3;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_4;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_5;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_6;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_7;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_8;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_9;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_10;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_11;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_12;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_13;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_14;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_15;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_16;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_17;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_18;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_19;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_20;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_21;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_22;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_23;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_24;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_25;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_26;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_27;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_28;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_29;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_30;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_31;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_32;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_33;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_34;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_35;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_36;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_37;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_38;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_39;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_40;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_41;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_42;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_43;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_44;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_45;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_46;
+					hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_47,
+					layers=translucent;null",
+					"particle": "hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_1"
+				}
+			}
+		],
+		"inventory":
+		[
+			{
+				"model": "hexcraft:special/layered_cube",
+				"textures": { "layer0": "all=hexcraft:blocks/tempered_hexorium_glass/tempered_hexorium_glass_1" }
+			}
+		]
+	}
+}

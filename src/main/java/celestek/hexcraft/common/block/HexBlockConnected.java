@@ -1,6 +1,7 @@
 package celestek.hexcraft.common.block;
 
 import java.util.Optional;
+import java.util.function.Predicate;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -62,9 +63,9 @@ public class HexBlockConnected extends HexBlock
 		}
 	}
 
-	public HexBlockConnected(String name, Optional<HexStateMapper> mapper, CreativeTabs tab, Material material, int color, String... textures)
+	public HexBlockConnected(String name, Optional<HexStateMapper> mapper, CreativeTabs tab, Material material, int color, Optional<Predicate<String>> filter)
 	{
-		super(name, mapper, tab, material, color, textures);
+		super(name, mapper, tab, material, color, filter);
 	}
 
 	@Override

@@ -4,8 +4,8 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Function;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -50,7 +50,7 @@ public class ModelDoor implements IModel
 	public Collection<ResourceLocation> getTextures()
 	{
 		// Return all the saved texture paths as dependencies
-		ImmutableList.Builder builder = ImmutableList.builder();
+		ImmutableSet.Builder builder = ImmutableSet.builder();
 		if(this.base != null) builder.add(this.base);
 		if(this.front != null) builder.add(this.front);
 		if(this.side != null) builder.add(this.side);

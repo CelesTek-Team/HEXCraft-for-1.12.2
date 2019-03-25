@@ -32,7 +32,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * A baked model of a cube which uses so called {@link Layer}s parsed by the {@link ModelLayered} containing all the parameters used for rendering as well as a particle texture.
+ * A baked model of a cube which uses so called {@link Layer}s parsed by {@link ModelLayered} containing all the parameters used for rendering as well as a particle texture.
  * Supports quad caching, item perspective transforms and ambient occlusion
  */
 @SideOnly(Side.CLIENT)
@@ -163,7 +163,7 @@ public class BakedModelLayered implements IBakedModel
 	protected final ImmutableList<Layer> layers;
 	protected final TextureAtlasSprite particle;
 
-	protected boolean enableCache = false;
+	protected boolean enableCache = true;
 
 	public BakedModelLayered(IModelState state, VertexFormat format, boolean ambientOcclusion, ImmutableList<Layer> layers, TextureAtlasSprite particle)
 	{

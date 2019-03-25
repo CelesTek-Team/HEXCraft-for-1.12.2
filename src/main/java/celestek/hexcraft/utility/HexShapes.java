@@ -10,7 +10,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.model.TRSRTransformation;
 
 /**
- * Contains different model shapes
+ * Contains different model shapes used predominantly in HEXCraft's baked models
  */
 public final class HexShapes
 {

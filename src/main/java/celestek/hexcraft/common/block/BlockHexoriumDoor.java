@@ -6,6 +6,7 @@ import celestek.hexcraft.HexCraft;
 import celestek.hexcraft.client.model.HexStateMapper;
 import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.EHexColors;
+import celestek.hexcraft.utility.HexFilters;
 import net.minecraft.block.BlockDoor.EnumDoorHalf;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -14,12 +15,15 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockHexoriumDoor extends HexBlockDoor
 {
 	/**
 	 * A special state mapper that functions as {@link HexStateMapper}, but also adds a certain suffix to the renamed model path depending on the door's half property
 	 */
+	@SideOnly(Side.CLIENT)
 	public static class StateMapper extends HexStateMapper
 	{
 		public StateMapper(String path, IProperty... properties)
@@ -42,7 +46,7 @@ public class BlockHexoriumDoor extends HexBlockDoor
 
 	public BlockHexoriumDoor(EHexColors color)
 	{
-		super("hexorium_door_" + color.name, Optional.of(new StateMapper(color == EHexColors.RAINBOW ? "hexorium_door_rainbow" : "hexorium_door", HALF)), HexCreativeTabs.tabDecorative, Material.IRON, color.color, color == EHexColors.RAINBOW ? "glow_rainbow" : "glow");
+		super("hexorium_door_" + color.name, Optional.of(new StateMapper(color == EHexColors.RAINBOW ? "hexorium_door_rainbow" : "hexorium_door", HALF)), HexCreativeTabs.tabDecorative, Material.IRON, color.color,HexFilters.CONTAINS_GLOW);
 		this.setHardness(1.5F);
 		this.setResistance(6F);
 		this.setHarvestLevel("pickaxe", 2);

@@ -15,7 +15,7 @@
 				"textures":
 				{
 					"layer0": "all=hexcraft:blocks/glow,tint=0,shade=false",
-					"layer1": "all=hexcraft:blocks/concentric_hexorium_block,layer=translucent",
+					"layer1": "all=hexcraft:blocks/concentric_hexorium_block,layers=translucent",
 					"particle": "hexcraft:blocks/concentric_hexorium_block"
 				}
 			},
@@ -24,7 +24,7 @@
 				"textures":
 				{
 					"layer0": "all=hexcraft:blocks/glow,tint=0,shade=false",
-					"layer1": "all=hexcraft:blocks/concentric_hexorium_block_reinforced,layer=translucent",
+					"layer1": "all=hexcraft:blocks/concentric_hexorium_block_reinforced,layers=translucent",
 					"particle": "hexcraft:blocks/concentric_hexorium_block_reinforced"
 				}
 			}
@@ -35,7 +35,7 @@
 				"textures":
 				{
 					"layer0": "all=hexcraft:blocks/glow,tint=0",
-					"layer1": "all=hexcraft:blocks/concentric_hexorium_block,layer=null"
+					"layer1": "all=hexcraft:blocks/concentric_hexorium_block,layers=null"
 				}
 			}
 		]

@@ -9,6 +9,7 @@ import celestek.hexcraft.common.block.HexBlock;
 import celestek.hexcraft.common.item.HexItem;
 import celestek.hexcraft.common.item.HexItemBlock;
 import celestek.hexcraft.common.item.ItemHexoriumReinforcer;
+import celestek.hexcraft.utility.HexFilters;
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -23,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 /**
- * Contains all of HEXCraft's items. Automatically registers a fullbright model with {@link HexItem}'s textures. Also registers their {@link HexBlock}'s state mapper and color handler for item blocks
+ * Contains all of HEXCraft's items. Automatically registers a fullbright model with {@link HexItem}'s texture filter. Also registers their {@link HexBlock}'s state mapper and color handler for item blocks
  */
 public final class HexItems {
 	private static List<HexItem> items = new ArrayList<>();
@@ -31,11 +32,11 @@ public final class HexItems {
 
 	public static final Item
 
-	hexorium_crystal_red = add(new HexItem("hexorium_crystal_red", HexCreativeTabs.tabComponents, "hexorium_crystal_red")),
-	hexorium_crystal_green = add(new HexItem("hexorium_crystal_green", HexCreativeTabs.tabComponents, "hexorium_crystal_green")),
-	hexorium_crystal_blue = add(new HexItem("hexorium_crystal_blue", HexCreativeTabs.tabComponents, "hexorium_crystal_blue")),
-	hexorium_crystal_white = add(new HexItem("hexorium_crystal_white", HexCreativeTabs.tabComponents, "hexorium_crystal_white")),
-	hexorium_crystal_black = add(new HexItem("hexorium_crystal_black", HexCreativeTabs.tabComponents, "hexorium_crystal_black")),
+	hexorium_crystal_red = add(new HexItem("hexorium_crystal_red", HexCreativeTabs.tabComponents, HexFilters.filterContains("hexorium_crystal_red"))),
+	hexorium_crystal_green = add(new HexItem("hexorium_crystal_green", HexCreativeTabs.tabComponents, HexFilters.filterContains("hexorium_crystal_green"))),
+	hexorium_crystal_blue = add(new HexItem("hexorium_crystal_blue", HexCreativeTabs.tabComponents, HexFilters.filterContains("hexorium_crystal_blue"))),
+	hexorium_crystal_white = add(new HexItem("hexorium_crystal_white", HexCreativeTabs.tabComponents, HexFilters.filterContains("hexorium_crystal_white"))),
+	hexorium_crystal_black = add(new HexItem("hexorium_crystal_black", HexCreativeTabs.tabComponents, HexFilters.filterContains("hexorium_crystal_black"))),
 
 	hexorium_reinforcer = add(new ItemHexoriumReinforcer());
 
@@ -54,9 +55,9 @@ public final class HexItems {
 	{
 		for (HexItem item : items) {
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-			// Add a fullbright model override if the item has specified textures
-			if (!item.textures.isEmpty())
-				HexUtilities.addFullbright(item.textures, item.enableCache(), item.getRegistryName());
+			// Add a fullbright model override if the item has a texture filter
+			if (item.filter.isPresent())
+				HexUtilities.addFullbright(item.filter.get(), item.enableCache(), item.getRegistryName());
 		}
 		for (HexItemBlock item : itemBlocks)
 		{

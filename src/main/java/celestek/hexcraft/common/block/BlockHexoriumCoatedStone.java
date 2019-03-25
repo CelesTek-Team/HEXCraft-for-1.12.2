@@ -11,7 +11,7 @@ public class BlockHexoriumCoatedStone extends HexBlockReinforceable
 {
 	public BlockHexoriumCoatedStone()
 	{
-		super("hexorium_coated_stone", Optional.empty(), HexCreativeTabs.tabDecorative, Material.IRON, EHexColors.NONE.color);
+		super("hexorium_coated_stone", Optional.empty(), HexCreativeTabs.tabDecorative, Material.IRON, EHexColors.NONE.color, Optional.empty());
 		this.setHardness(1.5F);
 		this.setResistance(6F);
 		this.setHarvestLevel("pickaxe", 2);

@@ -1,0 +1,130 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:special/connected_layered_cube",
+		"smooth_lighting": false,
+		"transform": "forge:default-block"
+	},
+	"variants":
+	{
+		"normal":
+		[
+			{
+				"textures":
+				{
+					"layer0": "paths=
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_1;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_2;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_3;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_4;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_5;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_6;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_7;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_8;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_9;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_10;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_11;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_12;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_13;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_14;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_15;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_16;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_17;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_18;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_19;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_20;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_21;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_22;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_23;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_24;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_25;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_26;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_27;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_28;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_29;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_30;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_31;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_32;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_33;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_34;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_35;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_36;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_37;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_38;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_39;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_40;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_41;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_42;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_43;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_44;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_45;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_46;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_47,
+					layers=translucent;null",
+					"layer1": "paths=
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_1;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_2;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_3;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_4;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_5;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_6;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_7;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_8;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_9;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_10;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_11;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_12;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_13;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_14;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_15;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_16;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_17;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_18;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_19;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_20;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_21;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_22;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_23;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_24;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_25;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_26;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_27;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_28;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_29;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_30;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_31;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_32;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_33;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_34;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_35;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_36;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_37;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_38;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_39;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_40;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_41;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_42;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_43;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_44;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_45;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_46;
+					hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_47,
+					tint=0,layers=translucent;null,shade=false",
+					"particle": "hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_1"
+				}
+			}
+		],
+		"inventory":
+		[
+			{
+				"model": "hexcraft:special/layered_cube",
+				"textures":
+				{
+					"layer0": "all=hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_1",
+					"layer1": "all=hexcraft:blocks/glowing_hexorium_glass/glowing_hexorium_glass_glow_1,tint=0"
+				}
+			}
+		]
+	}
+}

@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
 /**
- * All the different colors used by the mod. Each color consists of a hex color code, name and a set of crystal drops of respective colors
+ * All the different colors used by HEXCraft. Each color consists of a hex color code, name and a set of crystal drops of respective colors
  */
 public enum EHexColors {
 	RED (0xff0000, "red", new Drop(HexItems.hexorium_crystal_red, 8)),

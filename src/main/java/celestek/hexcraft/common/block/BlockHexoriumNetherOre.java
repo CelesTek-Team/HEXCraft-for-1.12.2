@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import celestek.hexcraft.utility.Drop;
 import celestek.hexcraft.utility.EHexColors;
+import celestek.hexcraft.utility.HexFilters;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
 
@@ -11,7 +12,7 @@ public class BlockHexoriumNetherOre extends HexBlockOre
 {
 	public BlockHexoriumNetherOre(EHexColors color, Drop drop)
 	{
-		super("hexorium_nether_ore_" + color.name, Optional.empty(), drop, "hexorium_ore/hexorium_ore_" + color.name + "_gems");
+		super("hexorium_nether_ore_" + color.name, Optional.empty(), drop, HexFilters.filterContains("hexorium_ore_gems"));
 	}
 
 	@Override
