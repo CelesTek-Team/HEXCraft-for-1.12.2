@@ -1,17 +1,19 @@
 package celestek.hexcraft.common.block;
 
 import java.util.Optional;
+import java.util.function.Function;
 
 import celestek.hexcraft.HexCraft;
 import celestek.hexcraft.client.model.HexStateMapper;
 import celestek.hexcraft.common.init.HexCreativeTabs;
-import celestek.hexcraft.utility.EHexColors;
-import celestek.hexcraft.utility.HexFilters;
+import celestek.hexcraft.utility.EHexColor;
+import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.BlockDoor.EnumDoorHalf;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.ResourceLocation;
@@ -44,14 +46,28 @@ public class BlockHexoriumDoor extends HexBlockDoor
 		}
 	}
 
-	public BlockHexoriumDoor(EHexColors color)
+	public BlockHexoriumDoor(EHexColor color)
 	{
-		super("hexorium_door_" + color.name, Optional.of(new StateMapper(color == EHexColors.RAINBOW ? "hexorium_door_rainbow" : "hexorium_door", HALF)), HexCreativeTabs.tabDecorative, Material.IRON, color.color,HexFilters.CONTAINS_GLOW);
+		super("hexorium_door_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color);
 		this.setHardness(1.5F);
 		this.setResistance(6F);
 		this.setHarvestLevel("pickaxe", 2);
 		this.setSoundType(SoundType.METAL);
 		this.setLightOpacity(0);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Optional<HexStateMapper> addStateMapper()
+	{
+		return Optional.of(new StateMapper(this.color == EHexColor.RAINBOW ? "hexorium_door_rainbow" : "hexorium_door", HALF));
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
+	{
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW, false));
 	}
 
 	@Override

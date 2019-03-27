@@ -1,11 +1,8 @@
 package celestek.hexcraft.common.block;
 
-import java.util.Optional;
-import java.util.function.Predicate;
-
 import javax.annotation.Nullable;
 
-import celestek.hexcraft.client.model.HexStateMapper;
+import celestek.hexcraft.utility.EHexColor;
 import celestek.hexcraft.utility.HexProperties;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -27,9 +24,9 @@ public class HexBlockConnectedReinforceable extends HexBlockConnected
 {
 	public static final PropertyBool REINFORCED = HexProperties.REINFORCED;
 
-	public HexBlockConnectedReinforceable(String name, Optional<HexStateMapper> mapper, CreativeTabs tab, Material material, int color, Optional<Predicate<String>> filter)
+	public HexBlockConnectedReinforceable(String name, CreativeTabs tab, Material material, EHexColor color)
 	{
-		super(name, mapper, tab, material, color, filter);
+		super(name, tab, material, color);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(REINFORCED, false));
 	}
 

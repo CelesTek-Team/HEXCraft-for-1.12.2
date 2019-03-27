@@ -1,9 +1,7 @@
 package celestek.hexcraft.common.block;
 
-import java.util.Optional;
-
 import celestek.hexcraft.common.init.HexCreativeTabs;
-import celestek.hexcraft.utility.EHexColors;
+import celestek.hexcraft.utility.EHexColor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +16,7 @@ public class BlockTemperedHexoriumGlass extends HexBlockConnected
 {
 	public BlockTemperedHexoriumGlass()
 	{
-		super("tempered_hexorium_glass", Optional.empty(), HexCreativeTabs.tabDecorative, Material.GLASS, EHexColors.NONE.color, Optional.empty());
+		super("tempered_hexorium_glass", HexCreativeTabs.tabDecorative, Material.GLASS, EHexColor.NONE);
 		this.setHardness(1.5f);
 		this.setResistance(10f);
 		this.setHarvestLevel("pickaxe", 2);

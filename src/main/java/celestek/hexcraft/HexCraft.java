@@ -10,7 +10,7 @@ public class HexCraft
 {
 	public static final String ID = "hexcraft", NAME = "HEXCraft", VERSION = "0.1.0", GAMEVERSIONS = "1.12.2";
 
-	@SidedProxy(clientSide = "celestek.hexcraft.client.proxy.ClientProxy")
+	@SidedProxy(clientSide = "celestek.hexcraft.client.proxy.ClientProxy", serverSide = "celestek.hexcraft.server.proxy.ServerProxy")
 	public static IProxy proxy;
 
 	@Mod.EventHandler

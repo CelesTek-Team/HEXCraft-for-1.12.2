@@ -1,35 +1,33 @@
 package celestek.hexcraft.common.item;
 
 import java.util.Optional;
-import java.util.function.Predicate;
+import java.util.function.Function;
 
 import celestek.hexcraft.HexCraft;
 import celestek.hexcraft.common.init.HexItems;
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * HEXCraft's base item that stores a texture filter for the fullbright model. This feature is handled automatically in {@link HexItems}
+ * HEXCraft's base item that provides a custom model override. This feature is handled automatically in {@link HexItems}
  */
-public class HexItem extends Item {
-	/**
-	 * The item's texture filter which determines the textures to apply the fullbright effect. Can be left empty to not register a fullbright model
-	 */
-	public final Optional<Predicate<String>> filter;
+public class HexItem extends Item { // FIXME Cache the model override
 
-	public HexItem(String name, CreativeTabs tab, Optional<Predicate<String>> filter) {
+	public HexItem(String name, CreativeTabs tab) {
 		this.setRegistryName(HexCraft.ID, name);
 		this.setUnlocalizedName(HexCraft.ID + "." + name);
 		this.setCreativeTab(tab);
-
-		this.filter = filter;
 	}
 
 	/**
-	 * Determines whether the attached fullbright model will have cache enabled
+	 * The item's model override function which wraps or replaces its existing model. Mostly used for fullbright model overrides. Can be left empty to not insert a model
 	 */
-	public boolean enableCache() // FIXME Different approach?
+	@SideOnly(Side.CLIENT)
+	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride()
 	{
-		return true;
+		return Optional.empty();
 	}
 }

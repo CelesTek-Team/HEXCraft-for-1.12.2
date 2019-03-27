@@ -1,9 +1,6 @@
 package celestek.hexcraft.common.block;
 
-import java.util.Optional;
-import java.util.function.Predicate;
-
-import celestek.hexcraft.client.model.HexStateMapper;
+import celestek.hexcraft.utility.EHexColor;
 import celestek.hexcraft.utility.HexShapes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
@@ -49,9 +46,9 @@ public class HexBlockDoor extends HexBlockReinforceable
 	protected static final AxisAlignedBB BOUNDS_WEST = new AxisAlignedBB(1d - HexShapes.Door.dThck, 0d, 0d, 1d, 1d, 1d);
 	protected static final AxisAlignedBB BOUNDS_EAST = new AxisAlignedBB(0d, 0d, 0d, HexShapes.Door.dThck, 1d, 1d);
 
-	public HexBlockDoor(String name, Optional<HexStateMapper> mapper, CreativeTabs tab, Material material, int color, Optional<Predicate<String>> filter)
+	public HexBlockDoor(String name, CreativeTabs tab, Material material, EHexColor color)
 	{
-		super(name, mapper, tab, material, color, filter);
+		super(name, tab, material, color);
 		this.setDefaultState(this.getDefaultState().withProperty(FACING, EnumFacing.NORTH).withProperty(OPEN, false).withProperty(HINGE, EnumHingePosition.LEFT).withProperty(HALF, EnumDoorHalf.LOWER));
 	}
 

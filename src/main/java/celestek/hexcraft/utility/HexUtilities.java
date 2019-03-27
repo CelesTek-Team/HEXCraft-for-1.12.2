@@ -1,17 +1,17 @@
 package celestek.hexcraft.utility;
 
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 import javax.vecmath.Vector4f;
 
-import celestek.hexcraft.client.event.HexClientEvents;
 import celestek.hexcraft.client.model.BakedModelBrightness;
 import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.vertex.VertexFormat;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;
 import net.minecraftforge.common.ForgeModContainer;
@@ -23,14 +23,26 @@ import net.minecraftforge.fml.client.FMLClientHandler;
  */
 public final class HexUtilities
 {
+	public static final Predicate<String>
+	FILTER_TRUE = string -> true,
+	FILTER_CONTAINS_GLOW = createFilter("glow");
+
 	private HexUtilities() {}
 
 	/**
-	 * Adds a fullbright model override to all the given model paths for the given regular expression
+	 * Returns a new fullbright model override with the given texture filter and toggles its cache
 	 */
-	public static void addFullbright(Predicate<String> filter, boolean cache, ResourceLocation... paths) // Move?
+	public static Function<IBakedModel, IBakedModel> createFullbrightOverride(Predicate<String> filter, boolean enableCache)
 	{
-		for(ResourceLocation path : paths) HexClientEvents.addModelOverride(path, base -> new BakedModelBrightness(base, filter).setCache(cache));
+		return base -> new BakedModelBrightness(base, filter).setCache(enableCache);
+	}
+
+	/**
+	 * Returns a filter which checks if a string contains the given pattern
+	 */
+	public static Predicate<String> createFilter(String pattern)
+	{
+		return string -> string.contains(pattern);
 	}
 
 	public static boolean isLightMapDisabled()

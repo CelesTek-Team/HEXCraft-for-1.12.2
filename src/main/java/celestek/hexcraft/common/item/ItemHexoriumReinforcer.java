@@ -1,7 +1,5 @@
 package celestek.hexcraft.common.item;
 
-import java.util.Optional;
-
 import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.HexProperties;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +17,7 @@ public class ItemHexoriumReinforcer extends HexItem
 {
 	public ItemHexoriumReinforcer()
 	{
-		super("hexorium_reinforcer", HexCreativeTabs.tabMachines, Optional.empty());
+		super("hexorium_reinforcer", HexCreativeTabs.tabMachines);
 	}
 
 	@Override

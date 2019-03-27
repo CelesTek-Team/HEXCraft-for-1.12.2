@@ -1,9 +1,6 @@
 package celestek.hexcraft.common.block;
 
-import java.util.Optional;
-import java.util.function.Predicate;
-
-import celestek.hexcraft.client.model.HexStateMapper;
+import celestek.hexcraft.utility.EHexColor;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -24,9 +21,9 @@ public class HexBlockPillar extends HexBlock
 {
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 
-	public HexBlockPillar(String name, Optional<HexStateMapper> mapper, CreativeTabs tab, Material material, int color, Optional<Predicate<String>> filter)
+	public HexBlockPillar(String name, CreativeTabs tab, Material material, EHexColor color)
 	{
-		super(name, mapper, tab, material, color, filter);
+		super(name, tab, material, color);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	}
 

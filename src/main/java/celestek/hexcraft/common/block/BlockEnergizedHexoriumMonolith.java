@@ -1,21 +1,24 @@
 package celestek.hexcraft.common.block;
 
 import java.util.Optional;
+import java.util.function.Function;
 
 import celestek.hexcraft.client.model.HexStateMapper;
 import celestek.hexcraft.common.init.HexCreativeTabs;
-import celestek.hexcraft.utility.EHexColors;
-import celestek.hexcraft.utility.HexFilters;
+import celestek.hexcraft.utility.EHexColor;
 import celestek.hexcraft.utility.HexShapes;
+import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -33,12 +36,26 @@ public class BlockEnergizedHexoriumMonolith extends HexBlockPillar
 	BOUNDS_WEST = new AxisAlignedBB(1d - HexShapes.Monolith.yMax, HexShapes.Monolith.xA, HexShapes.Monolith.zF, 1d - HexShapes.Monolith.yMin, HexShapes.Monolith.xD, HexShapes.Monolith.zB),
 	BOUNDS_EAST = new AxisAlignedBB(HexShapes.Monolith.yMin, HexShapes.Monolith.xA, HexShapes.Monolith.zF, HexShapes.Monolith.yMax, HexShapes.Monolith.xD, HexShapes.Monolith.zB);
 
-	public BlockEnergizedHexoriumMonolith(EHexColors color)
+	public BlockEnergizedHexoriumMonolith(EHexColor color)
 	{
-		super("energized_hexorium_monolith_" + color.name, color == EHexColors.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("energized_hexorium_monolith")), HexCreativeTabs.tabDecorative, Material.GLASS, color.color, HexFilters.ALWAYS_TRUE);
+		super("energized_hexorium_monolith_" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, color);
 		this.setHardness(0.3F);
 		this.setSoundType(SoundType.GLASS);
 		this.setLightOpacity(0);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Optional<HexStateMapper> addStateMapper()
+	{
+		return this.color == EHexColor.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("energized_hexorium_monolith"));
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
+	{
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_TRUE, true));
 	}
 
 	@Override
@@ -89,11 +106,10 @@ public class BlockEnergizedHexoriumMonolith extends HexBlockPillar
 	}
 
 	// FIXME manipulator compat
-	// Store the EHexColor instead?
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos position, IBlockState state, int fortune)
 	{
-		EHexColors.fromColor(this.color).addDrops(drops);
+		this.color.addDrops(drops);
 	}
 
 	@Override
@@ -119,11 +135,5 @@ public class BlockEnergizedHexoriumMonolith extends HexBlockPillar
 	public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
 	{
 		return BlockFaceShape.UNDEFINED;
-	}
-
-	@Override
-	public boolean enableCache()
-	{
-		return true;
 	}
 }
