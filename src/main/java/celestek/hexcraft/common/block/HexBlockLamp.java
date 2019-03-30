@@ -2,12 +2,15 @@ package celestek.hexcraft.common.block;
 
 import celestek.hexcraft.utility.EHexColor;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -23,9 +26,9 @@ public class HexBlockLamp extends HexBlock
 	}
 
 	@Override
-	public void onBlockAdded(World world, BlockPos position, IBlockState state)
+	public IBlockState getStateForPlacement(World world, BlockPos position, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
 	{
-		if(!world.isRemote && (state.getValue(POWERED) != world.isBlockPowered(position))) world.setBlockState(position, state.cycleProperty(POWERED), 2);
+		return this.getDefaultState().withProperty(POWERED, world.isBlockPowered(position));
 	}
 
 	@Override
@@ -49,7 +52,7 @@ public class HexBlockLamp extends HexBlock
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
-		// bit 4 is reinforced
+		// bit 1 is reinforced
 		return state.getValue(POWERED) ? 1 : 0;
 	}
 

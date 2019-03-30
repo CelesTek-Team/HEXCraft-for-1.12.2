@@ -7,9 +7,6 @@ import javax.vecmath.Matrix4f;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -107,6 +104,7 @@ public class BakedModelLayered implements IBakedModel
 	/**
 	 * A cache key used to store different quads of the model
 	 */
+	/*
 	private class CacheKey
 	{
 		protected BakedModelLayered model;
@@ -149,6 +147,7 @@ public class BakedModelLayered implements IBakedModel
 			return key.layer.bake(Lists.newArrayList(), key.model.format, key.face);
 		}
 	});
+	*/
 
 	/**
 	 * The item perspective transforms defined under the "transform" tag in the blockstate
@@ -163,8 +162,6 @@ public class BakedModelLayered implements IBakedModel
 	protected final ImmutableList<Layer> layers;
 	protected final TextureAtlasSprite particle;
 
-	protected boolean enableCache = true;
-
 	public BakedModelLayered(IModelState state, VertexFormat format, boolean ambientOcclusion, ImmutableList<Layer> layers, TextureAtlasSprite particle)
 	{
 		this.state = state;
@@ -172,12 +169,6 @@ public class BakedModelLayered implements IBakedModel
 		this.ambientOcclusion = ambientOcclusion;
 		this.layers = layers;
 		this.particle = particle;
-	}
-
-	public BakedModelLayered setCache(boolean flag)
-	{
-		this.enableCache = flag;
-		return this;
 	}
 
 	@Override
@@ -188,11 +179,7 @@ public class BakedModelLayered implements IBakedModel
 		if(face == null) return quads;
 		BlockRenderLayer renderLayer = MinecraftForgeClient.getRenderLayer();
 		// Draw each layer if in the right render layer
-		for(Layer layer : this.layers) if(layer.canRender(renderLayer))
-		{
-			if(this.enableCache) quads.addAll(CACHE.getUnchecked(new CacheKey(this, state, face, layer)));
-			else layer.bake(quads, this.format, face);
-		}
+		for(Layer layer : this.layers) if(layer.canRender(renderLayer)) layer.bake(quads, this.format, face);
 		return quads;
 	}
 

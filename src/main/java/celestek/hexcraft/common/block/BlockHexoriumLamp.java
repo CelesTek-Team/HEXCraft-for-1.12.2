@@ -22,7 +22,7 @@ public class BlockHexoriumLamp extends HexBlockLamp
 {
 	public BlockHexoriumLamp(EHexColor color)
 	{
-		super("hexorium_lamp" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, color);
+		super("hexorium_lamp_" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, color);
 		this.setHardness(1.5f);
 		this.setResistance(10f);
 		this.setHarvestLevel("pickaxe", 2);
@@ -33,14 +33,14 @@ public class BlockHexoriumLamp extends HexBlockLamp
 	@SideOnly(Side.CLIENT)
 	public Optional<HexStateMapper> addStateMapper()
 	{
-		return Optional.of(new HexStateMapper(this.color == EHexColor.RAINBOW ? "hexorium_lamp_rainbow" : "hexorium_lamp", POWERED));
+		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("hexorium_lamp", POWERED));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW, false));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW));
 	}
 
 	@Override

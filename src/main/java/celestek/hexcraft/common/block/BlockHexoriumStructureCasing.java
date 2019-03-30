@@ -21,8 +21,8 @@ public class BlockHexoriumStructureCasing extends HexBlockConnectedReinforceable
 	public BlockHexoriumStructureCasing(EHexColor color)
 	{
 		super("hexorium_structure_casing_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color);
-		this.setHardness(1.5F);
-		this.setResistance(6F);
+		this.setHardness(1.5f);
+		this.setResistance(6f);
 		this.setHarvestLevel("pickaxe", 2);
 		this.setSoundType(SoundType.METAL);
 	}
@@ -31,14 +31,14 @@ public class BlockHexoriumStructureCasing extends HexBlockConnectedReinforceable
 	@SideOnly(Side.CLIENT)
 	public Optional<HexStateMapper> addStateMapper()
 	{
-		return this.color == EHexColor.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("hexorium_structure_casing"));
+		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("hexorium_structure_casing"));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW, false));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW));
 	}
 
 	@Override

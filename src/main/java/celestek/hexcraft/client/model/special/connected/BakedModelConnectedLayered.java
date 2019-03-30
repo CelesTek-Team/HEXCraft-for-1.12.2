@@ -3,9 +3,6 @@ package celestek.hexcraft.client.model.special.connected;
 import java.util.List;
 import java.util.Optional;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
@@ -98,6 +95,7 @@ public class BakedModelConnectedLayered implements IBakedModel
 	/**
 	 * A cache key used to store different quads of the model
 	 */
+	/*
 	private class CacheKey
 	{
 		protected BakedModelConnectedLayered model;
@@ -143,6 +141,7 @@ public class BakedModelConnectedLayered implements IBakedModel
 			return key.layer.bake(Lists.newArrayList(), key.model.format, key.face, key.faceState);
 		}
 	});
+	*/
 
 	/**
 	 * The vertex format in which all of the model's quads should be drawn in
@@ -153,20 +152,12 @@ public class BakedModelConnectedLayered implements IBakedModel
 	protected final ImmutableList<Layer> layers;
 	protected final TextureAtlasSprite particle;
 
-	protected boolean enableCache = true;
-
 	public BakedModelConnectedLayered(VertexFormat format, boolean ambientOcclusion, ImmutableList<Layer> layers, TextureAtlasSprite particle)
 	{
 		this.format = format;
 		this.ambientOcclusion = ambientOcclusion;
 		this.layers = layers;
 		this.particle = particle;
-	}
-
-	public BakedModelConnectedLayered setCache(boolean flag)
-	{ 
-		this.enableCache = flag;
-		return this;
 	}
 
 	@Override
@@ -180,11 +171,7 @@ public class BakedModelConnectedLayered implements IBakedModel
 		// Get the information about each face from the extended blockstate returned by HexBlockConnected
 		int faceState = extended.getValue(HexBlockConnected.FACE_STATES).get(side);
 		// Draw each layer if in the right render layer
-		for(Layer layer : this.layers) if(layer.canRender(renderLayer))
-		{
-			if(this.enableCache) quads.addAll(CACHE.getUnchecked(new CacheKey(this, state, side, layer, faceState)));
-			else layer.bake(quads, this.format, side, faceState);
-		}
+		for(Layer layer : this.layers) if(layer.canRender(renderLayer)) layer.bake(quads, this.format, side, faceState);
 		return quads;
 	}
 

@@ -16,29 +16,30 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockGlowingHexoriumCoatedStone extends HexBlockConnectedReinforceable
+public class BlockHexoriumHatch extends HexBlockHatch
 {
-	public BlockGlowingHexoriumCoatedStone(EHexColor color)
+	public BlockHexoriumHatch(EHexColor color)
 	{
-		super("glowing_hexorium_coated_stone_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color);
+		super("hexorium_hatch_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color);
 		this.setHardness(1.5f);
 		this.setResistance(6f);
 		this.setHarvestLevel("pickaxe", 2);
-		this.setSoundType(SoundType.STONE);
+		this.setSoundType(SoundType.METAL);
+		this.setLightOpacity(0);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Optional<HexStateMapper> addStateMapper()
 	{
-		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("glowing_hexorium_coated_stone"));
+		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("hexorium_hatch"));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(string -> string.endsWith("glow") || string.endsWith("rainbow")));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW));
 	}
 
 	@Override

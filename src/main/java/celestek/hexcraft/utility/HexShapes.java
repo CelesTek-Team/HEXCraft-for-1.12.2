@@ -32,28 +32,40 @@ public final class HexShapes
 	{
 		public static final float dThck = 0.1875f;
 
-		public static List<BakedQuad> create(List<BakedQuad> quads, VertexFormat format, Optional<TRSRTransformation> transform, boolean top, boolean flip, EnumFacing face, int tint, boolean shade, TextureAtlasSprite front, TextureAtlasSprite side)
+		public static List<BakedQuad> create(List<BakedQuad> quads, VertexFormat format, Optional<TRSRTransformation> transform, int flip, int edge, EnumFacing face, int tint, boolean shade, TextureAtlasSprite front, TextureAtlasSprite side)
 		{
 			if(face != null) return quads;
 			// DOWN
-			if(!top) quads.add(HexUtilities.createQuad(format, transform, 0f, 0f, 0f, dThck, 0f, 0f, dThck, 0f, 1f, 0f, 0f, 1f, 0f, 13f, 0f, 16f, 16f, 16f, 16f, 13f, 1f, tint, shade, side));
+			// Bit 1 is bottom, 2 is top
+			if((edge & 0b01) != 0) quads.add(HexUtilities.createQuad(format, transform, 0f, 0f, 0f, dThck, 0f, 0f, dThck, 0f, 1f, 0f, 0f, 1f, 0f, 13f, 0f, 16f, 16f, 16f, 16f, 13f, 1f, tint, shade, side));
 			// UP
-			else quads.add(HexUtilities.createQuad(format, transform, 0f, 1f, 0f, 0f, 1f, 1f, dThck, 1f, 1f, dThck, 1f, 0f, 0f, 3f, 16f, 3f, 16f, 0f, 0f, 0f, 1f, tint, shade, side));
+			if((edge & 0b10) != 0) quads.add(HexUtilities.createQuad(format, transform, 0f, 1f, 0f, 0f, 1f, 1f, dThck, 1f, 1f, dThck, 1f, 0f, 0f, 3f, 16f, 3f, 16f, 0f, 0f, 0f, 1f, tint, shade, side));
 			// NORTH
 			quads.add(HexUtilities.createQuad(format, transform, dThck, 0f, 0f, 0f, 0f, 0f, 0f, 1f, 0f, dThck, 1f, 0f, 0f, 16f, 3f, 16f, 3f, 0f, 0f, 0f, 1f, tint, shade, side));
 			// EAST
 			quads.add(HexUtilities.createQuad(format, transform, 0f, 0f, 1f, dThck, 0f, 1f, dThck,1f, 1f, 0f, 1f, 1f, 13f, 16f, 16f, 16f, 16f, 0f, 13f, 0f, 1f, tint, shade, side));;
 			// WEST
 			// EAST
-			if(flip)
+			// Bit 1 is flip over X axis, 2 is flip over Y axis
+			if((flip & 0b11) == 0b00)
+			{
+				quads.add(HexUtilities.createQuad(format, transform, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 1f, 1f, 0f, 1f, 0f, 16f, 16f, 0f, 16f, 0f, 0f, 16f, 0f, 1f, tint, shade, front));
+				quads.add(HexUtilities.createQuad(format, transform, dThck, 0f, 1f, dThck, 0f, 0f, dThck, 1f, 0f, dThck, 1f, 1f, 0f, 16f, 16f, 16f, 16f, 0f, 0f, 0f, 1f, tint, shade, front));
+			}
+			else if((flip & 0b11) == 0b01)
 			{
 				quads.add(HexUtilities.createQuad(format, transform, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 1f, 1f, 0f, 1f, 0f, 0f, 16f, 16f, 16f, 16f, 0f, 0f, 0f, 1f, tint, shade, front));
 				quads.add(HexUtilities.createQuad(format, transform, dThck, 0f, 1f, dThck, 0f, 0f, dThck, 1f, 0f, dThck, 1f, 1f, 16f, 16f, 0f, 16f, 0f, 0f, 16f, 0f, 1f, tint, shade, front));
 			}
-			else
+			else if((flip & 0b11) == 0b10)
 			{
-				quads.add(HexUtilities.createQuad(format, transform, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 1f, 1f, 0f, 1f, 0f, 16f, 16f, 0f, 16f, 0f, 0f, 16f, 0f, 1f, tint, shade, front));
-				quads.add(HexUtilities.createQuad(format, transform, dThck, 0f, 1f, dThck, 0f, 0f, dThck, 1f, 0f, dThck, 1f, 1f, 0f, 16f, 16f, 16f, 16f, 0f, 0f, 0f, 1f, tint, shade, front));
+				quads.add(HexUtilities.createQuad(format, transform, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 1f, 1f, 0f, 1f, 0f, 0f, 0f, 16f, 0f, 16f, 16f, 0f, 16f, 1f, tint, shade, front));
+				quads.add(HexUtilities.createQuad(format, transform, dThck, 0f, 1f, dThck, 0f, 0f, dThck, 1f, 0f, dThck, 1f, 1f, 16f, 0f, 0f, 0f, 0f, 16f, 16f, 16f, 1f, tint, shade, front));
+			}
+			else if((flip & 0b11) == 0b11)
+			{
+				quads.add(HexUtilities.createQuad(format, transform, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 1f, 1f, 0f, 1f, 0f, 16f, 0f, 0f, 0f, 0f, 16f, 16f, 16f, 1f, tint, shade, front));
+				quads.add(HexUtilities.createQuad(format, transform, dThck, 0f, 1f, dThck, 0f, 0f, dThck, 1f, 0f, dThck, 1f, 1f, 0f, 0f, 16f, 0f, 16f, 16f, 0f, 16f, 1f, tint, shade, front));
 			}
 			return quads;
 		}
@@ -65,17 +77,24 @@ public final class HexShapes
 		public static final float dWidt = 0.1875f;
 		public static final float dOffs = 0.001f;
 
-		public static List<BakedQuad> create(List<BakedQuad> quads, VertexFormat format, Optional<TRSRTransformation> transform, boolean top, EnumFacing face, int tint, boolean shade, TextureAtlasSprite sprite)
+		public static List<BakedQuad> create(List<BakedQuad> quads, VertexFormat format, Optional<TRSRTransformation> transform, int edge, EnumFacing face, int tint, boolean shade, TextureAtlasSprite sprite)
 		{
 			if(face != null) return quads;
 			quads.add(HexUtilities.createQuad(format, transform, dOffs, 0f, 0f, dOffs, 0f, dWidt, dOffs, 1f, dWidt, dOffs, 1f, 0f, 0f, 16f, 3f, 16f, 3f, 0f, 0f, 0f, 1f, tint, shade, sprite));
 			quads.add(HexUtilities.createQuad(format, transform, dOffs, 0f, 1f - dWidt, dOffs, 0f, 1f, dOffs, 1f, 1f, dOffs, 1f, 1f - dWidt, 13f, 16f, 16f, 16f, 16f, 0f, 13f, 0f, 1f, tint, shade, sprite));
-			if(top) quads.add(HexUtilities.createQuad(format, transform, dOffs, 1f - dWidt, dWidt, dOffs, 1f - dWidt, 1f - dWidt, dOffs, 1f, 1f - dWidt, dOffs, 1f, dWidt, 3f, 3f, 13f, 3f, 13f, 0f, 3f, 0f, 1f, tint, shade, sprite));
-			else quads.add(HexUtilities.createQuad(format, transform, dOffs, 0f, dWidt, dOffs, 0f, 1f - dWidt, dOffs, dWidt, 1f - dWidt, dOffs, dWidt, dWidt, 3f, 16f, 13f, 16f, 13f, 13f, 3f, 13f, 1f, tint, shade, sprite));
+			// Bit 1 is bottom, 2 is top
+			if((edge & 0b10) != 0) // UPPER
+			{
+				quads.add(HexUtilities.createQuad(format, transform, dOffs, 1f - dWidt, dWidt, dOffs, 1f - dWidt, 1f - dWidt, dOffs, 1f, 1f - dWidt, dOffs, 1f, dWidt, 3f, 3f, 13f, 3f, 13f, 0f, 3f, 0f, 1f, tint, shade, sprite));
+				quads.add(HexUtilities.createQuad(format, transform, dThck - dOffs, 1f - dWidt, 1f - dWidt, dThck - dOffs, 1f - dWidt, dWidt, dThck - dOffs, 1f, dWidt, dThck - dOffs, 1f, 1f - dWidt, 3f, 3f, 13f, 3f, 13f, 0f, 3f, 0f, 1f, tint, shade, sprite));
+			}
+			if((edge & 0b01) != 0) // LOWER
+			{
+				quads.add(HexUtilities.createQuad(format, transform, dOffs, 0f, dWidt, dOffs, 0f, 1f - dWidt, dOffs, dWidt, 1f - dWidt, dOffs, dWidt, dWidt, 3f, 16f, 13f, 16f, 13f, 13f, 3f, 13f, 1f, tint, shade, sprite));
+				quads.add(HexUtilities.createQuad(format, transform, dThck - dOffs, 0f, 1f - dWidt, dThck - dOffs, 0f, dWidt, dThck - dOffs, dWidt, dWidt, dThck - dOffs, dWidt, 1f - dWidt, 3f, 16f, 13f, 16f, 13f, 13f, 3f, 13f, 1f, tint, shade, sprite));
+			}
 			quads.add(HexUtilities.createQuad(format, transform, dThck - dOffs, 0f, 1f, dThck - dOffs, 0f, 1f - dWidt, dThck - dOffs, 1f, 1f - dWidt, dThck - dOffs, 1f, 1f, 0f, 16f, 3f, 16f, 3f, 0f, 0f, 0f, 1f, tint, shade, sprite));
 			quads.add(HexUtilities.createQuad(format, transform, dThck - dOffs, 0f, dWidt, dThck - dOffs, 0f, 0f, dThck - dOffs, 1f, 0f, dThck - dOffs, 1f, dWidt, 13f, 16f, 16f, 16f, 16f, 0f, 13f, 0f, 1f, tint, shade, sprite));
-			if(top) quads.add(HexUtilities.createQuad(format, transform, dThck - dOffs, 1f - dWidt, 1f - dWidt, dThck - dOffs, 1f - dWidt, dWidt, dThck - dOffs, 1f, dWidt, dThck - dOffs, 1f, 1f - dWidt, 3f, 3f, 13f, 3f, 13f, 0f, 3f, 0f, 1f, tint, shade, sprite));
-			else quads.add(HexUtilities.createQuad(format, transform, dThck - dOffs, 0f, 1f - dWidt, dThck - dOffs, 0f, dWidt, dThck - dOffs, dWidt, dWidt, dThck - dOffs, dWidt, 1f - dWidt, 3f, 16f, 13f, 16f, 13f, 13f, 3f, 13f, 1f, tint, shade, sprite));
 			return quads;
 		}
 	}

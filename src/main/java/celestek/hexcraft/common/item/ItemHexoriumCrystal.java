@@ -21,6 +21,6 @@ public class ItemHexoriumCrystal extends HexItem
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride()
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.createFilter(this.getRegistryName().getResourcePath()), true));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.createFilter(this.getRegistryName().getResourcePath())));
 	}
 }

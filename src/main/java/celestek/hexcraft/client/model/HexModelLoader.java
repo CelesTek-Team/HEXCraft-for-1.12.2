@@ -44,7 +44,7 @@ public class HexModelLoader implements ICustomModelLoader // Split into separate
 		if(path.equals(LAYERED_CUBE)) return new ModelLayered(ImmutableList.of(), TEXTURE_MISSING, true);
 		else if(path.equals(CONNECTED_LAYERED_CUBE)) return new ModelConnectedLayered(ImmutableList.of(), TEXTURE_MISSING, true);
 		else if(path.equals(MONOLITH)) return new ModelMonolith(TEXTURE_MISSING, Optional.empty());
-		else if(path.equals(DOOR)) return new ModelDoor(TEXTURE_MISSING, TEXTURE_MISSING, TEXTURE_MISSING, Optional.empty(), false, false, false);
+		else if(path.equals(DOOR)) return new ModelDoor(TEXTURE_MISSING, TEXTURE_MISSING, TEXTURE_MISSING, Optional.empty(), 0, 0);
 		else if(path.equals(DOUBLE_DOOR)) return new ModelDoubleDoor(TEXTURE_MISSING, TEXTURE_MISSING, TEXTURE_MISSING, TEXTURE_MISSING);
 		return null;
 	}

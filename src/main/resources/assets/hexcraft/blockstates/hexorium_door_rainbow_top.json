@@ -5,7 +5,7 @@
 		"model": "hexcraft:special/door",
 		"textures":
 		{
-			"base": "hexcraft:blocks/glow",
+			"base": "hexcraft:blocks/glow_rainbow",
 			"front": "hexcraft:blocks/hexorium_door/hexorium_door_top",
 			"side": "hexcraft:blocks/hexorium_door/hexorium_door_side"
 		},

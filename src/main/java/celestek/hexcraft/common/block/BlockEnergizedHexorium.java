@@ -24,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockEnergizedHexorium extends HexBlock {
 	public BlockEnergizedHexorium(EHexColor color) {
 		super("energized_hexorium_" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, color);
-		this.setHardness(0.3F);
+		this.setHardness(0.3f);
 		this.setSoundType(SoundType.GLASS);
 	}
 
@@ -45,13 +45,13 @@ public class BlockEnergizedHexorium extends HexBlock {
 	@SideOnly(Side.CLIENT)
 	public Optional<HexStateMapper> addStateMapper()
 	{
-		return this.color == EHexColor.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("energized_hexorium"));
+		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("energized_hexorium"));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_TRUE, true));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_TRUE));
 	}
 }

@@ -1,0 +1,20 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:special/layered_cube",
+		"textures":
+		{
+			"layer0": "all=blocks/netherrack",
+			"layer1": "all=hexcraft:blocks/hexorium_ore/hexorium_ore_gems_white,tint=0,layers=cutout/null,shade=false",
+			"layer2": "all=hexcraft:blocks/hexorium_nether_ore/hexorium_nether_ore_cracks_white,layers=translucent/null",
+			"particle": "blocks/netherrack"
+		},
+		"transform": "forge:default-block"
+	},
+	"variants":
+	{
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

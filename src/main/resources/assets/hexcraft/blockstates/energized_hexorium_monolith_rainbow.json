@@ -1,0 +1,22 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:special/monolith",
+		"textures": { "base": "hexcraft:blocks/energized_hexorium_monolith_rainbow" },
+		"transform": "forge:default-block"
+	},
+	"variants":
+	{
+		"facing":
+		{
+			"down": { "custom": { "rotation_x" : 180 } },
+			"up": {},
+			"north": { "custom": { "rotation_y": 90, "rotation_z" : -90 } },
+			"south": { "custom": { "rotation_y": 90, "rotation_z" : 90 } },
+			"west": { "custom": { "rotation_z" : 90 } },
+			"east": { "custom": { "rotation_z" : -90 } }
+		},
+		"inventory": [{}]
+	}
+}

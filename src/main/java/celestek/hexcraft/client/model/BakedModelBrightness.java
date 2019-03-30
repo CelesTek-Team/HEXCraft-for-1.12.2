@@ -9,10 +9,6 @@ import javax.vecmath.Matrix4f;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-
 import celestek.hexcraft.utility.HexUtilities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -24,7 +20,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraftforge.client.model.BakedModelWrapper;
 import net.minecraftforge.client.model.pipeline.UnpackedBakedQuad;
 import net.minecraftforge.client.model.pipeline.VertexLighterFlat;
-import net.minecraftforge.common.property.IExtendedBlockState;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -38,6 +33,7 @@ public class BakedModelBrightness extends BakedModelWrapper
 	/**
 	 * A cache key used to store different quads of the model
 	 */
+	/*
 	private class CacheKey
 	{
 		protected BakedModelBrightness model;
@@ -77,13 +73,12 @@ public class BakedModelBrightness extends BakedModelWrapper
 			return transformQuads(key.model.originalModel.getQuads(key.state, key.side, 0), key.model.filter);
 		}
 	});
+	*/
 
 	/**
 	 * The texture filter which is used to determine the quads to modify
 	 */
 	protected final Predicate<String> filter;
-
-	protected boolean enableCache = true;
 
 	public BakedModelBrightness(IBakedModel base, Predicate<String> filter)
 	{
@@ -91,19 +86,12 @@ public class BakedModelBrightness extends BakedModelWrapper
 		this.filter = filter;
 	}
 
-	public BakedModelBrightness setCache(boolean flag)
-	{
-		this.enableCache = flag;
-		return this;
-	}
-
 	// FIXME Caching for items with animated textures
 	@Override
 	public List<BakedQuad> getQuads(@Nullable IBlockState state, @Nullable EnumFacing side, long rand)
 	{
 		// Transform and draw the quads
-		if (!this.enableCache || state == null) return transformQuads(this.originalModel.getQuads(state, side, 0), this.filter);
-		return CACHE.getUnchecked(new CacheKey(this, state instanceof IExtendedBlockState ? ((IExtendedBlockState) state).getClean() : state, side));
+		return transformQuads(this.originalModel.getQuads(state, side, 0), this.filter);
 	}
 
 	/**

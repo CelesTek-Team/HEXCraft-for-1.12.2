@@ -1,0 +1,20 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:special/layered_cube",
+		"textures":
+		{
+			"layer0": "all=blocks/stone",
+			"layer1": "all=hexcraft:blocks/hexorium_ore/hexorium_ore_gems_black,tint=0,layers=cutout/null,shade=false",
+			"layer2": "all=hexcraft:blocks/hexorium_ore/hexorium_ore_cracks_black,layers=translucent/null",
+			"particle": "blocks/stone"
+		},
+		"transform": "forge:default-block"
+	},
+	"variants":
+	{
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

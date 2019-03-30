@@ -17,6 +17,7 @@ import celestek.hexcraft.common.block.BlockGlowingHexoriumCoatedStone;
 import celestek.hexcraft.common.block.BlockGlowingHexoriumGlass;
 import celestek.hexcraft.common.block.BlockHexoriumCoatedStone;
 import celestek.hexcraft.common.block.BlockHexoriumDoor;
+import celestek.hexcraft.common.block.BlockHexoriumHatch;
 import celestek.hexcraft.common.block.BlockHexoriumLamp;
 import celestek.hexcraft.common.block.BlockHexoriumNetherOre;
 import celestek.hexcraft.common.block.BlockHexoriumOre;
@@ -198,30 +199,141 @@ public final class HexBlocks {
 	glowing_hexorium_coated_stone_black = add(new BlockGlowingHexoriumCoatedStone(EHexColor.BLACK)),
 	glowing_hexorium_coated_stone_rainbow = add(new BlockGlowingHexoriumCoatedStone(EHexColor.RAINBOW)),
 
-	// Energized Monolith
+	// Energized Hexorium Monolith
 	energized_hexorium_monolith_red = add(new BlockEnergizedHexoriumMonolith(EHexColor.RED)),
+	energized_hexorium_monolith_orange = add(new BlockEnergizedHexoriumMonolith(EHexColor.ORANGE)),
+	energized_hexorium_monolith_yellow = add(new BlockEnergizedHexoriumMonolith(EHexColor.YELLOW)),
+	energized_hexorium_monolith_lime = add(new BlockEnergizedHexoriumMonolith(EHexColor.LIME)),
+	energized_hexorium_monolith_green = add(new BlockEnergizedHexoriumMonolith(EHexColor.GREEN)),
+	energized_hexorium_monolith_turquoise = add(new BlockEnergizedHexoriumMonolith(EHexColor.TURQUOISE)),
+	energized_hexorium_monolith_cyan = add(new BlockEnergizedHexoriumMonolith(EHexColor.CYAN)),
+	energized_hexorium_monolith_skyblue = add(new BlockEnergizedHexoriumMonolith(EHexColor.SKY_BLUE)),
+	energized_hexorium_monolith_blue = add(new BlockEnergizedHexoriumMonolith(EHexColor.BLUE)),
+	energized_hexorium_monolith_purple = add(new BlockEnergizedHexoriumMonolith(EHexColor.PURPLE)),
+	energized_hexorium_monolith_magenta = add(new BlockEnergizedHexoriumMonolith(EHexColor.MAGENTA)),
+	energized_hexorium_monolith_pink = add(new BlockEnergizedHexoriumMonolith(EHexColor.PINK)),
+	energized_hexorium_monolith_white = add(new BlockEnergizedHexoriumMonolith(EHexColor.WHITE)),
+	energized_hexorium_monolith_lightgray = add(new BlockEnergizedHexoriumMonolith(EHexColor.LIGHT_GRAY)),
+	energized_hexorium_monolith_gray = add(new BlockEnergizedHexoriumMonolith(EHexColor.GRAY)),
+	energized_hexorium_monolith_darkgray = add(new BlockEnergizedHexoriumMonolith(EHexColor.DARK_GRAY)),
+	energized_hexorium_monolith_black = add(new BlockEnergizedHexoriumMonolith(EHexColor.BLACK)),
+	energized_hexorium_monolith_rainbow = add(new BlockEnergizedHexoriumMonolith(EHexColor.RAINBOW)),
 
 	// Hexorium Ore
 	hexorium_ore_red = add(new BlockHexoriumOre(EHexColor.RED, new Drop(HexItems.hexorium_crystal_red, 2, 4))),
+	hexorium_ore_green = add(new BlockHexoriumOre(EHexColor.GREEN, new Drop(HexItems.hexorium_crystal_green, 2, 4))),
+	hexorium_ore_blue = add(new BlockHexoriumOre(EHexColor.BLUE, new Drop(HexItems.hexorium_crystal_blue, 2, 4))),
+	hexorium_ore_white = add(new BlockHexoriumOre(EHexColor.WHITE, new Drop(HexItems.hexorium_crystal_white, 1, 2))),
+	hexorium_ore_black = add(new BlockHexoriumOre(EHexColor.BLACK, new Drop(HexItems.hexorium_crystal_black, 1, 2))),
 
 	// Hexorium Nether Ore
 	hexorium_nether_ore_red = add(new BlockHexoriumNetherOre(EHexColor.RED, new Drop(HexItems.hexorium_crystal_red, 1, 2))),
+	hexorium_nether_ore_green = add(new BlockHexoriumNetherOre(EHexColor.GREEN, new Drop(HexItems.hexorium_crystal_red, 1, 2))),
+	hexorium_nether_ore_blue = add(new BlockHexoriumNetherOre(EHexColor.BLUE, new Drop(HexItems.hexorium_crystal_blue, 1, 2))),
+	hexorium_nether_ore_white = add(new BlockHexoriumNetherOre(EHexColor.WHITE, new Drop(HexItems.hexorium_crystal_white, 2, 4))),
+	hexorium_nether_ore_black = add(new BlockHexoriumNetherOre(EHexColor.BLACK, new Drop(HexItems.hexorium_crystal_black, 2, 4))),
 
 	// Hexorium Door
 	hexorium_door_red = add(new BlockHexoriumDoor(EHexColor.RED)),
+	hexorium_door_orange = add(new BlockHexoriumDoor(EHexColor.ORANGE)),
+	hexorium_door_yellow = add(new BlockHexoriumDoor(EHexColor.YELLOW)),
+	hexorium_door_lime = add(new BlockHexoriumDoor(EHexColor.LIME)),
+	hexorium_door_green = add(new BlockHexoriumDoor(EHexColor.GREEN)),
+	hexorium_door_turquoise = add(new BlockHexoriumDoor(EHexColor.TURQUOISE)),
+	hexorium_door_cyan = add(new BlockHexoriumDoor(EHexColor.CYAN)),
+	hexorium_door_skyblue = add(new BlockHexoriumDoor(EHexColor.SKY_BLUE)),
+	hexorium_door_blue = add(new BlockHexoriumDoor(EHexColor.BLUE)),
+	hexorium_door_purple = add(new BlockHexoriumDoor(EHexColor.PURPLE)),
+	hexorium_door_magenta = add(new BlockHexoriumDoor(EHexColor.MAGENTA)),
+	hexorium_door_pink = add(new BlockHexoriumDoor(EHexColor.PINK)),
+	hexorium_door_white = add(new BlockHexoriumDoor(EHexColor.WHITE)),
+	hexorium_door_lightgray = add(new BlockHexoriumDoor(EHexColor.LIGHT_GRAY)),
+	hexorium_door_gray = add(new BlockHexoriumDoor(EHexColor.GRAY)),
+	hexorium_door_darkgray = add(new BlockHexoriumDoor(EHexColor.DARK_GRAY)),
+	hexorium_door_black = add(new BlockHexoriumDoor(EHexColor.BLACK)),
+	hexorium_door_rainbow = add(new BlockHexoriumDoor(EHexColor.RAINBOW)),
 
 	// Glowing Hexorium Glass
 	glowing_hexorium_glass_red = add(new BlockGlowingHexoriumGlass(EHexColor.RED)),
 	glowing_hexorium_glass_orange = add(new BlockGlowingHexoriumGlass(EHexColor.ORANGE)),
+	glowing_hexorium_glass_yellow = add(new BlockGlowingHexoriumGlass(EHexColor.YELLOW)),
+	glowing_hexorium_glass_lime = add(new BlockGlowingHexoriumGlass(EHexColor.LIME)),
+	glowing_hexorium_glass_green = add(new BlockGlowingHexoriumGlass(EHexColor.GREEN)),
+	glowing_hexorium_glass_turquoise = add(new BlockGlowingHexoriumGlass(EHexColor.TURQUOISE)),
+	glowing_hexorium_glass_cyan = add(new BlockGlowingHexoriumGlass(EHexColor.CYAN)),
+	glowing_hexorium_glass_skyblue = add(new BlockGlowingHexoriumGlass(EHexColor.SKY_BLUE)),
+	glowing_hexorium_glass_blue = add(new BlockGlowingHexoriumGlass(EHexColor.BLUE)),
+	glowing_hexorium_glass_purple = add(new BlockGlowingHexoriumGlass(EHexColor.PURPLE)),
+	glowing_hexorium_glass_magenta = add(new BlockGlowingHexoriumGlass(EHexColor.MAGENTA)),
+	glowing_hexorium_glass_pink = add(new BlockGlowingHexoriumGlass(EHexColor.PINK)),
+	glowing_hexorium_glass_white = add(new BlockGlowingHexoriumGlass(EHexColor.WHITE)),
+	glowing_hexorium_glass_lightgray = add(new BlockGlowingHexoriumGlass(EHexColor.LIGHT_GRAY)),
+	glowing_hexorium_glass_gray = add(new BlockGlowingHexoriumGlass(EHexColor.GRAY)),
+	glowing_hexorium_glass_darkgray = add(new BlockGlowingHexoriumGlass(EHexColor.DARK_GRAY)),
+	glowing_hexorium_glass_black = add(new BlockGlowingHexoriumGlass(EHexColor.BLACK)),
 
 	// Tempered Hexorium Glass
 	tempered_hexorium_glass = add(new BlockTemperedHexoriumGlass()),
 
 	// Hexorium Lamp
 	hexorium_lamp_red = add(new BlockHexoriumLamp(EHexColor.RED)),
+	hexorium_lamp_orange = add(new BlockHexoriumLamp(EHexColor.ORANGE)),
+	hexorium_lamp_yellow = add(new BlockHexoriumLamp(EHexColor.YELLOW)),
+	hexorium_lamp_lime = add(new BlockHexoriumLamp(EHexColor.LIME)),
+	hexorium_lamp_green = add(new BlockHexoriumLamp(EHexColor.GREEN)),
+	hexorium_lamp_turquoise = add(new BlockHexoriumLamp(EHexColor.TURQUOISE)),
+	hexorium_lamp_cyan = add(new BlockHexoriumLamp(EHexColor.CYAN)),
+	hexorium_lamp_skyblue = add(new BlockHexoriumLamp(EHexColor.SKY_BLUE)),
+	hexorium_lamp_blue = add(new BlockHexoriumLamp(EHexColor.BLUE)),
+	hexorium_lamp_purple = add(new BlockHexoriumLamp(EHexColor.PURPLE)),
+	hexorium_lamp_magenta = add(new BlockHexoriumLamp(EHexColor.MAGENTA)),
+	hexorium_lamp_pink = add(new BlockHexoriumLamp(EHexColor.PINK)),
+	hexorium_lamp_white = add(new BlockHexoriumLamp(EHexColor.WHITE)),
+	hexorium_lamp_lightgray = add(new BlockHexoriumLamp(EHexColor.LIGHT_GRAY)),
+	hexorium_lamp_gray = add(new BlockHexoriumLamp(EHexColor.GRAY)),
+	hexorium_lamp_darkgray = add(new BlockHexoriumLamp(EHexColor.DARK_GRAY)),
+	hexorium_lamp_black = add(new BlockHexoriumLamp(EHexColor.BLACK)),
+	hexorium_lamp_rainbow = add(new BlockHexoriumLamp(EHexColor.RAINBOW)),
 
 	// Inverted Hexorium Lamp
-	inverted_hexorium_lamp_red = add(new BlockInvertedHexoriumLamp(EHexColor.RED));
+	inverted_hexorium_lamp_red = add(new BlockInvertedHexoriumLamp(EHexColor.RED)),
+	inverted_hexorium_lamp_orange = add(new BlockInvertedHexoriumLamp(EHexColor.ORANGE)),
+	inverted_hexorium_lamp_yellow = add(new BlockInvertedHexoriumLamp(EHexColor.YELLOW)),
+	inverted_hexorium_lamp_lime = add(new BlockInvertedHexoriumLamp(EHexColor.LIME)),
+	inverted_hexorium_lamp_green = add(new BlockInvertedHexoriumLamp(EHexColor.GREEN)),
+	inverted_hexorium_lamp_turquoise = add(new BlockInvertedHexoriumLamp(EHexColor.TURQUOISE)),
+	inverted_hexorium_lamp_cyan = add(new BlockInvertedHexoriumLamp(EHexColor.CYAN)),
+	inverted_hexorium_lamp_skyblue = add(new BlockInvertedHexoriumLamp(EHexColor.SKY_BLUE)),
+	inverted_hexorium_lamp_blue = add(new BlockInvertedHexoriumLamp(EHexColor.BLUE)),
+	inverted_hexorium_lamp_purple = add(new BlockInvertedHexoriumLamp(EHexColor.PURPLE)),
+	inverted_hexorium_lamp_magenta = add(new BlockInvertedHexoriumLamp(EHexColor.MAGENTA)),
+	inverted_hexorium_lamp_pink = add(new BlockInvertedHexoriumLamp(EHexColor.PINK)),
+	inverted_hexorium_lamp_white = add(new BlockInvertedHexoriumLamp(EHexColor.WHITE)),
+	inverted_hexorium_lamp_lightgray = add(new BlockInvertedHexoriumLamp(EHexColor.LIGHT_GRAY)),
+	inverted_hexorium_lamp_gray = add(new BlockInvertedHexoriumLamp(EHexColor.GRAY)),
+	inverted_hexorium_lamp_darkgray = add(new BlockInvertedHexoriumLamp(EHexColor.DARK_GRAY)),
+	inverted_hexorium_lamp_black = add(new BlockInvertedHexoriumLamp(EHexColor.BLACK)),
+	inverted_hexorium_lamp_rainbow = add(new BlockInvertedHexoriumLamp(EHexColor.RAINBOW)),
+
+	// Hexorium Hatch
+	hexorium_hatch_red = add(new BlockHexoriumHatch(EHexColor.RED)),
+	hexorium_hatch_orange = add(new BlockHexoriumHatch(EHexColor.ORANGE)),
+	hexorium_hatch_yellow = add(new BlockHexoriumHatch(EHexColor.YELLOW)),
+	hexorium_hatch_lime = add(new BlockHexoriumHatch(EHexColor.LIME)),
+	hexorium_hatch_green = add(new BlockHexoriumHatch(EHexColor.GREEN)),
+	hexorium_hatch_turquoise = add(new BlockHexoriumHatch(EHexColor.TURQUOISE)),
+	hexorium_hatch_cyan = add(new BlockHexoriumHatch(EHexColor.CYAN)),
+	hexorium_hatch_skyblue = add(new BlockHexoriumHatch(EHexColor.SKY_BLUE)),
+	hexorium_hatch_blue = add(new BlockHexoriumHatch(EHexColor.BLUE)),
+	hexorium_hatch_purple = add(new BlockHexoriumHatch(EHexColor.PURPLE)),
+	hexorium_hatch_magenta = add(new BlockHexoriumHatch(EHexColor.MAGENTA)),
+	hexorium_hatch_pink = add(new BlockHexoriumHatch(EHexColor.PINK)),
+	hexorium_hatch_white = add(new BlockHexoriumHatch(EHexColor.WHITE)),
+	hexorium_hatch_lightgray = add(new BlockHexoriumHatch(EHexColor.LIGHT_GRAY)),
+	hexorium_hatch_gray = add(new BlockHexoriumHatch(EHexColor.GRAY)),
+	hexorium_hatch_darkgray = add(new BlockHexoriumHatch(EHexColor.DARK_GRAY)),
+	hexorium_hatch_black = add(new BlockHexoriumHatch(EHexColor.BLACK)),
+	hexorium_hatch_rainbow = add(new BlockHexoriumHatch(EHexColor.RAINBOW));
 
 	private HexBlocks() {}
 

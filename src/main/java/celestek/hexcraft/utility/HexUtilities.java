@@ -32,9 +32,9 @@ public final class HexUtilities
 	/**
 	 * Returns a new fullbright model override with the given texture filter and toggles its cache
 	 */
-	public static Function<IBakedModel, IBakedModel> createFullbrightOverride(Predicate<String> filter, boolean enableCache)
+	public static Function<IBakedModel, IBakedModel> createFullbrightOverride(Predicate<String> filter)
 	{
-		return base -> new BakedModelBrightness(base, filter).setCache(enableCache);
+		return base -> new BakedModelBrightness(base, filter);
 	}
 
 	/**

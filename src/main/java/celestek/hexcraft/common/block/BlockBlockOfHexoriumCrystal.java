@@ -18,8 +18,8 @@ public class BlockBlockOfHexoriumCrystal extends HexBlockPillar
 	public BlockBlockOfHexoriumCrystal(EHexColor color)
 	{
 		super("block_of_hexorium_crystal_" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, EHexColor.DIMMED);
-		this.setHardness(5F);
-		this.setResistance(10F);
+		this.setHardness(5f);
+		this.setResistance(10f);
 		this.setHarvestLevel("pickaxe", 2);
 		this.setSoundType(SoundType.GLASS);
 	}
@@ -28,6 +28,6 @@ public class BlockBlockOfHexoriumCrystal extends HexBlockPillar
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_TRUE, true));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_TRUE));
 	}
 }

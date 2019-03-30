@@ -42,7 +42,7 @@ public class BlockGlowingHexoriumGlass extends HexBlockConnected
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.createFilter("glowing_hexorium_glass_glow"), false));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.createFilter("glowing_hexorium_glass_glow")));
 	}
 
 	@Override

@@ -21,8 +21,8 @@ public class BlockConcentricHexoriumBlock extends HexBlockReinforceable
 	public BlockConcentricHexoriumBlock(EHexColor color)
 	{
 		super("concentric_hexorium_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color);
-		this.setHardness(1.5F);
-		this.setResistance(6F);
+		this.setHardness(1.5f);
+		this.setResistance(6f);
 		this.setHarvestLevel("pickaxe", 2);
 		this.setSoundType(SoundType.METAL);
 	}
@@ -31,14 +31,14 @@ public class BlockConcentricHexoriumBlock extends HexBlockReinforceable
 	@SideOnly(Side.CLIENT)
 	public Optional<HexStateMapper> addStateMapper()
 	{
-		return this.color == EHexColor.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("concentric_hexorium_block"));
+		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("concentric_hexorium_block"));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW, false));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW));
 	}
 
 	@Override

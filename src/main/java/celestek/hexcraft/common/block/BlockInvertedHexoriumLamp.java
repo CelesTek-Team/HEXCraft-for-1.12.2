@@ -41,14 +41,14 @@ public class BlockInvertedHexoriumLamp extends HexBlockLamp
 	@SideOnly(Side.CLIENT)
 	public Optional<HexStateMapper> addStateMapper()
 	{
-		return Optional.of(new HexStateMapper(this.color == EHexColor.RAINBOW ? "hexorium_lamp_rainbow" : "hexorium_lamp", POWERED));
+		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("hexorium_lamp", POWERED));
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW, false));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_CONTAINS_GLOW));
 	}
 
 	@Override

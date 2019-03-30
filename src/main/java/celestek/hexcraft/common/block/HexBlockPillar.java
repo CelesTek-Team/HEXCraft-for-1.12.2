@@ -42,7 +42,7 @@ public class HexBlockPillar extends HexBlock
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
-		// bits 2, 3 and 4 are facing
+		// bits 1, 2 and 3 are facing
 		return state.getValue(FACING).getIndex();
 	}
 

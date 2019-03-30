@@ -39,23 +39,9 @@ public class BlockEnergizedHexoriumMonolith extends HexBlockPillar
 	public BlockEnergizedHexoriumMonolith(EHexColor color)
 	{
 		super("energized_hexorium_monolith_" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, color);
-		this.setHardness(0.3F);
+		this.setHardness(0.3f);
 		this.setSoundType(SoundType.GLASS);
 		this.setLightOpacity(0);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public Optional<HexStateMapper> addStateMapper()
-	{
-		return this.color == EHexColor.RAINBOW ? Optional.empty() : Optional.of(new HexStateMapper("energized_hexorium_monolith"));
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
-	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_TRUE, true));
 	}
 
 	@Override
@@ -110,6 +96,20 @@ public class BlockEnergizedHexoriumMonolith extends HexBlockPillar
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos position, IBlockState state, int fortune)
 	{
 		this.color.addDrops(drops);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Optional<HexStateMapper> addStateMapper()
+	{
+		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("energized_hexorium_monolith"));
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
+	{
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.FILTER_TRUE));
 	}
 
 	@Override

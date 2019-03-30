@@ -7,9 +7,6 @@ import javax.vecmath.Matrix4f;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Lists;
 
 import celestek.hexcraft.utility.HexShapes;
@@ -36,6 +33,7 @@ public class BakedModelMonolith implements IBakedModel
 	/**
 	 * A cache key used to store different quads of the model
 	 */
+	/*
 	private class CacheKey
 	{
 		protected BakedModelMonolith model;
@@ -71,6 +69,7 @@ public class BakedModelMonolith implements IBakedModel
 			return HexShapes.Monolith.create(Lists.newArrayList(), key.model.format, key.model.transform, null, 0, false, key.model.sprite);
 		}
 	});
+	*/
 
 	/**
 	 * The item perspective transforms defined under the "transform" tag in the blockstate
@@ -87,20 +86,12 @@ public class BakedModelMonolith implements IBakedModel
 
 	protected final TextureAtlasSprite sprite;
 
-	protected boolean enableCache = true;
-
 	public BakedModelMonolith(IModelState state, VertexFormat format, Optional<TRSRTransformation> transform, TextureAtlasSprite sprite)
 	{
 		this.state = state;
 		this.format = format;
 		this.transform = transform;
 		this.sprite = sprite;
-	}
-
-	public BakedModelMonolith setCache(boolean flag)
-	{
-		this.enableCache = flag;
-		return this;
 	}
 
 	@Override
@@ -110,8 +101,7 @@ public class BakedModelMonolith implements IBakedModel
 		// Don't draw anything if faces should be culled
 		if(side != null) return quads;
 		// Draw the quads
-		if(!this.enableCache) return HexShapes.Monolith.create(quads, this.format, this.transform, null, 0, false, this.sprite);
-		else return CACHE.getUnchecked(new CacheKey(this, state));
+		return HexShapes.Monolith.create(quads, this.format, this.transform, null, 0, false, this.sprite);
 	}
 
 	@Override

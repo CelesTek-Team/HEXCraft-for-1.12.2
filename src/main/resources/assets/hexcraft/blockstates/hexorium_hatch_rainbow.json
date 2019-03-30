@@ -1,0 +1,76 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:special/door",
+		"textures":
+		{
+			"base": "hexcraft:blocks/glow_rainbow",
+			"front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front",
+			"side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side"
+		},
+		"transform":
+		{
+			"gui":
+			{
+				"rotation": [ 30, 45, 0 ],
+				"translation": [ 0, 0.1953125, 0 ],
+				"scale": 0.625
+			},
+			"ground":
+			{
+				"translation": [ 0, 0.1875, 0],
+				"scale": 0.25
+			},
+			"fixed":
+			{
+				"scale": 0.5
+			},
+			"thirdperson_righthand":
+			{
+				"rotation": [ 75, 45, 0 ],
+				"translation": [ 0, 0.15625, 0.125 ],
+				"scale": 0.375
+			},
+			"thirdperson_lefthand":
+			{
+				"rotation": [ 75, -45, 0 ],
+				"translation": [ 0, 0.15625, 0.125 ],
+				"scale": 0.375
+			},
+			"firstperson_righthand":
+			{
+				"rotation": [ 0, 45, 0 ],
+				"translation": [ 0, 0.2, 0 ],
+				"scale": 0.4
+			},
+			"firstperson_lefthand":
+			{
+				"rotation": [ 0, -45, 0 ],
+				"translation": [ 0, 0.2, 0 ],
+				"scale": 0.4
+			}
+		},
+		"custom": { "edge": 3 }
+	},
+	"variants":
+	{
+		"facing=north,open=false,reinforced=false": [{ "custom": { "flip": 2, "rotation_x": 90, "rotation_y": 90 } }],
+		"facing=south,open=false,reinforced=false": [{ "custom": { "flip": 2, "rotation_x": -90, "rotation_y": -90 } }],
+		"facing=west,open=false,reinforced=false": [{ "custom": { "flip": 2, "rotation_z": 90, "rotation_y": 180 } }],
+		"facing=east,open=false,reinforced=false": [{ "custom": { "flip": 2, "rotation_z": 90 } }],
+		"facing=north,open=true,reinforced=false": [{ "custom": { "rotation_y": 90 } }],
+		"facing=south,open=true,reinforced=false": [{ "custom": { "rotation_y": -90 } }],
+		"facing=west,open=true,reinforced=false": [{ "custom": { "rotation_y": 180 } }],
+		"facing=east,open=true,reinforced=false": [{}],
+		"facing=north,open=false,reinforced=true": [{ "textures": { "front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front_reinforced", "side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side_reinforced" }, "custom": { "flip": 2, "rotation_x": 90, "rotation_y": 90 } }],
+		"facing=south,open=false,reinforced=true": [{ "textures": { "front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front_reinforced", "side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side_reinforced" }, "custom": { "flip": 2, "rotation_x": -90, "rotation_y": -90 } }],
+		"facing=west,open=false,reinforced=true": [{ "textures": { "front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front_reinforced", "side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side_reinforced" }, "custom": { "flip": 2, "rotation_z": 90, "rotation_y": 180 } }],
+		"facing=east,open=false,reinforced=true": [{ "textures": { "front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front_reinforced", "side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side_reinforced" }, "custom": { "flip": 2, "rotation_z": 90 } }],
+		"facing=north,open=true,reinforced=true": [{ "textures": { "front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front_reinforced", "side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side_reinforced" }, "custom": { "rotation_y": 90 } }],
+		"facing=south,open=true,reinforced=true": [{ "textures": { "front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front_reinforced", "side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side_reinforced" }, "custom": { "rotation_y": -90 } }],
+		"facing=west,open=true,reinforced=true": [{ "textures": { "front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front_reinforced", "side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side_reinforced" }, "custom": { "rotation_y": 180 } }],
+		"facing=east,open=true,reinforced=true": [{ "textures": { "front": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_front_reinforced", "side": "hexcraft:blocks/hexorium_hatch/hexorium_hatch_side_reinforced" }}],
+		"inventory": [{ "custom": { "rotation_z": 90 } }]
+	}
+}

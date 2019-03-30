@@ -31,7 +31,7 @@ public class HexBlockReinforceable extends HexBlock
 	@Override
 	public float getBlockHardness(IBlockState state, World world, BlockPos position)
 	{
-		return state.getValue(REINFORCED) ? 50F : super.getBlockHardness(state, world, position);
+		return state.getValue(REINFORCED) ? 50f : super.getBlockHardness(state, world, position);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class HexBlockReinforceable extends HexBlock
 	@Override
 	public float getExplosionResistance(World world, BlockPos position, @Nullable Entity exploder, Explosion explosion)
 	{
-		return world.getBlockState(position).getValue(REINFORCED) ? 1200F : super.getExplosionResistance(world, position, exploder, explosion);
+		return world.getBlockState(position).getValue(REINFORCED) ? 1200f : super.getExplosionResistance(world, position, exploder, explosion);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class HexBlockReinforceable extends HexBlock
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
-		// bit 4 is reinforced
+		// bit 1 is reinforced
 		return state.getValue(REINFORCED) ? 1 : 0;
 	}
 

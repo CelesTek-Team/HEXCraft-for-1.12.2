@@ -1,0 +1,29 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"model": "hexcraft:special/layered_cube",
+		"textures":
+		{
+			"layer0": "all=hexcraft:blocks/glow_rainbow,tint=0,shade=false",
+			"layer1": "all=hexcraft:blocks/hexorium_lamp,layers=translucent",
+			"particle": "hexcraft:blocks/hexorium_lamp"
+		},
+		"smooth_lighting": false,
+		"transform": "forge:default-block"
+	},
+	"variants":
+	{
+		"normal": [{}],
+		"inventory":
+		[
+			{
+				"textures":
+				{
+					"layer0": "all=hexcraft:blocks/glow_rainbow,tint=0",
+					"layer1": "all=hexcraft:blocks/hexorium_lamp,layers=null"
+				}
+			}
+		]
+	}
+}

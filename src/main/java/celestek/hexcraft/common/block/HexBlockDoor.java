@@ -85,23 +85,25 @@ public class HexBlockDoor extends HexBlockReinforceable
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos position, EnumFacing side, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
 	{
+		IBlockState state = this.getDefaultState(); 
 		// Set the facing from the player's rotation
 		EnumFacing facing = EnumFacing.fromAngle((double) placer.rotationYaw);
-		boolean rightHinge = false;
+		state = state.withProperty(FACING, facing);
 		BlockPos rightPosition = position.offset(facing.rotateY());
 		BlockPos leftPosition = position.offset(facing.rotateYCCW());
 		// Set the hinge position if placed next to another door
-		if(world.getBlockState(rightPosition).getBlock() == this && world.getBlockState(rightPosition.up()).getBlock() == this) rightHinge = false;
-		else if(world.getBlockState(leftPosition).getBlock() == this && world.getBlockState(leftPosition.up()).getBlock() == this) rightHinge = true;
+		if(world.getBlockState(rightPosition).getBlock() == this && world.getBlockState(rightPosition.up()).getBlock() == this) state = state.withProperty(HINGE, EnumHingePosition.LEFT);
+		else if(world.getBlockState(leftPosition).getBlock() == this && world.getBlockState(leftPosition.up()).getBlock() == this) state = state.withProperty(HINGE, EnumHingePosition.RIGHT);
 		else
 		{
 			// Set the hinge position depending on the part of the clicked block
 			int x = facing.getFrontOffsetX();
 			int y = facing.getFrontOffsetZ();
-			rightHinge = x < 0 && hitZ < 0.5F || x > 0 && hitZ > 0.5F || y < 0 && hitX > 0.5F || y > 0 && hitX < 0.5F;
+			state = state.withProperty(HINGE, x < 0 && hitZ < 0.5F || x > 0 && hitZ > 0.5F || y < 0 && hitX > 0.5F || y > 0 && hitX < 0.5F ? EnumHingePosition.RIGHT : EnumHingePosition.LEFT);
 		}
 		// Also instantly open the door if placed on a powered block
-		return this.getDefaultState().withProperty(HALF, EnumDoorHalf.LOWER).withProperty(FACING, facing).withProperty(HINGE, rightHinge ? EnumHingePosition.RIGHT : EnumHingePosition.LEFT).withProperty(OPEN, world.isBlockPowered(position) || world.isBlockPowered(position.up()));
+		state = state.withProperty(OPEN, world.isBlockPowered(position) || world.isBlockPowered(position.up()));
+		return state;
 	}
 
 	@Override
@@ -225,12 +227,12 @@ public class HexBlockDoor extends HexBlockReinforceable
 	public int getMetaFromState(IBlockState state)
 	{
 		int meta = 0;
-		if(state.getValue(HALF) == EnumDoorHalf.LOWER) // bits 1 is half, 2 is reinforced and 3-4 are facing
+		if(state.getValue(HALF) == EnumDoorHalf.LOWER) // bit 4 is half, 3 is reinforced and 1-2 are facing
 		{
 			if(state.getValue(REINFORCED)) meta |= 0b0100;
 			meta |= state.getValue(FACING).getHorizontalIndex();
 		}
-		else // bits 1 is half, 2 reinforced, 3 is open and 4 is hinge
+		else // bits 4 is half, 3 reinforced, 2 is open and 1 is hinge
 		{
 			meta |= 0b1000;
 			if(state.getValue(REINFORCED)) meta |= 0b0100;
