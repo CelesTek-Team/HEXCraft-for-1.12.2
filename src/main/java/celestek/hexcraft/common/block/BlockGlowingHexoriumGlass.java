@@ -23,7 +23,7 @@ public class BlockGlowingHexoriumGlass extends HexBlockConnected
 {
 	public BlockGlowingHexoriumGlass(EHexColor color)
 	{
-		super("glowing_hexorium_glass" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, color);
+		super("glowing_hexorium_glass" + color.name, HexCreativeTabs.decorative, Material.GLASS, color);
 		this.setHardness(1.5f);
 		this.setResistance(10f);
 		this.setHarvestLevel("pickaxe", 2);

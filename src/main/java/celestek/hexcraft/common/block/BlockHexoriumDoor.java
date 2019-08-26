@@ -48,7 +48,7 @@ public class BlockHexoriumDoor extends HexBlockDoor
 
 	public BlockHexoriumDoor(EHexColor color)
 	{
-		super("hexorium_door_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color);
+		super("hexorium_door_" + color.name, HexCreativeTabs.decorative, Material.IRON, color);
 		this.setHardness(1.5f);
 		this.setResistance(6f);
 		this.setHarvestLevel("pickaxe", 2);

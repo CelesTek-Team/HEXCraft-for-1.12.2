@@ -24,7 +24,7 @@ public class BlockInvertedHexoriumLamp extends HexBlockLamp
 {
 	public BlockInvertedHexoriumLamp(EHexColor color)
 	{
-		super("inverted_hexorium_lamp_" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, color);
+		super("inverted_hexorium_lamp_" + color.name, HexCreativeTabs.decorative, Material.GLASS, color);
 		this.setHardness(1.5f);
 		this.setResistance(10f);
 		this.setHarvestLevel("pickaxe", 2);
@@ -41,7 +41,7 @@ public class BlockInvertedHexoriumLamp extends HexBlockLamp
 	@SideOnly(Side.CLIENT)
 	public Optional<HexStateMapper> addStateMapper()
 	{
-		return this.color.isSpecial() ? Optional.empty() : Optional.of(new HexStateMapper("hexorium_lamp", POWERED));
+		return Optional.of(new HexStateMapper(this.color.isSpecial() ? "hexorium_lamp_rainbow" : "hexorium_lamp", POWERED));
 	}
 
 	@Override

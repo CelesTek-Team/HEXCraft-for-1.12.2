@@ -17,7 +17,7 @@ public class BlockBlockOfHexoriumCrystal extends HexBlockPillar
 {
 	public BlockBlockOfHexoriumCrystal(EHexColor color)
 	{
-		super("block_of_hexorium_crystal_" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, EHexColor.DIMMED);
+		super("block_of_hexorium_crystal_" + color.name, HexCreativeTabs.decorative, Material.GLASS, EHexColor.DIMMED);
 		this.setHardness(5f);
 		this.setResistance(10f);
 		this.setHarvestLevel("pickaxe", 2);

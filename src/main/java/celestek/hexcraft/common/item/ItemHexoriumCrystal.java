@@ -14,7 +14,7 @@ public class ItemHexoriumCrystal extends HexItem
 {
 	public ItemHexoriumCrystal(EHexColor color)
 	{
-		super("hexorium_crystal_" + color.name, HexCreativeTabs.tabComponents);
+		super("hexorium_crystal_" + color.name, HexCreativeTabs.components);
 	}
 
 	@Override

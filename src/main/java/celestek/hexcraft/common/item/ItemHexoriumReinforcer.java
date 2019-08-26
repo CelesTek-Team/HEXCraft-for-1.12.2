@@ -17,7 +17,7 @@ public class ItemHexoriumReinforcer extends HexItem
 {
 	public ItemHexoriumReinforcer()
 	{
-		super("hexorium_reinforcer", HexCreativeTabs.tabMachines);
+		super("hexorium_reinforcer", HexCreativeTabs.machines);
 	}
 
 	@Override

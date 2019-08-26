@@ -2,8 +2,12 @@
 	"forge_marker": 1,
 	"defaults":
 	{
-		"model": "hexcraft:special/energized_monolith",
-		"textures": { "monolith": "hexcraft:blocks/energized_hexorium_monolith_rainbow" },
+		"model": "hexcraft:special/monolith",
+		"textures":
+		{
+			"base": "blocks/stone",
+			"monolith": "hexcraft:blocks/energized_hexorium_monolith_rainbow"
+		},
 		"transform": "forge:default-block"
 	},
 	"variants":

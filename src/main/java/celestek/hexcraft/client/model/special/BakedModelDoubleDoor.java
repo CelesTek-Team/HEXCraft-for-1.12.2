@@ -28,7 +28,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * A baked model of a scaled down 2-block high special frame which uses 1 texture and door which uses 3 textures for the top, bottom and rear sides. The frame is rendered on the solid layer while the door - on the translucent layer.
+ * A scaled down 2-block high baked model of a  special frame which uses 1 texture and door which uses 3 textures for the top, bottom and rear sides. The frame is rendered on the solid layer while the door - on the translucent layer.
  * Supports quad caching and item perspective transforms
  */
 @SideOnly(Side.CLIENT)

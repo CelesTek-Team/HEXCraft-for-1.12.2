@@ -2,8 +2,8 @@
 	"forge_marker": 1,
 	"defaults":
 	{
-		"model": "hexcraft:special/monolith",
-		"textures": { "base": "hexcraft:blocks/energized_hexorium_monolith" },
+		"model": "hexcraft:special/energized_monolith",
+		"textures": { "monolith": "hexcraft:blocks/energized_hexorium_monolith" },
 		"transform": "forge:default-block"
 	},
 	"variants":

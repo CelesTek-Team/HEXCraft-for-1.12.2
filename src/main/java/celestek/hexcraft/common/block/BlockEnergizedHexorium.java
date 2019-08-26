@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockEnergizedHexorium extends HexBlock {
 	public BlockEnergizedHexorium(EHexColor color) {
-		super("energized_hexorium_" + color.name, HexCreativeTabs.tabDecorative, Material.GLASS, color);
+		super("energized_hexorium_" + color.name, HexCreativeTabs.decorative, Material.GLASS, color);
 		this.setHardness(0.3f);
 		this.setSoundType(SoundType.GLASS);
 	}

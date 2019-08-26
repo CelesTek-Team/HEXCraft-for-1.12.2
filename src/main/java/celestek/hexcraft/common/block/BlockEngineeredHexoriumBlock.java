@@ -20,7 +20,7 @@ public class BlockEngineeredHexoriumBlock extends HexBlockReinforceable
 {
 	public BlockEngineeredHexoriumBlock(EHexColor color)
 	{
-		super("engineered_hexorium_block_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color);
+		super("engineered_hexorium_block_" + color.name, HexCreativeTabs.decorative, Material.IRON, color);
 		this.setHardness(1.5f);
 		this.setResistance(6f);
 		this.setHarvestLevel("pickaxe", 2);

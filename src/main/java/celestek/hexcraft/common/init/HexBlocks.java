@@ -19,6 +19,8 @@ import celestek.hexcraft.common.block.BlockHexoriumCoatedStone;
 import celestek.hexcraft.common.block.BlockHexoriumDoor;
 import celestek.hexcraft.common.block.BlockHexoriumHatch;
 import celestek.hexcraft.common.block.BlockHexoriumLamp;
+import celestek.hexcraft.common.block.BlockHexoriumMonolith;
+import celestek.hexcraft.common.block.BlockHexoriumNetherMonolith;
 import celestek.hexcraft.common.block.BlockHexoriumNetherOre;
 import celestek.hexcraft.common.block.BlockHexoriumOre;
 import celestek.hexcraft.common.block.BlockHexoriumStructureCasing;
@@ -220,18 +222,18 @@ public final class HexBlocks {
 	energized_hexorium_monolith_rainbow = add(new BlockEnergizedHexoriumMonolith(EHexColor.RAINBOW)),
 
 	// Hexorium Ore
-	hexorium_ore_red = add(new BlockHexoriumOre(EHexColor.RED, new Drop(HexItems.hexorium_crystal_red, 2, 4))),
-	hexorium_ore_green = add(new BlockHexoriumOre(EHexColor.GREEN, new Drop(HexItems.hexorium_crystal_green, 2, 4))),
-	hexorium_ore_blue = add(new BlockHexoriumOre(EHexColor.BLUE, new Drop(HexItems.hexorium_crystal_blue, 2, 4))),
-	hexorium_ore_white = add(new BlockHexoriumOre(EHexColor.WHITE, new Drop(HexItems.hexorium_crystal_white, 1, 2))),
-	hexorium_ore_black = add(new BlockHexoriumOre(EHexColor.BLACK, new Drop(HexItems.hexorium_crystal_black, 1, 2))),
+	hexorium_ore_red = add(new BlockHexoriumOre(EHexColor.RED, new Drop(HexItems.hexorium_crystal_red, 2, 4, 1))),
+	hexorium_ore_green = add(new BlockHexoriumOre(EHexColor.GREEN, new Drop(HexItems.hexorium_crystal_green, 2, 4, 1))),
+	hexorium_ore_blue = add(new BlockHexoriumOre(EHexColor.BLUE, new Drop(HexItems.hexorium_crystal_blue, 2, 4, 1))),
+	hexorium_ore_white = add(new BlockHexoriumOre(EHexColor.WHITE, new Drop(HexItems.hexorium_crystal_white, 1, 2, 1))),
+	hexorium_ore_black = add(new BlockHexoriumOre(EHexColor.BLACK, new Drop(HexItems.hexorium_crystal_black, 1, 2, 1))),
 
 	// Hexorium Nether Ore
-	hexorium_nether_ore_red = add(new BlockHexoriumNetherOre(EHexColor.RED, new Drop(HexItems.hexorium_crystal_red, 1, 2))),
-	hexorium_nether_ore_green = add(new BlockHexoriumNetherOre(EHexColor.GREEN, new Drop(HexItems.hexorium_crystal_red, 1, 2))),
-	hexorium_nether_ore_blue = add(new BlockHexoriumNetherOre(EHexColor.BLUE, new Drop(HexItems.hexorium_crystal_blue, 1, 2))),
-	hexorium_nether_ore_white = add(new BlockHexoriumNetherOre(EHexColor.WHITE, new Drop(HexItems.hexorium_crystal_white, 2, 4))),
-	hexorium_nether_ore_black = add(new BlockHexoriumNetherOre(EHexColor.BLACK, new Drop(HexItems.hexorium_crystal_black, 2, 4))),
+	hexorium_nether_ore_red = add(new BlockHexoriumNetherOre(EHexColor.RED, new Drop(HexItems.hexorium_crystal_red, 1, 2, 1))),
+	hexorium_nether_ore_green = add(new BlockHexoriumNetherOre(EHexColor.GREEN, new Drop(HexItems.hexorium_crystal_red, 1, 2, 1))),
+	hexorium_nether_ore_blue = add(new BlockHexoriumNetherOre(EHexColor.BLUE, new Drop(HexItems.hexorium_crystal_blue, 1, 2, 1))),
+	hexorium_nether_ore_white = add(new BlockHexoriumNetherOre(EHexColor.WHITE, new Drop(HexItems.hexorium_crystal_white, 2, 4, 1))),
+	hexorium_nether_ore_black = add(new BlockHexoriumNetherOre(EHexColor.BLACK, new Drop(HexItems.hexorium_crystal_black, 2, 4, 1))),
 
 	// Hexorium Door
 	hexorium_door_red = add(new BlockHexoriumDoor(EHexColor.RED)),
@@ -333,7 +335,19 @@ public final class HexBlocks {
 	hexorium_hatch_gray = add(new BlockHexoriumHatch(EHexColor.GRAY)),
 	hexorium_hatch_darkgray = add(new BlockHexoriumHatch(EHexColor.DARK_GRAY)),
 	hexorium_hatch_black = add(new BlockHexoriumHatch(EHexColor.BLACK)),
-	hexorium_hatch_rainbow = add(new BlockHexoriumHatch(EHexColor.RAINBOW));
+	hexorium_hatch_rainbow = add(new BlockHexoriumHatch(EHexColor.RAINBOW)),
+
+	hexorium_monolith_red = add(new BlockHexoriumMonolith(EHexColor.RED, new Drop(HexItems.hexorium_crystal_red, 6, 8, 2))),
+	hexorium_monolith_green = add(new BlockHexoriumMonolith(EHexColor.GREEN, new Drop(HexItems.hexorium_crystal_green, 6, 8, 2))),
+	hexorium_monolith_blue = add(new BlockHexoriumMonolith(EHexColor.BLUE, new Drop(HexItems.hexorium_crystal_blue, 6, 8, 2))),
+	hexorium_monolith_white = add(new BlockHexoriumMonolith(EHexColor.WHITE, new Drop(HexItems.hexorium_crystal_white, 2, 4, 2))),
+	hexorium_monolith_black = add(new BlockHexoriumMonolith(EHexColor.BLACK, new Drop(HexItems.hexorium_crystal_black, 2, 4, 2))),
+
+	hexorium_nether_monolith_red = add(new BlockHexoriumNetherMonolith(EHexColor.RED, new Drop(HexItems.hexorium_crystal_red, 2, 4, 2))),
+	hexorium_nether_monolith_green = add(new BlockHexoriumNetherMonolith(EHexColor.GREEN, new Drop(HexItems.hexorium_crystal_green, 2, 4, 2))),
+	hexorium_nether_monolith_blue = add(new BlockHexoriumNetherMonolith(EHexColor.BLUE, new Drop(HexItems.hexorium_crystal_blue, 2, 4, 2))),
+	hexorium_nether_monolith_white = add(new BlockHexoriumNetherMonolith(EHexColor.WHITE, new Drop(HexItems.hexorium_crystal_white, 6, 8, 2))),
+	hexorium_nether_monolith_black = add(new BlockHexoriumNetherMonolith(EHexColor.BLACK, new Drop(HexItems.hexorium_crystal_black, 6, 8, 2)));
 
 	private HexBlocks() {}
 

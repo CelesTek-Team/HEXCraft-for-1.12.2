@@ -9,9 +9,9 @@ public final class HexCreativeTabs
 {
 	public static final CreativeTabs
 
-	tabDecorative = new TabDecorative(),
-	tabMachines = new TabMachines(),
-	tabComponents = new TabComponents();
+	decorative = new TabDecorative(),
+	machines = new TabMachines(),
+	components = new TabComponents();
 
 	private HexCreativeTabs() {}
 }

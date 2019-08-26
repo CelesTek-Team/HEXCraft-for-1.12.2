@@ -20,7 +20,7 @@ public class BlockHexoriumStructureCasing extends HexBlockConnectedReinforceable
 {
 	public BlockHexoriumStructureCasing(EHexColor color)
 	{
-		super("hexorium_structure_casing_" + color.name, HexCreativeTabs.tabDecorative, Material.IRON, color);
+		super("hexorium_structure_casing_" + color.name, HexCreativeTabs.decorative, Material.IRON, color);
 		this.setHardness(1.5f);
 		this.setResistance(6f);
 		this.setHarvestLevel("pickaxe", 2);

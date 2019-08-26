@@ -16,7 +16,7 @@ public class BlockTemperedHexoriumGlass extends HexBlockConnected
 {
 	public BlockTemperedHexoriumGlass()
 	{
-		super("tempered_hexorium_glass", HexCreativeTabs.tabDecorative, Material.GLASS, EHexColor.NONE);
+		super("tempered_hexorium_glass", HexCreativeTabs.decorative, Material.GLASS, EHexColor.NONE);
 		this.setHardness(1.5f);
 		this.setResistance(10f);
 		this.setHarvestLevel("pickaxe", 2);

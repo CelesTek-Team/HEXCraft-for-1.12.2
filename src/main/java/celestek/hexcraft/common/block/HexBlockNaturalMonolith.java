@@ -6,27 +6,23 @@ import java.util.concurrent.ThreadLocalRandom;
 import celestek.hexcraft.common.init.HexCreativeTabs;
 import celestek.hexcraft.utility.Drop;
 import celestek.hexcraft.utility.EHexColor;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-/**
- * An ore block which drops a random amount of the specified item and experience
- */
-public class HexBlockOre extends HexBlock
+//FIXME Add corresponding crystal items to color and then construct a drop instead of passing in one
+//FIXME Use getDrops instead of these 3 methods? What's the difference?
+public class HexBlockNaturalMonolith extends HexBlockMonolith
 {
 	public final Drop drop;
 
-	public HexBlockOre(String name, Drop drop)
+	public HexBlockNaturalMonolith(String name, EHexColor color, Drop drop)
 	{
-		super(name, HexCreativeTabs.components, Material.ROCK, EHexColor.DIMMED);
-		this.setHardness(3F);
-		this.setResistance(5F);
+		super(name, HexCreativeTabs.components, color);
+		this.setHardness(3f);
+		this.setResistance(5f);
 		this.setHarvestLevel("pickaxe", 2);
-		this.setSoundType(SoundType.STONE);
 		this.drop = drop;
 	}
 

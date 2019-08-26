@@ -153,4 +153,12 @@ public final class HexShapes
 			return quads;
 		}
 	}
+
+	public static final class MonolithBase
+	{
+		public static List<BakedQuad> create(List<BakedQuad> quads, VertexFormat format, Optional<TRSRTransformation> transform, EnumFacing face, int tint, boolean shade, TextureAtlasSprite sprite)
+		{
+			return quads;
+		}
+	}
 }
