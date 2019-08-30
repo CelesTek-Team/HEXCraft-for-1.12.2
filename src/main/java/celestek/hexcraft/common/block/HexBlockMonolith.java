@@ -14,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class HexBlockMonolith extends HexBlockPillar
+public class HexBlockMonolith extends HexBlockRotationFull
 {
 	protected static final AxisAlignedBB
 	BOUNDS_DOWN = new AxisAlignedBB(HexShapes.Monolith.xA, 1d - HexShapes.Monolith.yMax, HexShapes.Monolith.zF, HexShapes.Monolith.xD, 1d - HexShapes.Monolith.yMin, HexShapes.Monolith.zB),

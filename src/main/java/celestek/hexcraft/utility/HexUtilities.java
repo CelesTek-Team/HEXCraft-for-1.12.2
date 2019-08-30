@@ -6,7 +6,10 @@ import java.util.function.Predicate;
 
 import javax.vecmath.Vector4f;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import celestek.hexcraft.client.model.BakedModelBrightness;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -25,7 +28,7 @@ public final class HexUtilities
 {
 	public static final Predicate<String>
 	FILTER_TRUE = string -> true,
-	FILTER_CONTAINS_GLOW = createFilter("glow");
+	FILTER_CONTAINS_GLOW = createPatternFilter("glow");
 
 	private HexUtilities() {}
 
@@ -40,9 +43,14 @@ public final class HexUtilities
 	/**
 	 * Returns a filter which checks if a string contains the given pattern
 	 */
-	public static Predicate<String> createFilter(String pattern)
+	public static Predicate<String> createPatternFilter(String pattern)
 	{
 		return string -> string.contains(pattern);
+	}
+
+	public static com.google.common.base.Predicate<IBlockState> createBlockFilter(String... ids)
+	{
+		return state -> state != null && ArrayUtils.contains(ids, state.getBlock().getRegistryName().toString());
 	}
 
 	public static boolean isLightMapDisabled()

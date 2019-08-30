@@ -24,7 +24,7 @@ public class BlockHexoriumNetherOre extends HexBlockOre
 	@SideOnly(Side.CLIENT)
 	public Optional<Function<IBakedModel, IBakedModel>> addModelOverride(ResourceLocation path)
 	{
-		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.createFilter("hexorium_ore_gems")));
+		return Optional.of(HexUtilities.createFullbrightOverride(HexUtilities.createPatternFilter("hexorium_ore_gems")));
 	}
 
 	@Override

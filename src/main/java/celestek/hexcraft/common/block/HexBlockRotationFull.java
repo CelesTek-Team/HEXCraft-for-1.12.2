@@ -17,11 +17,11 @@ import net.minecraft.world.World;
 /**
  * A block that can rotate in all 6 directions
  */
-public class HexBlockPillar extends HexBlock
+public class HexBlockRotationFull extends HexBlock
 {
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 
-	public HexBlockPillar(String name, CreativeTabs tab, Material material, EHexColor color)
+	public HexBlockRotationFull(String name, CreativeTabs tab, Material material, EHexColor color)
 	{
 		super(name, tab, material, color);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
