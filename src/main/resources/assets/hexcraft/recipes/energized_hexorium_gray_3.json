@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients":
+	[
+		{ "item": "hexcraft:glowing_hexorium_coated_stone_gray" },
+		{ "item": "hexcraft:glowing_hexorium_coated_stone_gray" },
+		{ "item": "hexcraft:glowing_hexorium_coated_stone_gray" },
+		{ "item": "hexcraft:glowing_hexorium_coated_stone_gray" },
+		{ "item": "hexcraft:glowing_hexorium_coated_stone_gray" },
+		{ "item": "hexcraft:glowing_hexorium_coated_stone_gray" },
+		{ "item": "hexcraft:glowing_hexorium_coated_stone_gray" },
+		{ "item": "hexcraft:glowing_hexorium_coated_stone_gray" }
+	],
+	"result": { "item": "hexcraft:energized_hexorium_gray" }
+}

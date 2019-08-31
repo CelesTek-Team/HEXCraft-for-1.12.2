@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"A"
+	],
+	"key":
+	{
+		"A":
+		{
+			"item": "hexcraft:block_of_hexorium_crystal_green"
+		}
+	},
+	"result":
+	{
+		"item": "hexcraft:hexorium_crystal_green",
+		"count": 9
+	}
+}

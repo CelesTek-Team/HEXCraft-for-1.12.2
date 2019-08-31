@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"AAA",
+		"AHA",
+		"AAA"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_skyblue"
+		},
+		"A":
+		{
+			"item": "hexcraft:hexorium_coated_stone"
+		}
+	},
+	"result":
+	{
+		"item": "hexcraft:glowing_hexorium_coated_stone_skyblue",
+		"count": 8
+	}
+}

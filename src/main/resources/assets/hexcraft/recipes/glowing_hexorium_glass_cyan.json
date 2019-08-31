@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"AAA",
+		"AHA",
+		"AAA"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_cyan"
+		},
+		"A":
+		{
+			"item": "hexcraft:tempered_hexorium_glass"
+		}
+	},
+	"result":
+	{
+		"item": "hexcraft:glowing_hexorium_glass_cyan",
+		"count": 8
+	}
+}

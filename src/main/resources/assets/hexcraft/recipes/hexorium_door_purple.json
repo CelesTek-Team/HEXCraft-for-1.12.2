@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"BB",
+		"HA",
+		"BB"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_purple"
+		},
+		"A":
+		{
+			"item": "hexcraft:tempered_hexorium_glass"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "ingotIron"
+		}
+	},
+	"result": { "item": "hexcraft:hexorium_door_purple" }
+}

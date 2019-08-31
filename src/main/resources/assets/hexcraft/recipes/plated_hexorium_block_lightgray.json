@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"BHA"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_lightgray"
+		},
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "nuggetIron"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "stone"
+		}
+	},
+	"result": { "item": "hexcraft:plated_hexorium_block_lightgray" }
+}

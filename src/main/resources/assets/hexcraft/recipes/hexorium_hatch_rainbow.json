@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"BAB",
+		"BHB"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_rainbow"
+		},
+		"A":
+		{
+			"item": "hexcraft:tempered_hexorium_glass"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "ingotIron"
+		}
+	},
+	"result":
+	{
+		"item": "hexcraft:hexorium_hatch_rainbow",
+		"count": 2
+	}
+}

@@ -17,11 +17,19 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 //FIXME Don't need so many instances. Just use one instance of ore gen and monolith gen and pass in the right params?
 public class HexWorldGen implements IWorldGenerator
 {
 	public final Int2ObjectMap<ArrayList<WorldGenerator>> dimGens = new Int2ObjectOpenHashMap<ArrayList<WorldGenerator>>();
+	public static HexWorldGen worldgen;
+
+	public static void register()
+	{
+		worldgen = new HexWorldGen();
+		GameRegistry.registerWorldGenerator(worldgen, 0);
+	}
 
 	// FIXME Don't hard-code
 	public HexWorldGen()

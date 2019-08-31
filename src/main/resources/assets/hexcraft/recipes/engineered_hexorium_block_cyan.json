@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"A",
+		"H",
+		"B"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_cyan"
+		},
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "nuggetIron"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "stone"
+		}
+	},
+	"result": { "item": "hexcraft:engineered_hexorium_block_cyan" }
+}

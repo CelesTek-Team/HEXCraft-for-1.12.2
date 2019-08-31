@@ -12,5 +12,6 @@ Changes compared to 1.7.10
 - Different colors of glowing hexorium glass no longer obstruct (cull) each other
 - Hexorium Ore and monoliths now drop the same amount of xp as gems (without fortune)
 - All generation can now be configured separately for each dimension
+- Smelting glass packages now gives a tiny bit of xp
 - WIP: Hexorium Ore, Nether Ore, Monoliths and Nether Monoliths will now correctly follow their respective base texture (Stone and Netherrack). If the textures are changed using the texture packs, they will accordingly update as well.
 - WIP: Hexorium Monoliths and Nether Monoliths now have a new and improved 3D model.

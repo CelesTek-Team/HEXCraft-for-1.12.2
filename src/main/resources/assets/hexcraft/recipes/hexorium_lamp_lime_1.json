@@ -1,0 +1,36 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"DAD",
+		"BHB",
+		"DCD"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_lime"
+		},
+		"A":
+		{
+			"item": "hexcraft:tempered_hexorium_glass"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "nuggetIron"
+		},
+		"C":
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustRedstone"
+		},
+		"D":
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustGlowstone"
+		}
+	},
+	"result": { "item": "hexcraft:hexorium_lamp_lime" }
+}

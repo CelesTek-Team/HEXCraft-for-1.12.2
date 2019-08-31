@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"B  ",
+		" H ",
+		"  A"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_orange"
+		},
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "nuggetIron"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "stone"
+		}
+	},
+	"result": { "item": "hexcraft:concentric_hexorium_block_orange" }
+}

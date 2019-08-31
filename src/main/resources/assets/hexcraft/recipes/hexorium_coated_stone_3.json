@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"BBB",
+		"BAB",
+		"BBB"
+	],
+	"key":
+	{
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumBlue"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "stone"
+		}
+	},
+	"result": { "item": "hexcraft:hexorium_coated_stone" }
+}

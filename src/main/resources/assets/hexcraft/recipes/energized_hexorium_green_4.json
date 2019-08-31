@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients":
+	[
+		{ "item": "hexcraft:glowing_hexorium_glass_green" },
+		{ "item": "hexcraft:glowing_hexorium_glass_green" },
+		{ "item": "hexcraft:glowing_hexorium_glass_green" },
+		{ "item": "hexcraft:glowing_hexorium_glass_green" },
+		{ "item": "hexcraft:glowing_hexorium_glass_green" },
+		{ "item": "hexcraft:glowing_hexorium_glass_green" },
+		{ "item": "hexcraft:glowing_hexorium_glass_green" },
+		{ "item": "hexcraft:glowing_hexorium_glass_green" }
+	],
+	"result": { "item": "hexcraft:energized_hexorium_green" }
+}

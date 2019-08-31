@@ -1,0 +1,35 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"DAD",
+		"BHB",
+		"DCD"
+	],
+	"key":
+	{
+		"H":
+		{
+			"item": "hexcraft:energized_hexorium_darkgray"
+		},
+		"A":
+		{
+			"item": "hexcraft:tempered_hexorium_glass"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "nuggetIron"
+		},
+		"C":
+		{
+			"item": "minecraft:redstone_torch"
+		},
+		"D":
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustGlowstone"
+		}
+	},
+	"result": { "item": "hexcraft:inverted_hexorium_lamp_darkgray" }
+}

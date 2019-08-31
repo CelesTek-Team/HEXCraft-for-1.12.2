@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		" A ",
+		"BBB",
+		"BBB"
+	],
+	"key":
+	{
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumBlack"
+		},
+		"B":
+		{
+			"item": "minecraft:obsidian"
+		}
+	},
+	"result":
+	{
+		"item": "hexcraft:hexorium_reinforcer",
+		"count": 12
+	}
+}

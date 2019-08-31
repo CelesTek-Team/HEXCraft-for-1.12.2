@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"BCB",
+		"CAC",
+		"BCB"
+	],
+	"key":
+	{
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "gemHexoriumBlack"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "nuggetIron"
+		},
+		"C":
+		{
+			"type": "forge:ore_dict",
+			"ore": "glass"
+		}
+	},
+	"result": { "item": "hexcraft:hexorium_glass_package" }
+}

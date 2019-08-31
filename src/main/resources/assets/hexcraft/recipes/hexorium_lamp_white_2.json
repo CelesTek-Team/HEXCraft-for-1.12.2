@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"A",
+		"B"
+	],
+	"key":
+	{
+		"A":
+		{
+			"item": "hexcraft:inverted_hexorium_lamp_white"
+		},
+		"B":
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustRedstone"
+		}
+	},
+	"result": { "item": "hexcraft:hexorium_lamp_white" }
+}

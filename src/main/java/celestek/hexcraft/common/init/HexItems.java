@@ -40,7 +40,9 @@ public final class HexItems {
 	hexorium_crystal_white = add(new ItemHexoriumCrystal(EHexColor.WHITE)),
 	hexorium_crystal_black = add(new ItemHexoriumCrystal(EHexColor.BLACK)),
 
-	hexorium_reinforcer = add(new ItemHexoriumReinforcer());
+	hexorium_reinforcer = add(new ItemHexoriumReinforcer()),
+
+	hexorium_glass_package = add(new HexItem("hexorium_glass_package", HexCreativeTabs.components));
 
 	private HexItems() {}
 
